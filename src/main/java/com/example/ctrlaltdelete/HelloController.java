@@ -9,6 +9,6 @@ public class HelloController {
 
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Hello ctrl-Alt-Delete!");
+        welcomeText.setText("How are you");
     }
 }
