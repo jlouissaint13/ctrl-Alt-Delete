@@ -20,7 +20,7 @@ public class LoginView {
     private Label email,pw,forgotPassword;
     private TextField emailE,passwordE;
     private Button cAccount,cGuest,show,signIn;
-
+    private HBox hbtn;
 
     //Will have all the ui components of my program
     public void components() {
@@ -33,12 +33,14 @@ public class LoginView {
         cAccount = new Button("Create Account");
         cGuest = new Button("Continue as Guest");
         signIn = new Button("Sign in");
-
+        hbtn = new HBox(10);
 
     }
     public void properties() {
         cAccount.setMinSize(150,25);
         cGuest.setMinSize(150,25);
+        hbtn.setAlignment(Pos.BOTTOM_RIGHT);
+        hbtn.getChildren().add(signIn);
 
     }
     //Will be used to add components to program;
@@ -49,11 +51,6 @@ public class LoginView {
         // gridPane.add(show,0,10);
         gridPane.add(passwordE,0,10);
         // gridPane.add(forgotPassword,0,11);
-
-        gridPane.add(signIn,0,11);
-        HBox hbtn = new HBox(10);
-        hbtn.setAlignment(Pos.BOTTOM_RIGHT);
-        hbtn.getChildren().add(signIn);
         gridPane.add(hbtn,0,11);
         gridPane.add(new Label("Don't have one?  Make one!"),0,22);
         gridPane.add(cAccount,0,23);
