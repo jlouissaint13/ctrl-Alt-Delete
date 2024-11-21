@@ -1,5 +1,11 @@
 package com.example.ctrlaltdelete.Login;
 
-public class CreationController {
+import javafx.stage.Stage;
 
+public class CreationController {
+    private CreationModel creationModel;
+    private CreationView creationView;
+ public CreationController(Stage stage, CreationModel creationModel, CreationView creationView) {
+
+ }
 }

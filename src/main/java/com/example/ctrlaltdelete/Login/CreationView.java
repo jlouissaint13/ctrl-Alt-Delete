@@ -16,8 +16,18 @@ public class CreationView {
     public Scene scene;
     private GridPane gridPane;
     private Label fName,lName,email,pw,phoneNumber;
-    private TextField fNameE,lNameE,emailE,passwordE,phoneNumberE;
+    private TextField createAccount,fNameE,lNameE,emailE,passwordE,phoneNumberE;
     private Button cAccount;
+    public void components() {
+
+    }
+    public void properties() {
+
+    }
+    public void addComponents() {
+
+    }
+
     public CreationView(Stage stage) {
         gridPane = new GridPane(350,600);
         scene = new Scene(gridPane,350,600);

@@ -46,9 +46,9 @@ public class LoginView {
         gridPane.add(email,0,7);
         gridPane.add(emailE,0,8);
         gridPane.add(pw,0,9);
-       // gridPane.add(show,0,10);
+        // gridPane.add(show,0,10);
         gridPane.add(passwordE,0,10);
-       // gridPane.add(forgotPassword,0,11);
+        // gridPane.add(forgotPassword,0,11);
 
         gridPane.add(signIn,0,11);
         HBox hbtn = new HBox(10);
