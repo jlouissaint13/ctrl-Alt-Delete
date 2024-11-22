@@ -5,10 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.RowConstraints;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -38,17 +35,17 @@ public class CreationView {
         cAccount = new Button("Create Account");
     }
     public void properties() {
-        fNameE.setMaxWidth(100);
-        lNameE.setMaxWidth(100);
-        emailE.setMaxWidth(200);
+        fNameE.setMinWidth(115);
+        lNameE.setPrefWidth(117);
+        emailE.setMinWidth(300);
+        passwordE.setMinWidth(300);
+        phoneNumberE.setMinWidth(300);
 
         //gridpane properties
         gridPaneL.setAlignment(Pos.TOP_LEFT);
         gridPaneL.setHgap(10);
         gridPaneL.setVgap(5);
-        gridPaneR.setHgap(10);
-        gridPaneR.setVgap(5);
-        gridPaneR.setAlignment(Pos.TOP_RIGHT);
+
     }
     public void addComponents() {
 
@@ -59,24 +56,33 @@ public class CreationView {
         gridPaneL.add(fName,3,23);
         gridPaneL.add(fNameE,3,24);
 
+        gridPaneL.add(lName,11,23);
+        gridPaneL.add(lNameE,11,24);
+        gridPaneL.add(email,3,27);
+        gridPaneL.add(emailE,3,28);
+        gridPaneL.add(pw,3,30);
+        gridPaneL.add(passwordE,3,31);
+        gridPaneL.add(phoneNumber,3,34);
+        gridPaneL.add(phoneNumberE,3,35);
+        gridPaneL.setGridLinesVisible(false);
         //gripdPaneR
 
-        gridPaneR.add(lName,9,23);
-        gridPaneR.add(lNameE,9,24);
 
 
     }
     public void initializeGridPane() {
         gridPaneL = new GridPane();
-        gridPaneR = new GridPane();
+        //Everytime I make a constrain it increments to the next column;
+        //Process was painful but we were able to reach column four with columnConstrains3
         ColumnConstraints columnConstraints = new ColumnConstraints();
-        RowConstraints rowConstraints = new RowConstraints();
-        columnConstraints.setPercentWidth(0);
+        ColumnConstraints columnConstraints1 = new ColumnConstraints();
+        ColumnConstraints columnConstraints2 = new ColumnConstraints();
+        ColumnConstraints columnConstraints3 = new ColumnConstraints();
         gridPaneL.getColumnConstraints().add(columnConstraints);
-        gridPaneL.getRowConstraints().add(rowConstraints);
-        gridPaneR.getRowConstraints().add(rowConstraints);
-        gridPaneR.getColumnConstraints().add(columnConstraints);
-
+        gridPaneL.getColumnConstraints().add(columnConstraints1);
+        gridPaneL.getColumnConstraints().add(columnConstraints2);
+        columnConstraints3.setMaxWidth(100);
+        gridPaneL.getColumnConstraints().add(columnConstraints3);
 
 
     }
@@ -86,8 +92,8 @@ public class CreationView {
         initializeGridPane();
         properties();
         addComponents();
-        HBox hbox = new HBox(gridPaneL,gridPaneR);
-        scene = new Scene(hbox,350,600);
+
+        scene = new Scene(gridPaneL,350,600);
         stage.setTitle("Create Account");
         stage.setScene(scene);
 
