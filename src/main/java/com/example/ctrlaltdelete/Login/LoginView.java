@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -21,7 +22,8 @@ public class LoginView {
     private TextField emailE,passwordE;
     private Button cAccount,cGuest,show,signIn;
     private HBox hbtn;
-
+    private Pane pane;
+    private Text sign;
     //Will have all the ui components of my program
     public void components() {
         email = new Label("Email");
@@ -34,7 +36,7 @@ public class LoginView {
         cGuest = new Button("Continue as Guest");
         signIn = new Button("Sign in");
         hbtn = new HBox(10);
-
+        pane = new Pane();
     }
     public void properties() {
         cAccount.setMinSize(150,25);

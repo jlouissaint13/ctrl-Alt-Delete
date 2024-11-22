@@ -21,7 +21,7 @@ public class CreationView {
     private GridPane gridPaneL;
     private Pane pane;
     private Label fName,lName,email,pw,phoneNumber;
-    private Text createAccount;
+    private Text createAccount,required;
     private TextField fNameE,lNameE,emailE,passwordE,phoneNumberE;
     private Button cAccount;
     private Line line;
@@ -40,62 +40,89 @@ public class CreationView {
         phoneNumberE = new TextField();
         cAccount = new Button("Create Account");
         line = new Line(0,0,500,0);
+        required = new Text("*Required Field");
 
     }
     public void properties() {
-        fNameE.setMinWidth(115);
+        //fname
+        fNameE.setMaxWidth(117);
+        fName.setLayoutX(15);
+        fName.setLayoutY(100);
+        fNameE.setLayoutX(15);
+        fNameE.setLayoutY(120);
+
+        //lname
+        lName.setLayoutX(200);
+        lName.setLayoutY(100);
         lNameE.setPrefWidth(117);
+        lNameE.setLayoutX(200);
+        lNameE.setLayoutY(120);
+
+
+        //email
+
         emailE.setMinWidth(300);
+        email.setLayoutX(15);
+        email.setLayoutY(175);
+        emailE.setLayoutX(15);
+        emailE.setLayoutY(195);
+
+        //password
+
         passwordE.setMinWidth(300);
+        pw.setLayoutX(15);
+        pw.setLayoutY(250);
+        passwordE.setLayoutX(15);
+        passwordE.setLayoutY(270);
+        //phonenumber
         phoneNumberE.setMinWidth(300);
-        //gridpaneL properties
-        gridPaneL.setAlignment(Pos.TOP_LEFT);
-        gridPaneL.setHgap(10);
-        gridPaneL.setVgap(5);
-        line.setTranslateY(100);
+        phoneNumber.setLayoutX(15);
+        phoneNumber.setLayoutY(325);
+        phoneNumberE.setLayoutX(15);
+        phoneNumberE.setLayoutY(345);
+
+        //miscellaneous
+        line.setTranslateY(430);
         cAccount.setLayoutX(108);
-        cAccount.setLayoutY(140);
+        cAccount.setLayoutY(480);
         cAccount.setMinSize(130,70);
         createAccount.setLayoutX(95);
-        createAccount.setLayoutY(-265);
-
+        createAccount.setLayoutY(60);
         createAccount.setStyle("-fx-font: 25 Comfortaa;");
-
+        required.setStyle("-fx-font: 13 Comfortaa;");
+        required.setLayoutX(15);
+        required.setLayoutY(420);
 
     }
     public void addComponents() {
 
-
-
-
-        //gridpaneL
-        gridPaneL.add(fName,3,25);
-        gridPaneL.add(fNameE,3,26);
-
-        gridPaneL.add(lName,11,25);
-        gridPaneL.add(lNameE,11,26);
-        gridPaneL.add(email,3,28);
-        gridPaneL.add(emailE,3,29);
-        gridPaneL.add(pw,3,31);
-        gridPaneL.add(passwordE,3,32);
-        gridPaneL.add(phoneNumber,3,35);
-        gridPaneL.add(phoneNumberE,3,36);
-        gridPaneL.setGridLinesVisible(false);
-        //gripdPaneB
+        //pane
+        pane.getChildren().add(fName);
+        pane.getChildren().add(fNameE);
+        pane.getChildren().add(lName);
+        pane.getChildren().add(lNameE);
+        pane.getChildren().add(email);
+        pane.getChildren().add(emailE);
+        pane.getChildren().add(pw);
+        pane.getChildren().add(passwordE);
+        pane.getChildren().add(phoneNumber);
+        pane.getChildren().add(phoneNumberE);
         pane.getChildren().add(line);
         pane.getChildren().add(cAccount);
         pane.getChildren().add(createAccount);
-
+        pane.getChildren().add(required);
 
 
 
     }
     public void initializeLayout() {
-        gridPaneL = new GridPane();
+
+        //layout
+        pane = new Pane();
 
         //Everytime I make a constrain it increments to the next column;
         //Process was painful but we were able to reach column four with columnConstrains3
-        ColumnConstraints columnConstraints = new ColumnConstraints();
+       /* ColumnConstraints columnConstraints = new ColumnConstraints();
         ColumnConstraints columnConstraints1 = new ColumnConstraints();
         ColumnConstraints columnConstraints2 = new ColumnConstraints();
         ColumnConstraints columnConstraints3 = new ColumnConstraints();
@@ -104,10 +131,8 @@ public class CreationView {
         gridPaneL.getColumnConstraints().add(columnConstraints2);
         columnConstraints3.setMaxWidth(100);
         gridPaneL.getColumnConstraints().add(columnConstraints3);
+        */
 
-
-        //layout
-        pane = new Pane();
 
 
 
@@ -118,8 +143,16 @@ public class CreationView {
         initializeLayout();
         properties();
         addComponents();
+
         //Cannot add two gridpanes so we will store them in a vbox container then add them to scene;
-        VBox vBox = new VBox(gridPaneL,pane);
+        VBox vBox = new VBox(pane);
+
+        pane.setPrefSize(300,300);
+        pane.setLayoutX(100);
+        pane.setLayoutY(300);
+        pane.setVisible(true);
+        pane.setOpacity(1);
+
         scene = new Scene(vBox,350,600);
         stage.setTitle("Create Account");
         stage.setScene(scene);
