@@ -46,9 +46,9 @@ public class CreationView {
     public void properties() {
         //fname
         fNameE.setMaxWidth(117);
-        fName.setLayoutX(15);
+        fName.setLayoutX(25);
         fName.setLayoutY(100);
-        fNameE.setLayoutX(15);
+        fNameE.setLayoutX(25);
         fNameE.setLayoutY(120);
 
         //lname
@@ -61,24 +61,24 @@ public class CreationView {
 
         //email
 
-        emailE.setMinWidth(300);
-        email.setLayoutX(15);
+        emailE.setMinWidth(292);
+        email.setLayoutX(25);
         email.setLayoutY(175);
-        emailE.setLayoutX(15);
+        emailE.setLayoutX(25);
         emailE.setLayoutY(195);
 
         //password
 
-        passwordE.setMinWidth(300);
-        pw.setLayoutX(15);
+        passwordE.setMinWidth(292);
+        pw.setLayoutX(25);
         pw.setLayoutY(250);
-        passwordE.setLayoutX(15);
+        passwordE.setLayoutX(25);
         passwordE.setLayoutY(270);
         //phonenumber
-        phoneNumberE.setMinWidth(300);
-        phoneNumber.setLayoutX(15);
+        phoneNumberE.setMinWidth(292);
+        phoneNumber.setLayoutX(25);
         phoneNumber.setLayoutY(325);
-        phoneNumberE.setLayoutX(15);
+        phoneNumberE.setLayoutX(25);
         phoneNumberE.setLayoutY(345);
 
         //miscellaneous
@@ -90,7 +90,7 @@ public class CreationView {
         createAccount.setLayoutY(60);
         createAccount.setStyle("-fx-font: 25 Comfortaa;");
         required.setStyle("-fx-font: 13 Comfortaa;");
-        required.setLayoutX(15);
+        required.setLayoutX(25);
         required.setLayoutY(420);
 
     }
