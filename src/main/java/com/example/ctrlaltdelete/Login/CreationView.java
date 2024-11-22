@@ -40,8 +40,6 @@ public class CreationView {
     public void properties() {
         fNameE.setMaxWidth(100);
         lNameE.setMaxWidth(100);
-        emailE.setMaxWidth(200);
-
         //gridpane properties
         gridPaneL.setAlignment(Pos.TOP_LEFT);
         gridPaneL.setHgap(10);
