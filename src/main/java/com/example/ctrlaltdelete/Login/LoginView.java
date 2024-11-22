@@ -54,7 +54,6 @@ public class LoginView {
         gridPane.add(hbtn,0,11);
         gridPane.add(new Label("Don't have one?  Make one!"),0,22);
         gridPane.add(cAccount,0,23);
-        gridPane.add(new Label("                            Or"),0,24);
         gridPane.add(cGuest,0,25);
 
 
