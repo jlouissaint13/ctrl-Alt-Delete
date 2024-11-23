@@ -1,5 +1,6 @@
 package com.example.ctrlaltdelete.Login;
 
+import com.example.ctrlaltdelete.Login.ValidationException.EmailValidation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -23,7 +24,7 @@ public class CreationView {
     private Label fName,lName,email,pw,phoneNumber;
     private Text createAccount,required;
     private TextField fNameE,lNameE,emailE,passwordE,phoneNumberE;
-    private Button cAccount,test;
+    private Button cAccount,test,backButton;
     private Line line;
         //All variables with e at the end means that it is the variable for the textfield;
     public void components() {
@@ -42,6 +43,7 @@ public class CreationView {
         cAccount = new Button("Create Account");
         line = new Line(0,0,500,0);
         required = new Text("*Required Field");
+        backButton = new Button("<-");
 
     }
     public void properties() {
@@ -51,6 +53,7 @@ public class CreationView {
         fName.setLayoutY(100);
         fNameE.setLayoutX(25);
         fNameE.setLayoutY(120);
+        //Their are ids for fname and last because i needed to make them smaller in the css styling
         fNameE.setId("fnameE");
         //lname
         lName.setLayoutX(200);
@@ -87,12 +90,15 @@ public class CreationView {
         cAccount.setLayoutX(88);
         cAccount.setLayoutY(480);
         cAccount.setMinSize(130,70);
-        createAccount.setLayoutX(95);
+        cAccount.setId("cAccount");
+        createAccount.setLayoutX(42);
         createAccount.setLayoutY(60);
-        createAccount.setStyle("-fx-font: 25 Comfortaa;");
+        createAccount.setStyle("-fx-font: 40 Comfortaa;");
         required.setStyle("-fx-font: 13 Comfortaa;");
         required.setLayoutX(25);
         required.setLayoutY(420);
+        backButton.setId("backButton");
+
 
     }
     public void addComponents() {
@@ -144,8 +150,10 @@ public class CreationView {
     public String getlName() {
         return lNameE.getText();
     }
-    public String getEmail() {
-         return emailE.getText();
+    public String getEmail()  {
+       // if (emailE.getText().contains("@"))
+            return emailE.getText();
+
     }
     public String getPassword() {
         return passwordE.getText();
@@ -157,7 +165,7 @@ public class CreationView {
 
     public CreationView(Stage stage) {
         components();
-        initializeLayout();
+
         properties();
         addComponents();
 
@@ -167,8 +175,9 @@ public class CreationView {
 
         scene = new Scene(scene2,350,600);
         stage.setTitle("Create Account");
-        stage.setScene(scene);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        stage.setScene(scene);
+
 
     }
 

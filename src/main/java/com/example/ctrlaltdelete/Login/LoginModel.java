@@ -27,9 +27,14 @@ public class LoginModel {
                 //the value[2] is the email and the value[3] is the password;
                 //I am going to put these in a hashmap as soon as the program loads.
                 //the key will be the email and the value will be the password;
-                String [] values = line.split("\\|");
-                account.put(values[2],values[3]);
+
+                String[] values = line.split("\\|");
+
+                account.put(values[2], values[3]);
             }
+            //If it is blank or accidently goes to the next line this error needs to be handled to prevent issues;
+        }catch(ArrayIndexOutOfBoundsException e) {
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

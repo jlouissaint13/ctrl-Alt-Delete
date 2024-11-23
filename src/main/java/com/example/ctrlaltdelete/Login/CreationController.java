@@ -1,5 +1,6 @@
 package com.example.ctrlaltdelete.Login;
 
+import com.example.ctrlaltdelete.Login.ValidationException.EmailValidation;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -20,7 +21,11 @@ public class CreationController {
      createAccount.setOnAction(e -> {
          fName = creationView.getfName();
          lName = creationView.getlName();
+
          email = creationView.getEmail();
+
+
+
          password = creationView.getPassword();
          phoneNumber = creationView.getPhoneNumber();
          System.out.println("Button is working");

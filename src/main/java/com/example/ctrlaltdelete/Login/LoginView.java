@@ -127,6 +127,7 @@ public class LoginView {
         stage.setTitle("Login to Slice Heaven");
         scene1.requestFocus(); //I have textPrompts for both of my textFields I am requesting focus that way both textPrompts can be seen;
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+
         stage.setScene(scene);
 
 
