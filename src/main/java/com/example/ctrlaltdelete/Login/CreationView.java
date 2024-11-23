@@ -162,10 +162,10 @@ public class CreationView {
         addComponents();
 
         //Cannot add two gridpanes so we will store them in a vbox container then add them to scene;
-        VBox vBox = new VBox(pane);
+        VBox scene2 = new VBox(pane);
 
 
-        scene = new Scene(vBox,350,600);
+        scene = new Scene(scene2,350,600);
         stage.setTitle("Create Account");
         stage.setScene(scene);
 

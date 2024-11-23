@@ -13,6 +13,7 @@ public class LoginController {
     private Button login,guest,cAccount;
     private Stage stage;
     private CreationView creationView;
+    private CreationMain creationMain;
     private String emailText,passwordText;
     public LoginController(Stage stage, LoginModel loginModel, LoginView loginView) {
         this.loginView = loginView;
@@ -30,8 +31,13 @@ public class LoginController {
 
 
         cAccount.setOnAction(event -> {
-            creationView = new CreationView(stage);
-            stage.setScene(creationView.scene);}); //Action handler for create account;
+
+           CreationMain creationMain1 = new CreationMain();
+           creationMain1.start(stage);
+
+           }
+
+        ); //Action handler for create account;
 
 
 

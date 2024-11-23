@@ -100,8 +100,8 @@ public class LoginView {
         gridPane = new GridPane();//Vertical gap between each label;
         properties();
         addComponents();
-        VBox vbox = new VBox(pane);
-        scene = new Scene(vbox,350,600);
+        VBox scene1 = new VBox(pane);
+        scene = new Scene(scene1,350,600);
         stage.setTitle("Login to Slice Heaven");
         stage.setScene(scene);
 

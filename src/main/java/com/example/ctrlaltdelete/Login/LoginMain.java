@@ -17,7 +17,6 @@ public class LoginMain extends Application {
     LoginModel model;
     LoginView view;
     LoginController controller;
-
     @Override
     public void start(Stage stage) throws FileNotFoundException {
 
@@ -32,5 +31,8 @@ public class LoginMain extends Application {
         stage.show(); //will not show without this\\
 
     }
+
+
+
 
 }
