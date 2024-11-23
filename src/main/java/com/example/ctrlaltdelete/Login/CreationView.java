@@ -51,14 +51,14 @@ public class CreationView {
         fName.setLayoutY(100);
         fNameE.setLayoutX(25);
         fNameE.setLayoutY(120);
-
+        fNameE.setId("fnameE");
         //lname
         lName.setLayoutX(200);
         lName.setLayoutY(100);
         lNameE.setPrefWidth(117);
         lNameE.setLayoutX(200);
         lNameE.setLayoutY(120);
-
+        lNameE.setId("lnameE");
 
         //email
 
@@ -84,7 +84,7 @@ public class CreationView {
 
         //miscellaneous
         line.setTranslateY(430);
-        cAccount.setLayoutX(108);
+        cAccount.setLayoutX(88);
         cAccount.setLayoutY(480);
         cAccount.setMinSize(130,70);
         createAccount.setLayoutX(95);
@@ -168,7 +168,7 @@ public class CreationView {
         scene = new Scene(scene2,350,600);
         stage.setTitle("Create Account");
         stage.setScene(scene);
-
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
     }
 
