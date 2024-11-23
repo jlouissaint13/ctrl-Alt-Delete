@@ -1,14 +1,11 @@
 package com.example.ctrlaltdelete.Login;
 
 import javafx.animation.PauseTransition;
-import javafx.geometry.HPos;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -25,6 +22,7 @@ public class LoginView {
     private Button cAccount,cGuest,show,signIn;
     private Pane pane;
     private Text sign,or;
+    PauseTransition pause;
 
     //Will have all the ui components of my program
     public void components() {
@@ -138,19 +136,29 @@ public class LoginView {
         login.setLayoutX(97);
         login.setLayoutY(295);
         //Amount of time to delay the remove of the text
-        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+        pause = new PauseTransition(Duration.seconds(2));
         //After the delay is finished remove loginText from the gridPane
         pause.setOnFinished(e -> pane.getChildren().remove(login));
         //Starts the timer
         pause.play();
     }
-    public void invalid() {
+
+    public void invalidPassword() {
         Text passwordInv = new Text("Invalid Password!");
         pane.getChildren().add(passwordInv);
         passwordInv.setLayoutX(97);
-        passwordInv.setLayoutY(295);
-        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+        passwordInv.setLayoutY(330);
+        pause = new PauseTransition(Duration.seconds(2));
         pause.setOnFinished(e -> pane.getChildren().remove(passwordInv));
+        pause.play();
+    }
+    public void invalidAccount() {
+        Text accountInv = new Text("Account does not exist!");
+        pane.getChildren().add(accountInv);
+        accountInv.setLayoutX(97);
+        accountInv.setLayoutY(330);
+        pause = new PauseTransition(Duration.seconds(2));
+        pause.setOnFinished(e -> pane.getChildren().remove(accountInv));
         pause.play();
     }
     public void displayPlaceholder() {
@@ -158,7 +166,7 @@ public class LoginView {
         pane.getChildren().add(placeholder);
         placeholder.setLayoutX(100);
         placeholder.setLayoutY(150);
-        PauseTransition pause = new PauseTransition(Duration.seconds(1.2));
+        pause = new PauseTransition(Duration.seconds(1.2));
         pause.setOnFinished(e ->pane.getChildren().remove(placeholder));
         pause.play();
     }
