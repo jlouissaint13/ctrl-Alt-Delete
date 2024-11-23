@@ -11,13 +11,16 @@ public class CreationMain extends Application {
     private CreationView view;
     private CreationModel model;
     private CreationMain main;
-    private CreationMain controller;
+    private CreationController controller;
     @Override
     public void start(Stage stage) {
 
         view = new CreationView(stage);
 
+        controller = new CreationController(stage,model,view);
+        Image image = new Image("sliceHeaven.png");
 
+        stage.getIcons().add(image);
         stage.show();
     }
 }

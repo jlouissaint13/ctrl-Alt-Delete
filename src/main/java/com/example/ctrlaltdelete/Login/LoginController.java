@@ -15,6 +15,7 @@ public class LoginController {
 
         this.loginModel = loginModel;
         this.loginView = loginView;
+
         //I need to do this because the buttons are in the model class these methods will return the buttons so this class can use them;
         login = loginView.getlogin(); //returns login button
         guest = loginView.getGuest(); //same for these with guest button and create account button

@@ -23,10 +23,11 @@ public class CreationView {
     private Label fName,lName,email,pw,phoneNumber;
     private Text createAccount,required;
     private TextField fNameE,lNameE,emailE,passwordE,phoneNumberE;
-    private Button cAccount;
+    private Button cAccount,test;
     private Line line;
         //All variables with e at the end means that it is the variable for the textfield;
     public void components() {
+        pane = new Pane();
         createAccount = new Text("Create Account");
         fName = new Label("First Name*");
         fNameE = new TextField();
@@ -114,14 +115,14 @@ public class CreationView {
 
 
 
+
     }
     public void initializeLayout() {
 
         //layout
-        pane = new Pane();
+
 
         //Everytime I make a constrain it increments to the next column;
-        //Process was painful but we were able to reach column four with columnConstrains3
        /* ColumnConstraints columnConstraints = new ColumnConstraints();
         ColumnConstraints columnConstraints1 = new ColumnConstraints();
         ColumnConstraints columnConstraints2 = new ColumnConstraints();
@@ -137,6 +138,22 @@ public class CreationView {
     public Button getcAccount() {
         return cAccount;
     }
+    public String getfName() {
+        return fNameE.getText();
+    }
+    public String getlName() {
+        return lNameE.getText();
+    }
+    public String getEmail() {
+         return emailE.getText();
+    }
+    public String getPassword() {
+        return passwordE.getText();
+    }
+    public String getPhoneNumber() {
+        return phoneNumberE.getText();
+    }
+
 
     public CreationView(Stage stage) {
         components();
@@ -147,11 +164,6 @@ public class CreationView {
         //Cannot add two gridpanes so we will store them in a vbox container then add them to scene;
         VBox vBox = new VBox(pane);
 
-        pane.setPrefSize(300,300);
-        pane.setLayoutX(100);
-        pane.setLayoutY(300);
-        pane.setVisible(true);
-        pane.setOpacity(1);
 
         scene = new Scene(vBox,350,600);
         stage.setTitle("Create Account");
