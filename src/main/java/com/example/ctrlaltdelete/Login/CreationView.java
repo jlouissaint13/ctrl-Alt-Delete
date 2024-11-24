@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
@@ -13,7 +15,10 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 
 public class CreationView {
@@ -26,6 +31,8 @@ public class CreationView {
     private TextField fNameE,lNameE,emailE,passwordE,phoneNumberE;
     private Button cAccount,test,backButton;
     private Line line;
+    private Image home,logo;
+    private InputStream inputStreamLogo, inputStreamHome;
         //All variables with e at the end means that it is the variable for the textfield;
     public void components() {
         pane = new Pane();
@@ -43,7 +50,11 @@ public class CreationView {
         cAccount = new Button("Create Account");
         line = new Line(0,0,500,0);
         required = new Text("*Required Field");
-        backButton = new Button("<-");
+        backButton = new Button();
+        inputStreamLogo = getClass().getResourceAsStream("/sliceHeaven.png");
+        inputStreamHome = getClass().getResourceAsStream("/home.png");
+        logo = new Image(inputStreamLogo);
+        home = new Image(inputStreamHome);
 
     }
     public void properties() {
@@ -91,13 +102,33 @@ public class CreationView {
         cAccount.setLayoutY(480);
         cAccount.setMinSize(130,70);
         cAccount.setId("cAccount");
-        createAccount.setLayoutX(42);
-        createAccount.setLayoutY(60);
-        createAccount.setStyle("-fx-font: 40 Comfortaa;");
+        createAccount.setLayoutX(60);
+        createAccount.setLayoutY(75);
+        createAccount.setStyle("-fx-font: 25 Comfortaa;");
         required.setStyle("-fx-font: 13 Comfortaa;");
         required.setLayoutX(25);
         required.setLayoutY(420);
         backButton.setId("backButton");
+
+
+        //image
+        
+
+            ImageView imageView = new ImageView(logo);
+            imageView.setFitWidth(60);
+            imageView.setFitHeight(60);
+            imageView.setX(230);
+            imageView.setY(35);
+            pane.getChildren().add(imageView);
+            ImageView imageView2 = new ImageView(home);
+            imageView2.setFitWidth(30);
+            imageView2.setFitHeight(25);
+            backButton.setGraphic(imageView2);
+            
+            
+            
+
+        
 
 
     }
@@ -118,6 +149,7 @@ public class CreationView {
         pane.getChildren().add(cAccount);
         pane.getChildren().add(createAccount);
         pane.getChildren().add(required);
+        pane.getChildren().addAll(backButton);
 
 
 
@@ -141,6 +173,10 @@ public class CreationView {
         */
 
     }
+    public Button getHomeButton() {
+        return backButton;
+    }
+
     public Button getcAccount() {
         return cAccount;
     }
@@ -161,6 +197,7 @@ public class CreationView {
     public String getPhoneNumber() {
         return phoneNumberE.getText();
     }
+    
 
 
     public CreationView(Stage stage) {

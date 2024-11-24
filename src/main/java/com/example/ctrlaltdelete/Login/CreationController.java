@@ -12,12 +12,27 @@ public class CreationController {
     private CreationModel creationModel;
     private CreationView creationView;
     private String fName,lName,email,password,phoneNumber;
-    private Button createAccount;
+    private Button createAccount,homeButton;
+    
  public CreationController(Stage stage, CreationModel creationModel, CreationView creationView) {
         this.creationView = creationView;
 
         createAccount = this.creationView.getcAccount();
         //on button click grab all text and store them in model constructor;
+
+
+        homeButton = this.creationView.getHomeButton();
+
+
+        homeButton.setOnAction(e -> {
+            LoginMain loginMain = new LoginMain();
+            try {
+                loginMain.start(stage);
+            } catch (FileNotFoundException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
      createAccount.setOnAction(e -> {
          fName = creationView.getfName();
          lName = creationView.getlName();
@@ -31,6 +46,12 @@ public class CreationController {
          System.out.println("Button is working");
          try {
              this.creationModel = new CreationModel(fName,lName,email,password,phoneNumber);
+         } catch (FileNotFoundException ex) {
+             throw new RuntimeException(ex);
+         }
+         LoginMain loginMain = new LoginMain();
+         try {
+             loginMain.start(stage);
          } catch (FileNotFoundException ex) {
              throw new RuntimeException(ex);
          }

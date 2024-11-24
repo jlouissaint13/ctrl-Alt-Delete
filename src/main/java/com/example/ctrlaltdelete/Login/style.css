@@ -49,7 +49,7 @@
     -fx-border-radius: 5px;
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, #FF5733, 10, 0, 0, 2);
-    -fx-pref-width:130;
+    -fx-pref-width:170;
 }
 #signIn{
     -fx-background-color: #A03232;
@@ -65,6 +65,16 @@
 .button:hover {
     -fx-background-color: #FF2062;
     -fx-effect: dropshadow(gaussian, #FF2062, 10, 0, 0, 2);
+}
+
+#signIn:hover {
+    -fx-background-color: #FF2062;
+    -fx-effect: dropshadow(gaussian, #FF2062, 10, 0, 0, 2);
+}
+
+#backButton {
+    -fx-pref-width: 60;
+
 }
 
 
