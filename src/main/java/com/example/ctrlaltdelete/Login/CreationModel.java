@@ -14,8 +14,8 @@ public class CreationModel {
     private String email;
     private String password;
     private String phoneNumber;
-    private HashMap<String,String> accounts = new HashMap<>();
     private String [] data = new String[5];
+    private LoginModel loginModel;
     //Using a hashmap because no duplicate keys; I do not want to allow two of the same email;
     //I do not mind if two people use the same password;
     public CreationModel(String fName,String lName,String email,String password,String phoneNumber) throws FileNotFoundException {
@@ -61,6 +61,8 @@ public class CreationModel {
     public void writeCSV(String data) throws FileNotFoundException {
         File csv = new File("accounts.csv");
         //So I can append to the file instead of overwriting it for now
+        //If the account exist tell the user they have to use another email because that one is in use
+
         try (PrintWriter printWriter = new PrintWriter(new FileOutputStream(csv,true))) {
             printWriter.println(data);
             System.out.println(data);

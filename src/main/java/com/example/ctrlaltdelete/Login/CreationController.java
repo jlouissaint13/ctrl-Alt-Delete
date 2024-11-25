@@ -13,7 +13,7 @@ public class CreationController {
     private CreationView creationView;
     private String fName,lName,email,password,phoneNumber;
     private Button createAccount,homeButton;
-    
+    private LoginModel loginModel;
  public CreationController(Stage stage, CreationModel creationModel, CreationView creationView) {
         this.creationView = creationView;
 
@@ -34,15 +34,27 @@ public class CreationController {
         });
 
      createAccount.setOnAction(e -> {
-         fName = creationView.getfName();
-         lName = creationView.getlName();
+         try {
+             loginModel = new LoginModel();
+         } catch (FileNotFoundException ex) {
+             throw new RuntimeException(ex);
+         }
+         //Trim to get rid of the whitespace and make the code less error prone in my opinion;
 
-         email = creationView.getEmail();
+         fName = creationView.getfName().trim();
+         lName = creationView.getlName().trim();
+
+         email = creationView.getEmail().trim();
 
 
 
-         password = creationView.getPassword();
-         phoneNumber = creationView.getPhoneNumber();
+         password = creationView.getPassword().trim();
+         phoneNumber = creationView.getPhoneNumber().trim();
+         //Before we allow the user to creat an account lets check if the account already exists in our files;
+         if(loginModel.accountExist(email.toLowerCase())) {
+             creationView.accountExist();
+             return;
+         }
          System.out.println("Button is working");
          try {
              this.creationModel = new CreationModel(fName,lName,email,password,phoneNumber);

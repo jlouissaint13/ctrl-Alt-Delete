@@ -1,6 +1,7 @@
 package com.example.ctrlaltdelete.Login;
 
 import com.example.ctrlaltdelete.Login.ValidationException.EmailValidation;
+import javafx.animation.PauseTransition;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,6 +18,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+
 import java.io.FileInputStream;
 import java.io.InputStream;
 
@@ -27,12 +30,13 @@ public class CreationView {
     private GridPane gridPaneL;
     private Pane pane;
     private Label fName,lName,email,pw,phoneNumber;
-    private Text createAccount,required;
+    private Text createAccount,required,accountExists;
     private TextField fNameE,lNameE,emailE,passwordE,phoneNumberE;
     private Button cAccount,test,backButton;
     private Line line;
     private Image home,logo;
     private InputStream inputStreamLogo, inputStreamHome;
+    private PauseTransition pause;
         //All variables with e at the end means that it is the variable for the textfield;
     public void components() {
         pane = new Pane();
@@ -50,6 +54,7 @@ public class CreationView {
         cAccount = new Button("Create Account");
         line = new Line(0,0,500,0);
         required = new Text("*Required Field");
+        accountExists = new Text("Account Exists");
         backButton = new Button();
         inputStreamLogo = getClass().getResourceAsStream("/sliceHeaven.png");
         inputStreamHome = getClass().getResourceAsStream("/home.png");
@@ -106,6 +111,8 @@ public class CreationView {
         createAccount.setLayoutY(75);
         createAccount.setStyle("-fx-font: 25 Comfortaa;");
         required.setStyle("-fx-font: 13 Comfortaa;");
+        accountExists.setLayoutX(25);
+        accountExists.setLayoutY(300);
         required.setLayoutX(25);
         required.setLayoutY(420);
         backButton.setId("backButton");
@@ -149,7 +156,7 @@ public class CreationView {
         pane.getChildren().add(cAccount);
         pane.getChildren().add(createAccount);
         pane.getChildren().add(required);
-        pane.getChildren().addAll(backButton);
+        pane.getChildren().add(backButton);
 
 
 
@@ -190,6 +197,15 @@ public class CreationView {
        // if (emailE.getText().contains("@"))
             return emailE.getText();
 
+    }
+    public void accountExist() {
+
+        pane.getChildren().add(accountExists);
+        accountExists.setLayoutX(25);
+        accountExists.setLayoutY(460);
+        pause = new PauseTransition(Duration.seconds(1.5));
+        pause.setOnFinished(e ->pane.getChildren().remove(accountExists));
+        pause.play();
     }
     public String getPassword() {
         return passwordE.getText();
