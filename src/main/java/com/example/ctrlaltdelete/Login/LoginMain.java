@@ -6,6 +6,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+import java.io.FileNotFoundException;
+
 //Using Model-View-Controller methodology to organize my code
 public class LoginMain extends Application {
 
@@ -15,13 +17,12 @@ public class LoginMain extends Application {
     LoginModel model;
     LoginView view;
     LoginController controller;
-
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws FileNotFoundException {
 
         view = new LoginView(stage);//Creates all my components to be used and sets up my screen
-        model = new LoginModel();
-        controller = new LoginController(stage,model, view);
+        model = new LoginModel(view.getEmail(), view.getPassword());
+        controller = new LoginController(stage,model,view);
         //The controller needs to be initialized all the methods are in there
 
         Image image = new Image("sliceHeaven.png");
@@ -30,5 +31,8 @@ public class LoginMain extends Application {
         stage.show(); //will not show without this\\
 
     }
+
+
+
 
 }
