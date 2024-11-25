@@ -50,14 +50,42 @@ public class CreationController {
 
          password = creationView.getPassword().trim();
          phoneNumber = creationView.getPhoneNumber().trim();
-         //Before we allow the user to creat an account lets check if the account already exists in our files;
-         if(loginModel.accountExist(email.toLowerCase())) {
-             creationView.accountExist();
-             return;
-         }
+
+         //Before we allow the user to create an account lets check if the account already exists in our files;
+
+
+
+
+
          System.out.println("Button is working");
          try {
              this.creationModel = new CreationModel(fName,lName,email,password,phoneNumber);
+             //We also need to do a check on the phone number as well to see if it is valid;
+             //if valid phoneNumber false then display message telling user so;
+             // We need to create our constructor first or else we get a null pointer exception
+             //The following if statements are all going to be validation checks before i allow the creation of an account;
+             if(!this.creationModel.inputValidation(this.creationModel.getDataArray())) {
+                 creationView.displayValidationCheck();
+                 return;
+             }
+             if(loginModel.accountExist(email.toLowerCase())) {
+                 creationView.accountExist();
+                 return;
+             }
+
+             if (!this.creationModel.validPhoneNumber(this.phoneNumber)) {
+                 creationView.displayInvalidPhone();
+                 return;
+             }
+             if (!this.creationModel.validEmail(this.email)) {
+                    creationView.displayInvalidEmail();
+                    return;
+             }
+         } catch (FileNotFoundException ex) {
+             throw new RuntimeException(ex);
+         }
+         try {
+             this.creationModel.writeCSV(this.creationModel.getData());
          } catch (FileNotFoundException ex) {
              throw new RuntimeException(ex);
          }

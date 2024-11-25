@@ -15,7 +15,6 @@ public class CreationModel {
     private String password;
     private String phoneNumber;
     private String [] data = new String[5];
-    private LoginModel loginModel;
     //Using a hashmap because no duplicate keys; I do not want to allow two of the same email;
     //I do not mind if two people use the same password;
     public CreationModel(String fName,String lName,String email,String password,String phoneNumber) throws FileNotFoundException {
@@ -30,7 +29,19 @@ public class CreationModel {
         data[3] = password;
         data[4] = phoneNumber;
         String info = convertToCSV(data);
-        writeCSV(info);
+    }
+    public CreationModel() {
+
+    }
+    //Need to convert data to csv format before we return it so the string can take it in
+    public String getData() {
+
+        return convertToCSV(data);
+
+
+    }
+    public String [] getDataArray() {
+        return data;
     }
     public String getfName() {
         return this.fName;
@@ -49,6 +60,23 @@ public class CreationModel {
     }
     public void storeAccountInfo() {
 
+    }
+    public boolean validPhoneNumber(String phoneNumber) {
+        //if phone number equals 10 then check if phone is all digits then return the outcome;
+        if (phoneNumber.length() == 10 ) return phoneNumber.matches("\\d+");
+        //if phone number is not 10 digits return false;
+        return false;
+    }
+    //email validation if i have time i will come back and improve it with a regex function;
+    public boolean validEmail(String email) {
+        return email.contains("@") && email.contains(".com");
+    }
+    //checks if textFields are left empty or null;
+    public boolean inputValidation(String [] data) {
+        for(String d:data) {
+            if (d == null || d.isBlank()) return false;
+        }
+        return true;
     }
     public String convertToCSV(String [] data) {
         //returns the stream of data

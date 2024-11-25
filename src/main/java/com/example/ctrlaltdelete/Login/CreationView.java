@@ -30,7 +30,7 @@ public class CreationView {
     private GridPane gridPaneL;
     private Pane pane;
     private Label fName,lName,email,pw,phoneNumber;
-    private Text createAccount,required,accountExists;
+    private Text createAccount,required,accountExists,invalidEmail,invalidPhoneNumber,inputValidation;
     private TextField fNameE,lNameE,emailE,passwordE,phoneNumberE;
     private Button cAccount,test,backButton;
     private Line line;
@@ -60,7 +60,9 @@ public class CreationView {
         inputStreamHome = getClass().getResourceAsStream("/home.png");
         logo = new Image(inputStreamLogo);
         home = new Image(inputStreamHome);
-
+        invalidPhoneNumber = new Text("Invalid Phone Number");
+        invalidEmail = new Text("Invalid email");
+        inputValidation = new Text("Please complete all fields");
     }
     public void properties() {
         //fname
@@ -198,6 +200,7 @@ public class CreationView {
             return emailE.getText();
 
     }
+    //Displays account already exist message for 1.5 seconds
     public void accountExist() {
 
         pane.getChildren().add(accountExists);
@@ -207,6 +210,32 @@ public class CreationView {
         pause.setOnFinished(e ->pane.getChildren().remove(accountExists));
         pause.play();
     }
+    //Displays invalid phone number for 1.5 seconds
+    public void displayInvalidPhone() {
+        pane.getChildren().add(invalidPhoneNumber);
+        invalidPhoneNumber.setLayoutX(25);
+        invalidPhoneNumber.setLayoutY(460);
+        pause = new PauseTransition(Duration.seconds(1.5));
+        pause.setOnFinished(event -> pane.getChildren().remove(invalidPhoneNumber));
+        pause.play();
+    }
+    public void displayInvalidEmail() {
+        pane.getChildren().add(invalidEmail);
+        invalidEmail.setLayoutX(25);
+        invalidEmail.setLayoutY(460);
+        pause = new PauseTransition(Duration.seconds(1.5));
+        pause.setOnFinished(event -> pane.getChildren().remove(invalidEmail));
+        pause.play();
+    }
+    public void displayValidationCheck() {
+        pane.getChildren().add(inputValidation);
+        inputValidation.setLayoutX(25);
+        inputValidation.setLayoutY(460);
+        pause = new PauseTransition(Duration.seconds(1.5));
+        pause.setOnFinished(e -> pane.getChildren().remove(inputValidation));
+        pause.play();
+    }
+
     public String getPassword() {
         return passwordE.getText();
     }
