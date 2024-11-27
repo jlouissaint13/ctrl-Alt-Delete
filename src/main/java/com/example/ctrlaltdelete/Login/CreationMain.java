@@ -19,7 +19,7 @@ public class CreationMain extends Application {
 
         controller = new CreationController(stage,model,view);
         Image image = new Image("sliceHeaven.png");
-
+        //hello
         stage.getIcons().add(image);
         stage.show();
     }
