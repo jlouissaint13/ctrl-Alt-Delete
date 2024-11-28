@@ -59,8 +59,11 @@ public class LoginModel {
         }
         return 3;//account does not exist;
     }
+    public boolean inputValidation(String email,String password) {
+       return (email == null || email.isBlank() || password == null || password.isBlank());
+    }
     //When I initialize these in the main these values will be null;
-    //I need to use setters so I can update these values right when they are clicked with the login set action button;
+    //I need to use setters, so I can update these values right when they are clicked with the login set action button;
     public void setAccount(String email,String password) {
         this.email = email;
         this.password = password;
