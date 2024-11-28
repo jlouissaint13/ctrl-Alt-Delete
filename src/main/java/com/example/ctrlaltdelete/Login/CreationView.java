@@ -242,8 +242,10 @@ public class CreationView {
     public String getPhoneNumber() {
         return phoneNumberE.getText();
     }
-    
 
+    public TextField getPhoneNumberE() {
+        return phoneNumberE;
+    }
 
     public CreationView(Stage stage) {
         components();

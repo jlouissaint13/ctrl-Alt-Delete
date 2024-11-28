@@ -93,7 +93,6 @@ public class LoginView {
 
         pane.getChildren().add(emailE);
 
-
         pane.getChildren().add(passwordE);
 
         pane.getChildren().add(makeAccount);
