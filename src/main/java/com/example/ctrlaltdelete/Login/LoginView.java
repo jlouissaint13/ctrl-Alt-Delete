@@ -5,6 +5,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,7 +26,8 @@ public class LoginView {
     public Scene scene;
     private GridPane gridPane; //Created so I can set the children up to be in the way of rows and columns a good set up for a login page
     private Label email,pw,forgotPassword,makeAccount;
-    private TextField emailE,passwordE;
+    private TextField emailE;
+    private PasswordField passwordE;
     private Button cAccount,cGuest,show,signIn;
     private Pane pane;
     private Text sign;
@@ -39,8 +41,9 @@ public class LoginView {
         pw = new Label("Password");
         // show = new Button("Show");
         //forgotPassword = new Label("Forgot Password?");
-        passwordE = new TextField();
+        passwordE = new PasswordField();
         passwordE.setPromptText("Password");
+        passwordE.setStyle("-fx-font-size: 13 comfortaa");
         cAccount = new Button("Create Account");
         cGuest = new Button("Continue as Guest");
         signIn = new Button("Sign in");
@@ -89,7 +92,6 @@ public class LoginView {
     public void addComponents() {
 
         pane.getChildren().add(emailE);
-
 
         pane.getChildren().add(passwordE);
 
@@ -152,6 +154,8 @@ public class LoginView {
     public String getPassword() {
         return passwordE.getText();
     }
+    public TextField getEmailE() {return emailE;}
+    public TextField getPasswordE() {return  passwordE;}
     public Scene getScene() {
         stage.setTitle("Login to Slice Heaven");
         return scene;
@@ -186,6 +190,15 @@ public class LoginView {
         accountInv.setLayoutY(324);
         pause = new PauseTransition(Duration.seconds(2));
         pause.setOnFinished(e -> pane.getChildren().remove(accountInv));
+        pause.play();
+    }
+    public void displayCompleteFields() {
+        Text allFields = new Text("Please complete all fields");
+        pane.getChildren().add(allFields);
+        allFields.setLayoutX(32);
+        allFields.setLayoutY(324);
+        pause = new PauseTransition(Duration.seconds(2));
+        pause.setOnFinished(e -> pane.getChildren().remove(allFields));
         pause.play();
     }
     public void displayPlaceholder() {
