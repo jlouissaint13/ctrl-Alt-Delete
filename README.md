@@ -2,7 +2,7 @@
 Aims to be a go-to solution for anyone craving a delicious pizza, providing an excellent experience from start to finish while helping our local restaurants reach as many customers as possible.
 
 # Why SliceHeaven?
-As aspiring developers, we envisioned creating an app that allows for customers to easily order food favorite pizza company SliceHeaven. This platform will not only serve our interests but also cater to other pizza lovers who want a convenient way to browse menus, customize orders, and track their delivery. The app will feature an intuitive interface, as well as secure payment options, and order history tracking. 
+As aspiring developers, we envisioned creating an app that allows for customers to easily order food from their favorite pizza company SliceHeaven. This platform will not only serve our interests by widening our customer base but also cater to other pizza lovers who want a convenient way to browse menus, customize orders, and track their delivery. The app will feature an intuitive interface, as well as secure payment options, and order history tracking. 
 
 
 # Important Information
