@@ -10,7 +10,7 @@ private Pane pane;
 private Scene scene;
 private Stage stage;
 public void components() {
-
+pane = new Pane();
 }
 public void properties() {
 

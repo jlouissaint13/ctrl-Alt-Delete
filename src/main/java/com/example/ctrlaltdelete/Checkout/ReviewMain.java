@@ -11,7 +11,7 @@ public class ReviewMain extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        CheckoutView checkoutView = new CheckoutView(primaryStage);
+        ReviewView reviewView = new ReviewView(primaryStage);
 
         primaryStage.show();
     }

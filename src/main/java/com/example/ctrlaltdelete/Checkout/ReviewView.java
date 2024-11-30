@@ -29,7 +29,7 @@ public class ReviewView {
         VBox vBox = new VBox(pane);
 
         scene = new Scene(vBox,350,600);
-        stage.setTitle("Checkout Page");
+        stage.setTitle("Review Page");
         stage.setScene(scene);
     }
 

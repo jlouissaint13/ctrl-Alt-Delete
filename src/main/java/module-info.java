@@ -19,4 +19,7 @@ module com.example.ctrlaltdelete {
     opens com.example.ctrlaltdelete.Menu to javafx.fxml;
     exports com.example.ctrlaltdelete.OrderConfirmation;
     opens com.example.ctrlaltdelete.OrderConfirmation to javafx.fxml;
+    exports com.example.ctrlaltdelete.Checkout;
+    opens com.example.ctrlaltdelete.Checkout to javafx.fxml;
+
 }

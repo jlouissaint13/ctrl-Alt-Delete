@@ -10,6 +10,7 @@ public class CheckoutMain extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        CheckoutView checkoutView = new CheckoutView(primaryStage);
         primaryStage.show();
     }
 }
