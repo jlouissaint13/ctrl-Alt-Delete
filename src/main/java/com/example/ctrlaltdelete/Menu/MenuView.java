@@ -14,8 +14,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 public class MenuView {
-    private Pane pane;
+    private Pane pane, header;
     private Text word,wordTwo;
     private Scene scene;
     private Button minus,plus;
@@ -24,23 +25,43 @@ public class MenuView {
 public void components() {
     //word = new word("Word");
     pane = new Pane();
-    //wordTwo = new Text("30");
-    //special = new TextField();
-    //minus = new Button("-");
+
+    // Adding header text
+    word = new Text("Menu");
+
+    // Buttons for adding/subtracting items
+    minus = new Button("-");
+    plus = new Button("+");
+
 }
 
 //Decide the properties size and where they go
 public void properties() {
-    //word.setLayoutX();
-    //word.setLayoutY();
+    // Header properties
+    word.setLayoutX(20);
+    word.setLayoutY(40);
 
+
+    // Buttons for item addition/subtraction
+    minus.setLayoutX(20);
+    minus.setLayoutY(120);
+    plus.setLayoutX(60);
+    plus.setLayoutY(120);
 
 }
 //This one is for adding elements to the pane
 public void addComponents() {
-    //pane.getChildren.add(word);
+    // Add header and subheader
+    pane.getChildren().addAll(word, wordTwo);
+
+    // Add buttons
+    pane.getChildren().addAll(minus, plus);
+
+
 
 }
+
+
 
 public MenuView(Stage stage) {
    components();
