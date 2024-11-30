@@ -17,6 +17,7 @@ module com.example.ctrlaltdelete {
     opens com.example.ctrlaltdelete.Login.ValidationException to javafx.fxml;
     exports com.example.ctrlaltdelete.Menu;
     opens com.example.ctrlaltdelete.Menu to javafx.fxml;
-
+    exports com.example.ctrlaltdelete.Homepage;
+    opens  com.example.ctrlaltdelete.Homepage to javafx.fxml;
     exports com.example.ctrlaltdelete.OrderConfirmation;
 }
