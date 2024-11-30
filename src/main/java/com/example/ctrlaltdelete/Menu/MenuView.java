@@ -1,5 +1,7 @@
 package com.example.ctrlaltdelete.Menu;
 import javafx.animation.PauseTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -8,26 +10,62 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.InputStream;
+
+
 public class MenuView {
     private Pane pane;
     private Text headerText;
+    private Label name,phone,price,allDrinks,drinkSizes;
     private TextField nameField, phoneField, priceField;
-    private RadioButton smallSize, mediumSize, largeSize;
+    private RadioButton smallSize, mediumSize, largeSize,pickup,delivery;
     private CheckBox pepperoni, hamburger, sausage, canadianBacon, chicken, greenPeppers, redPeppers, onions, mushrooms, blackOlives;
-    private Button calculateButton, placeOrderButton, exitButton;
+    private Button placeOrderButton, exitButton;
     private Scene scene;
-
+    private Line line;
+    ObservableList<String> Drinks =
+            FXCollections.observableArrayList(
+                    "Sprite",
+                    "Coke",
+                    "Fanta Orange",
+                    "Lemonade",
+                    "Pepsi",
+                    "None"
+            );
+    final ComboBox comboBox = new ComboBox(Drinks);
+    ObservableList<String> DrinksSize =
+            FXCollections.observableArrayList(
+                 "Small",
+                    "Medium",
+                    "Large"
+            );
+    final ComboBox drinkSize = new ComboBox(DrinksSize);
     //Here you will initialize your components
 public void components() {
     //word = new word("Word");
     pane = new Pane();
+    //Combo Box beverages
 
     // Adding header text
     headerText = new Text("Menu");
+
+    //Labels
+    name = new Label("Name*");
+    phone = new Label("Phone*");
+    drinkSizes = new Label("Drink Sizes");
+    allDrinks = new Label("Drinks");
+
+    //Line
+    line = new Line();
+    line.setStartX(20);
+    line.setEndX(1000);
+    line.setStartX(0);
+    line.setEndY(0);
 
     // Text fields
     nameField = new TextField();
@@ -35,6 +73,9 @@ public void components() {
     priceField = new TextField();
     priceField.setEditable(false);
 
+    //RadioButtons for pickup or delivery
+    pickup = new RadioButton("Carryout");
+    delivery = new RadioButton("Delivery");
 
     // Radio buttons for pizza size
     smallSize = new RadioButton("Small");
@@ -58,7 +99,7 @@ public void components() {
     blackOlives = new CheckBox("Black Olives");
 
     // Buttons
-    calculateButton = new Button("Calculate");
+    //calculateButton = new Button("Calculate");
     placeOrderButton = new Button("Place Order");
     exitButton = new Button("Exit");
 
@@ -68,59 +109,94 @@ public void components() {
 //Decide the properties size and where they go
 public void properties() {
     // Header properties
-    headerText.setLayoutX(100);
+    headerText.setLayoutX(250);
     headerText.setLayoutY(40);
 
     // Name and phone fields
+    name.setLayoutX(20);
+    name.setLayoutY(22);
     nameField.setLayoutX(20);
-    nameField.setLayoutY(80);
+    nameField.setLayoutY(40);
     nameField.setPromptText("Name:");
+    phone.setLayoutX(20);
+    phone.setLayoutY(92);
     phoneField.setLayoutX(20);
-    phoneField.setLayoutY(120);
+    phoneField.setLayoutY(110);
     phoneField.setPromptText("Phone Number:");
+
+
+    //Line
+    line.setLayoutX(0);
+    line.setLayoutY(500);
+
+    //Pickup or Delivery
+    pickup.setLayoutX(20);
+    pickup.setLayoutY(165);
+    delivery.setLayoutX(100);
+    delivery.setLayoutY(165);
 
     // Pizza size
     smallSize.setLayoutX(20);
-    smallSize.setLayoutY(240);
-    mediumSize.setLayoutX(80);
-    mediumSize.setLayoutY(240);
-    largeSize.setLayoutX(160);
-    largeSize.setLayoutY(240);
+    smallSize.setLayoutY(195);
+    mediumSize.setLayoutX(100);
+    mediumSize.setLayoutY(195);
+    largeSize.setLayoutX(180);
+    largeSize.setLayoutY(195);
 
     // Toppings
     pepperoni.setLayoutX(20);
-    pepperoni.setLayoutY(280);
+    pepperoni.setLayoutY(230);
     hamburger.setLayoutX(150);
-    hamburger.setLayoutY(280);
+    hamburger.setLayoutY(230);
     sausage.setLayoutX(20);
-    sausage.setLayoutY(320);
+    sausage.setLayoutY(270);
     canadianBacon.setLayoutX(150);
-    canadianBacon.setLayoutY(320);
+    canadianBacon.setLayoutY(270);
     chicken.setLayoutX(20);
-    chicken.setLayoutY(360);
+    chicken.setLayoutY(310);
     greenPeppers.setLayoutX(150);
-    greenPeppers.setLayoutY(360);
+    greenPeppers.setLayoutY(310);
     redPeppers.setLayoutX(20);
-    redPeppers.setLayoutY(400);
+    redPeppers.setLayoutY(350);
     onions.setLayoutX(150);
-    onions.setLayoutY(400);
-    mushrooms.setLayoutX(20);
-    mushrooms.setLayoutY(440);
-    blackOlives.setLayoutX(150);
-    blackOlives.setLayoutY(440);
+    onions.setLayoutY(350);
 
-    // Price field
+
+    //Beverages
+    drinkSizes.setLayoutX(150);
+    drinkSizes.setLayoutY(380);
+    allDrinks.setLayoutX(20);
+    allDrinks.setLayoutY(380);
+    drinkSize.setLayoutX(20);
+    drinkSize.setLayoutY(400);
+    comboBox.setLayoutX(150);
+    comboBox.setLayoutY(400);
+
+
+
     priceField.setLayoutX(20);
-    priceField.setLayoutY(480);
+    priceField.setLayoutY(435);
     priceField.setPromptText("Price:");
 
     // Buttons
-    calculateButton.setLayoutX(20);
-    calculateButton.setLayoutY(520);
-    placeOrderButton.setLayoutX(100);
-    placeOrderButton.setLayoutY(520);
+
+    placeOrderButton.setLayoutX(85);
+    placeOrderButton.setLayoutY(530);
     exitButton.setLayoutX(200);
     exitButton.setLayoutY(520);
+
+    //image
+    InputStream inputStream = getClass().getResourceAsStream("/sliceHeaven.png");
+
+    Image image = new Image(inputStream);
+
+    ImageView imageView = new ImageView(image);
+    imageView.setFitWidth(110);
+    imageView.setFitHeight(110);
+    imageView.setX(210);
+    imageView.setY(40);
+    pane.getChildren().add(imageView);
+
 
 }
 //This one is for adding elements to the pane
@@ -130,8 +206,8 @@ public void addComponents() {
             headerText, nameField, phoneField,
             smallSize, mediumSize, largeSize,
             pepperoni, hamburger, sausage, canadianBacon, chicken, greenPeppers,
-            redPeppers, onions, mushrooms, blackOlives,
-            priceField, calculateButton, placeOrderButton, exitButton
+            redPeppers, onions,
+            priceField,  placeOrderButton,pickup,delivery,name,phone,line,comboBox,drinkSize,drinkSizes,allDrinks
 
     );
 
