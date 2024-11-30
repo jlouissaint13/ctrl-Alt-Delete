@@ -59,7 +59,7 @@ public class LoginController {
            }
             //When this is initialized in the main class these values are set to null; As soon as the login button is pressed they are updated with the content of the text fields
             loginModel.setAccount(this.loginView.getEmail(), this.loginView.getPassword());
-            switch (this.loginModel.isValid())  {
+            switch (this.loginModel.isValid(loginView.getEmail(),loginView.getPassword()))  {
                 //Case 1 log you in; Case 2 Invalid password; case 3 account does not exist;
                 case 1:
                     loginView.displayLogin();
@@ -79,7 +79,7 @@ public class LoginController {
             }
             //When this is initialized in the main class these values are set to null; As soon as the login button is pressed they are updated with the content of the text fields
             loginModel.setAccount(this.loginView.getEmail(), this.loginView.getPassword());
-            switch (this.loginModel.isValid())  {
+            switch (this.loginModel.isValid(loginView.getEmail(),loginView.getPassword()))  {
                 //Case 1 log you in; Case 2 Invalid password; case 3 account does not exist;
                 case 1:
                     loginView.displayLogin();
@@ -95,7 +95,7 @@ public class LoginController {
             }
             //When this is initialized in the main class these values are set to null; As soon as the login button is pressed they are updated with the content of the text fields
             loginModel.setAccount(this.loginView.getEmail(), this.loginView.getPassword());
-            switch (this.loginModel.isValid())  {
+            switch (this.loginModel.isValid(loginView.getEmail(),loginView.getPassword()))  {
                 //Case 1 log you in; Case 2 Invalid password; case 3 account does not exist;
                 case 1: loginView.displayLogin();
                         pizzaDeliveryApp.start(stage);

@@ -11,13 +11,17 @@ public class LoginModel {
     private String email;
     private String password;
     private String [] data = new String[6];
-    private HashMap<String,String> account = new HashMap<>();
+    private HashMap<String,String[]> account = new HashMap<>();
     private String line;
     public LoginModel(String email,String password) throws FileNotFoundException {
         this.email = email;
         this.password = password;
 
         readCSV();
+        if (this.email != null && !this.email.isBlank()) {
+            userData(this.email);
+        }
+
     }
     public LoginModel() throws FileNotFoundException {
         readCSV(); //Read the csv here because other wise account will be empty and our method accountExist will not work;
@@ -35,8 +39,9 @@ public class LoginModel {
                 //the key will be the email and the value will be the password;
 
                 String[] values = line.split("\\|");
-                account.put(values[2].trim(), values[3].trim());
+                account.put(values[2].trim(), values);
             }
+
             //If it is blank or accidentally goes to the next line this error needs to be handled to prevent issues;
         }catch(NullPointerException e) {
             System.out.println("Null end of file found");
@@ -44,12 +49,39 @@ public class LoginModel {
             throw new RuntimeException(e);
         }
     }
+    public void userData(String email) {
+        if (account.containsKey(email)) {
+            data = account.get(email);
+        }
+    }
+
+    public String getfName() {
+        return data[0];
+    }
+    public String getlName() {
+        return data[1];
+    }
+    public String getEmail() {
+        return data[2];
+    }
+    public String getPassword() {
+        return data[3];
+    }
+    public String getPhone() {
+        return data[4];
+    }
+    public String getAddress() {
+        return data[5];
+    }
+
     //The hashmap is going to read the entire csv;
     //This way even previously created accounts will still exists upon closure of the program;
     //Now I am going to validate the entered username and password against the hashmap
-    public int isValid() {
-        if (account.containsKey(this.email)) {
-                if (account.get(this.email).equals(this.password)) {
+
+    public int isValid(String email,String password) {
+
+        if (account.containsKey(email)) {
+                if (password.equals(data[3])) {
                     //password is valid;
                     return 1;
                 }
@@ -67,6 +99,7 @@ public class LoginModel {
     public void setAccount(String email,String password) {
         this.email = email;
         this.password = password;
+        userData(this.email);
     }
 
     public boolean accountExist(String email) {
