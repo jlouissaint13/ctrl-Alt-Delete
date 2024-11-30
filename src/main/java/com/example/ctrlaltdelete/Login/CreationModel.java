@@ -14,20 +14,23 @@ public class CreationModel {
     private String email;
     private String password;
     private String phoneNumber;
-    private String [] data = new String[5];
+    private String address;
+    private String [] data = new String[6];
     //Using a hashmap because no duplicate keys; I do not want to allow two of the same email;
     //I do not mind if two people use the same password;
-    public CreationModel(String fName,String lName,String email,String password,String phoneNumber) throws FileNotFoundException {
+    public CreationModel(String fName,String lName,String email,String password,String phoneNumber,String address) throws FileNotFoundException {
         this.fName = fName;
         this.lName = lName;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
+        this.address = address;
         data[0] = fName;
         data[1] = lName;
-        data[2]=email;
+        data[2] = email;
         data[3] = password;
         data[4] = phoneNumber;
+        data[5] = address;
         String info = convertToCSV(data);
     }
     public CreationModel() {
@@ -58,6 +61,7 @@ public class CreationModel {
     public String getPhoneNumber() {
         return this.phoneNumber;
     }
+    public String getAddress() {return this.address;}
     public void storeAccountInfo() {
 
     }

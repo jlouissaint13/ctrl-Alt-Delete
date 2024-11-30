@@ -205,6 +205,9 @@ public class CreationView {
             return emailE.getText();
 
     }
+    public String getAddress() {
+        return addressE.getText();
+    }
     //Displays account already exist message for 1.5 seconds
     public void accountExist() {
 

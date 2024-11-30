@@ -10,7 +10,7 @@ import java.util.Objects;
 public class LoginModel {
     private String email;
     private String password;
-    private String [] data = new String[5];
+    private String [] data = new String[6];
     private HashMap<String,String> account = new HashMap<>();
     private String line;
     public LoginModel(String email,String password) throws FileNotFoundException {
