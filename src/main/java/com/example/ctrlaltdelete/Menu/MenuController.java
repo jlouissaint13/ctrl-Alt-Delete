@@ -8,14 +8,14 @@ public class MenuController {
     private Stage stage;
     private MenuView menuView = new MenuView(stage);
     private MenuModel menuModel = new MenuModel();
-    private CheckBox pepperonni,hamburger,sausage,canadianBacon,chicken,redPeppers,onions,greenPeppers;
+    private CheckBox pepperonni,ham,sausage,canadianBacon,chicken,redPeppers,onions,greenPeppers;
     private Button minus,plus;
     private String size;
    public MenuController(Stage stage, MenuModel menuModel,MenuView menuView) {
        this.menuModel = menuModel;
        this.menuView = menuView;
        pepperonni = menuView.getPepperoni();
-       hamburger = menuView.getHamburger();
+       ham = menuView.getHam();
        sausage = menuView.getSausage();
        canadianBacon = menuView.getCanadianBacon();
        chicken = menuView.getChicken();
@@ -64,8 +64,8 @@ public class MenuController {
            }
 
        });
-       hamburger.setOnAction(actionEvent -> {
-           if (hamburger.isSelected()) {
+       ham.setOnAction(actionEvent -> {
+           if (ham.isSelected()) {
                menuModel.addToppings();
            }
            else {
