@@ -1,5 +1,6 @@
 package com.example.ctrlaltdelete.Login;
 
+import com.example.ctrlaltdelete.Menu.PizzaDeliveryApp;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -16,7 +17,11 @@ public class LoginController {
     private CreationView creationView;
     private CreationMain creationMain;
     private String emailText,passwordText;
+    private PizzaDeliveryApp pizzaDeliveryApp;
     public LoginController(Stage stage, LoginModel loginModel, LoginView loginView) {
+        //So I can go to the next scene
+        pizzaDeliveryApp = new PizzaDeliveryApp();
+
         this.loginView = loginView;
         this.loginModel = loginModel;
         //I need to do this because the buttons are in the model class these methods will return the buttons so this class can use them;
@@ -27,7 +32,11 @@ public class LoginController {
         cAccount = loginView.getcAccount();
 
 
-        guest.setOnAction(event -> loginView.displayPlaceholder()); //Action handler for sign in as a guest;
+        guest.setOnAction(event -> {
+            System.out.println("Button is active");
+
+            pizzaDeliveryApp.start(stage);
+        }); //Action handler for sign in as a guest;
 
 
 
@@ -52,9 +61,13 @@ public class LoginController {
             loginModel.setAccount(this.loginView.getEmail(), this.loginView.getPassword());
             switch (this.loginModel.isValid())  {
                 //Case 1 log you in; Case 2 Invalid password; case 3 account does not exist;
-                case 1: loginView.displayLogin(); break;
+                case 1:
+                    loginView.displayLogin();
+                    pizzaDeliveryApp.start(stage);
+                    break;
                 case 2: loginView.invalidPassword(); break;
                 case 3: loginView.invalidAccount(); break;
+
             }
         });
 
@@ -68,7 +81,9 @@ public class LoginController {
             loginModel.setAccount(this.loginView.getEmail(), this.loginView.getPassword());
             switch (this.loginModel.isValid())  {
                 //Case 1 log you in; Case 2 Invalid password; case 3 account does not exist;
-                case 1: loginView.displayLogin(); break;
+                case 1:
+                    loginView.displayLogin();
+                    pizzaDeliveryApp.start(stage);break;
                 case 2: loginView.invalidPassword(); break;
                 case 3: loginView.invalidAccount(); break;
             }
@@ -82,7 +97,9 @@ public class LoginController {
             loginModel.setAccount(this.loginView.getEmail(), this.loginView.getPassword());
             switch (this.loginModel.isValid())  {
                 //Case 1 log you in; Case 2 Invalid password; case 3 account does not exist;
-                case 1: loginView.displayLogin(); break;
+                case 1: loginView.displayLogin();
+                        pizzaDeliveryApp.start(stage);
+                break;
                 case 2: loginView.invalidPassword(); break;
                 case 3: loginView.invalidAccount(); break;
             }});
