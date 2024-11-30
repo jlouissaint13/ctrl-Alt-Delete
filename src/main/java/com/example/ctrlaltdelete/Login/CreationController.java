@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 public class CreationController {
     private CreationModel creationModel;
     private CreationView creationView;
-    private String fName,lName,email,password,phoneNumber;
+    private String fName,lName,email,password,phoneNumber,address;
     private Button createAccount,homeButton;
     private LoginModel loginModel;
  public CreationController(Stage stage, CreationModel creationModel, CreationView creationView) {
@@ -46,12 +46,12 @@ public class CreationController {
          email = creationView.getEmail().trim();
          password = creationView.getPassword().trim();
          phoneNumber = creationView.getPhoneNumber().trim();
-
+         address = creationView.getAddress();
          //Before we allow the user to create an account lets check if the account already exists in our files;
 
          System.out.println("Button is working");
          try {
-             this.creationModel = new CreationModel(fName,lName,email,password,phoneNumber);
+             this.creationModel = new CreationModel(fName,lName,email,password,phoneNumber,address);
              //We also need to do a check on the phone number as well to see if it is valid;
              //if valid phoneNumber false then display message telling user so;
              // We need to create our constructor first or else we get a null pointer exception
@@ -60,7 +60,7 @@ public class CreationController {
                  creationView.displayValidationCheck();
                  return;
              }
-             if(loginModel.accountExist(email.toLowerCase())) {
+             if(loginModel.accountExist(phoneNumber)) {
                  creationView.accountExist();
                  return;
              }
@@ -108,7 +108,7 @@ public class CreationController {
 
          System.out.println("Button is working");
          try {
-             this.creationModel = new CreationModel(fName,lName,email,password,phoneNumber);
+             this.creationModel = new CreationModel(fName,lName,email,password,phoneNumber,address);
              //We also need to do a check on the phone number as well to see if it is valid;
              //if valid phoneNumber false then display message telling user so;
              // We need to create our constructor first or else we get a null pointer exception

@@ -21,9 +21,9 @@ public class CreationView {
     public Scene scene;
     private GridPane gridPaneL;
     private Pane pane;
-    private Label fName,lName,email,pw,phoneNumber;
+    private Label fName,lName,email,pw,phoneNumber,address;
     private Text createAccount,required,accountExists,invalidEmail,invalidPhoneNumber,inputValidation;
-    private TextField fNameE,lNameE,emailE,passwordE,phoneNumberE;
+    private TextField fNameE,lNameE,emailE,passwordE,phoneNumberE,addressE;
     private Button cAccount,test,backButton;
     private Line line;
     private Image home,logo;
@@ -55,45 +55,55 @@ public class CreationView {
         invalidPhoneNumber = new Text("Invalid Phone Number");
         invalidEmail = new Text("Invalid email");
         inputValidation = new Text("Please complete all fields");
+        address = new Label("Address");
+        addressE = new TextField();
     }
     public void properties() {
         //fname
         fNameE.setMaxWidth(117);
         fName.setLayoutX(25);
-        fName.setLayoutY(100);
+        fName.setLayoutY(70);
         fNameE.setLayoutX(25);
-        fNameE.setLayoutY(120);
+        fNameE.setLayoutY(90);
         //Their are ids for fname and last because i needed to make them smaller in the css styling
         fNameE.setId("fnameE");
         //lname
         lName.setLayoutX(200);
-        lName.setLayoutY(100);
+        lName.setLayoutY(70);
         lNameE.setPrefWidth(117);
         lNameE.setLayoutX(200);
-        lNameE.setLayoutY(120);
+        lNameE.setLayoutY(90);
         lNameE.setId("lnameE");
 
         //email
 
         emailE.setMinWidth(292);
         email.setLayoutX(25);
-        email.setLayoutY(175);
+        email.setLayoutY(145);
         emailE.setLayoutX(25);
-        emailE.setLayoutY(195);
+        emailE.setLayoutY(165);
 
         //password
 
         passwordE.setMinWidth(292);
         pw.setLayoutX(25);
-        pw.setLayoutY(250);
+        pw.setLayoutY(225);
         passwordE.setLayoutX(25);
-        passwordE.setLayoutY(270);
+        passwordE.setLayoutY(245);
         //phonenumber
         phoneNumberE.setMinWidth(292);
         phoneNumber.setLayoutX(25);
-        phoneNumber.setLayoutY(325);
+        phoneNumber.setLayoutY(300);
         phoneNumberE.setLayoutX(25);
-        phoneNumberE.setLayoutY(345);
+        phoneNumberE.setLayoutY(320);
+
+        //address
+        addressE.setMinWidth(292);
+        address.setLabelFor(addressE);
+        address.setLayoutX(25);
+        address.setLayoutY(375);
+        addressE.setLayoutX(25);
+        addressE.setLayoutY(395);
 
         //miscellaneous
         line.setTranslateY(430);
@@ -101,8 +111,8 @@ public class CreationView {
         cAccount.setLayoutY(480);
         cAccount.setMinSize(130,70);
         cAccount.setId("cAccount");
-        createAccount.setLayoutX(60);
-        createAccount.setLayoutY(75);
+        createAccount.setLayoutX(90);
+        createAccount.setLayoutY(40);
         createAccount.setStyle("-fx-font: 25 Comfortaa;");
         required.setStyle("-fx-font: 13 Comfortaa;");
         accountExists.setLayoutX(25);
@@ -112,14 +122,15 @@ public class CreationView {
         backButton.setId("backButton");
 
 
+
         //image
         
 
             ImageView imageView = new ImageView(logo);
             imageView.setFitWidth(60);
             imageView.setFitHeight(60);
-            imageView.setX(230);
-            imageView.setY(35);
+            imageView.setX(265);
+            imageView.setY(0);
             pane.getChildren().add(imageView);
             ImageView imageView2 = new ImageView(home);
             imageView2.setFitWidth(30);
@@ -146,11 +157,13 @@ public class CreationView {
         pane.getChildren().add(passwordE);
         pane.getChildren().add(phoneNumber);
         pane.getChildren().add(phoneNumberE);
-        pane.getChildren().add(line);
+
         pane.getChildren().add(cAccount);
         pane.getChildren().add(createAccount);
         pane.getChildren().add(required);
         pane.getChildren().add(backButton);
+        pane.getChildren().add(address);
+        pane.getChildren().add(addressE);
 
 
 
@@ -191,6 +204,9 @@ public class CreationView {
        // if (emailE.getText().contains("@"))
             return emailE.getText();
 
+    }
+    public String getAddress() {
+        return addressE.getText();
     }
     //Displays account already exist message for 1.5 seconds
     public void accountExist() {
