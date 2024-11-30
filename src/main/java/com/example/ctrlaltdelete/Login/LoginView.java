@@ -23,8 +23,8 @@ public class LoginView {
     private Stage stage;
     public Scene scene;
     private GridPane gridPane; //Created so I can set the children up to be in the way of rows and columns a good set up for a login page
-    private Label email,pw,forgotPassword,makeAccount;
-    private TextField emailE;
+    private Label phone,pw,forgotPassword,makeAccount;
+    private TextField phoneE;
     private PasswordField passwordE;
     private Button cAccount,cGuest,show,signIn;
     private Pane pane;
@@ -33,9 +33,10 @@ public class LoginView {
 
     //Will have all the ui components of my program
     public void components() {
-        email = new Label("Email");
-        emailE = new TextField();
-        emailE.setPromptText("Email");
+        phone = new Label("Phone Number");
+        phoneE = new TextField();
+        phoneE.setPromptText("Phone Number");
+        phoneE.setStyle("-fx-font-size: 13 comfortaa");
         pw = new Label("Password");
         // show = new Button("Show");
         //forgotPassword = new Label("Forgot Password?");
@@ -61,11 +62,11 @@ public class LoginView {
         cAccount.setLayoutY(403);
 
         //email
-        email.setLayoutX(97);
-        email.setLayoutY(180);
-        emailE.setLayoutX(90);
-        emailE.setLayoutY(200);
-        emailE.setPrefSize(150,25);
+        phone.setLayoutX(97);
+        phone.setLayoutY(180);
+        phoneE.setLayoutX(90);
+        phoneE.setLayoutY(200);
+        phoneE.setPrefSize(150,25);
         //password
         pw.setLayoutX(87);
         pw.setLayoutY(230);
@@ -89,7 +90,7 @@ public class LoginView {
     //Will be used to add components to program;
     public void addComponents() {
 
-        pane.getChildren().add(emailE);
+        pane.getChildren().add(phoneE);
 
         pane.getChildren().add(passwordE);
 
@@ -145,14 +146,14 @@ public class LoginView {
         return cAccount;
     }
     //Returns the user email;
-    public String getEmail () {
-        return emailE.getText();
+    public String getPhone() {
+        return phoneE.getText();
     }
     //Returns the user password
     public String getPassword() {
         return passwordE.getText();
     }
-    public TextField getEmailE() {return emailE;}
+    public TextField getPhoneE() {return phoneE;}
     public TextField getPasswordE() {return  passwordE;}
     public Scene getScene() {
         stage.setTitle("Login to Slice Heaven");

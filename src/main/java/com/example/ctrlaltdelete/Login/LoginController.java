@@ -1,13 +1,8 @@
 package com.example.ctrlaltdelete.Login;
 
 import com.example.ctrlaltdelete.Menu.PizzaDeliveryApp;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
-
-import java.io.FileNotFoundException;
 
 public class LoginController {
     private LoginModel loginModel;
@@ -53,13 +48,13 @@ public class LoginController {
 
         login.setOnAction(event -> {
             //First I am going to check and make sure both rows are filled
-           if ( loginModel.inputValidation(loginView.getEmail(),loginView.getPassword()) == true) {
+           if ( loginModel.inputValidation(loginView.getPhone(),loginView.getPassword()) == true) {
                loginView.displayCompleteFields();
                return;
            }
             //When this is initialized in the main class these values are set to null; As soon as the login button is pressed they are updated with the content of the text fields
-            loginModel.setAccount(this.loginView.getEmail(), this.loginView.getPassword());
-            switch (this.loginModel.isValid(loginView.getEmail(),loginView.getPassword()))  {
+            loginModel.setAccount(this.loginView.getPhone(), this.loginView.getPassword());
+            switch (this.loginModel.isValid(loginView.getPhone(),loginView.getPassword()))  {
                 //Case 1 log you in; Case 2 Invalid password; case 3 account does not exist;
                 case 1:
                     loginView.displayLogin();
@@ -71,15 +66,15 @@ public class LoginController {
             }
         });
 
-        loginView.getEmailE().setOnAction(e -> {
+        loginView.getPhoneE().setOnAction(e -> {
             //First I am going to check and make sure both rows are filled
-            if ( loginModel.inputValidation(loginView.getEmail(),loginView.getPassword()) == true) {
+            if ( loginModel.inputValidation(loginView.getPhone(),loginView.getPassword()) == true) {
                 loginView.displayCompleteFields();
                 return;
             }
             //When this is initialized in the main class these values are set to null; As soon as the login button is pressed they are updated with the content of the text fields
-            loginModel.setAccount(this.loginView.getEmail(), this.loginView.getPassword());
-            switch (this.loginModel.isValid(loginView.getEmail(),loginView.getPassword()))  {
+            loginModel.setAccount(this.loginView.getPhone(), this.loginView.getPassword());
+            switch (this.loginModel.isValid(loginView.getPhone(),loginView.getPassword()))  {
                 //Case 1 log you in; Case 2 Invalid password; case 3 account does not exist;
                 case 1:
                     loginView.displayLogin();
@@ -89,13 +84,13 @@ public class LoginController {
             }
         });
         loginView.getPasswordE().setOnAction(e ->{    //First I am going to check and make sure both rows are filled
-            if ( loginModel.inputValidation(loginView.getEmail(),loginView.getPassword()) == true) {
+            if ( loginModel.inputValidation(loginView.getPhone(),loginView.getPassword()) == true) {
                 loginView.displayCompleteFields();
                 return;
             }
             //When this is initialized in the main class these values are set to null; As soon as the login button is pressed they are updated with the content of the text fields
-            loginModel.setAccount(this.loginView.getEmail(), this.loginView.getPassword());
-            switch (this.loginModel.isValid(loginView.getEmail(),loginView.getPassword()))  {
+            loginModel.setAccount(this.loginView.getPhone(), this.loginView.getPassword());
+            switch (this.loginModel.isValid(loginView.getPhone(),loginView.getPassword()))  {
                 //Case 1 log you in; Case 2 Invalid password; case 3 account does not exist;
                 case 1: loginView.displayLogin();
                         pizzaDeliveryApp.start(stage);

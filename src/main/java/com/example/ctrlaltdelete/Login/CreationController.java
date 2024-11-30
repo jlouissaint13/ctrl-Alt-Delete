@@ -60,7 +60,7 @@ public class CreationController {
                  creationView.displayValidationCheck();
                  return;
              }
-             if(loginModel.accountExist(email.toLowerCase())) {
+             if(loginModel.accountExist(phoneNumber)) {
                  creationView.accountExist();
                  return;
              }
