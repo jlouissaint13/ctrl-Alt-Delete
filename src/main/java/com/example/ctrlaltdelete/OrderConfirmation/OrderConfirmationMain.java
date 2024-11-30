@@ -14,7 +14,11 @@ import javafx.geometry.Pos;
 import javafx.scene.shape.Line;
 import javafx.scene.control.Button;
 
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.util.Random;
 
+import java.util.Objects;
 
 
 public class OrderConfirmationMain extends Application {
@@ -32,8 +36,9 @@ public class OrderConfirmationMain extends Application {
 
         //adding labels
         Label orderConfirmation = new Label("Order Confirmation");
-        Label orderNumber = new Label("Order #: 000000000000");
-        Label orderDate = new Label("Order Date: 00/00/00");
+        Label orderNumber;
+        Label orderDate;
+
         Label orderTotal = new Label("Order Total");
         Label subTotal = new Label("Sub Total: $0.00");
         Label tax = new Label("Tax: $0.00");
@@ -42,43 +47,68 @@ public class OrderConfirmationMain extends Application {
         Label orderItems = new Label("Order Items");
         Label orderItemsList = new Label("Order Items List");
 
+        //creating random number for order
+        Random r = new Random();
+        int randomNumber = r.nextInt(1000000000);
+        orderNumber = new Label("Order #: "+ randomNumber);
+
+        LocalDateTime myObj = LocalDateTime.now();
+
+
+        Instant now = Instant.now();
+
+        // Convert Instant to LocalDateTime (with system default timezone)
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(now, ZoneId.systemDefault());
+
+        // Define the desired format
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
+        // Format the LocalDateTime
+        String formattedDate = localDateTime.format(formatter);
+
+        orderDate = new Label("OrderDate: "+ formattedDate);
+
+       // DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        //String formattedDate = myObj.format(myFormatObj);
+        //orderDate.setText("Order Date: " +formattedDate);
+
         //adding button
         Button button = new Button("Return to Homepage");
 
         //aligning labels
-        orderConfirmation.setTranslateY(-30);
+        orderConfirmation.setTranslateY(120);
         orderConfirmation.setTranslateX(40);
 
-        orderNumber.setTranslateY(-35);
+        orderNumber.setTranslateY(180);
         orderNumber.setTranslateX(10);
 
-        orderDate.setTranslateY(-35);
+        orderDate.setTranslateY(210);
         orderDate.setTranslateX(10);
 
-        orderTotal.setTranslateY(-35);
+        orderTotal.setTranslateY(240);
         orderTotal.setTranslateX(8);
 
-        subTotal.setTranslateY(-35);
+        subTotal.setTranslateY(280);
         subTotal.setTranslateX(10);
 
-        tax.setTranslateY(-35);
+        tax.setTranslateY(310);
         tax.setTranslateX(10);
 
-        total.setTranslateY(-35);
+        total.setTranslateY(340);
         total.setTranslateX(10);
 
-        orderSummary.setTranslateY(-35);
+        orderSummary.setTranslateY(360);
         orderSummary.setTranslateX(8);
 
         orderItems.setTranslateY(-35);
         orderItems.setTranslateX(10);
 
-        orderItemsList.setTranslateY(-35);
+        orderItemsList.setTranslateY(410);
         orderItemsList.setTranslateX(10);
 
         //aligning button
-        button.setTranslateY(20);
-        button.setTranslateX(70);
+        button.setTranslateY(490);
+        button.setTranslateX(90);
         button.setPrefHeight(70);
         button.setPrefWidth(190);
 
@@ -105,16 +135,13 @@ public class OrderConfirmationMain extends Application {
         //aligning image
         logoView.setImage(logo);
         logoView.setTranslateY(-5);
-        logoView.setTranslateX(115);
-        logoView.setFitHeight(100);
-        logoView.setFitWidth(100);
+        logoView.setTranslateX(100);
+        logoView.setFitHeight(140);
+        logoView.setFitWidth(140);
 
         //adding lines
-        //Line line = new Line(0,100,300,100);
-        //line.setStartX(0.0);
-        //line.setStartY(0.0);
-        // line.setEndX(0.0);
-        //line.setEndY(0.0);
+        Line line = new Line(20,170,320,170);
+
 
         //line.setStroke(Color.BLACK);
         //line.setStrokeWidth(2);
@@ -122,7 +149,8 @@ public class OrderConfirmationMain extends Application {
         // line.setStartY(line.getStartY() + 50); // Move up by 20 pixels
         // line.setEndY(line.getEndY() + 50);     // Move up by 20 pixels
 
-        //Line line2 = new Line(0,-100,300,-100);
+        Line line2 = new Line(0,275,200,275);
+        Line line3 = new Line(0,400,200,400);
 
 
 //takes text fields from checkout and updates them for order confirmation
@@ -135,22 +163,47 @@ public class OrderConfirmationMain extends Application {
             // orderItemsList.setText("pulled from class");
 
         //creating vbox for scene creation
-        Pane pane = new VBox(10,logoView,orderConfirmation,orderNumber,orderDate,orderTotal,subTotal,tax,total,orderSummary,orderItems,orderItemsList,button);
+
+        VBox vbox = new VBox();
+        Pane pane = new Pane();
+
+
+        pane.setStyle("-fx-background-color: #FFFFFF;");
+
+        pane.getChildren().add(logoView);
+        pane.getChildren().add(orderConfirmation);
+        pane.getChildren().add(orderNumber);
+        pane.getChildren().add(orderDate);
+        pane.getChildren().add(orderTotal);
+        pane.getChildren().add(subTotal);
+        pane.getChildren().add(tax);
+        pane.getChildren().add(total);
+        pane.getChildren().add(orderSummary);
+        pane.getChildren().add(orderItems);
+        pane.getChildren().add(orderItemsList);
+        pane.getChildren().add(button);
+        pane.getChildren().add(line);
+        pane.getChildren().add(line2);
+        pane.getChildren().add(line3);
+
+
+        //Pane pane = new VBox(10,logoView,orderConfirmation,orderNumber,orderDate,orderTotal,subTotal,tax,total,orderSummary,orderItems,orderItemsList,button);
              //pane.setAlignment(Pos.CENTER);
-        pane.setStyle("-fx-background-color:#FEFFFF");
+        //pane.setStyle("-fx-background-color:#FEFFFF");
 
 
+        vbox.getChildren().add(pane);
 
-
-
+        vbox.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
         //adding pizza logo to scene
 
 
 
 
+       // orderNumber.setText();
 
-        Scene scene = new Scene(pane,350,600);
+        Scene scene = new Scene(vbox,350,600);
 
         orderConfirmationPage.setScene(scene);
         orderConfirmationPage.setTitle("Order Confirmation Page");
