@@ -17,6 +17,24 @@
     -fx-padding: 12px; /*affects the height of my fields*/
     -fx-pref-width: 170px; /*set my width*/
 }
+#quantityPizza{
+    -fx-background-color: #f5f5f5;
+    -fx-font-size: 15px;
+    -fx-font-family: "comfortaa";
+    -fx-border-color: rgb(160, 50, 50);
+    -fx-border-radius: 5px; /*how circular my corners*/
+    -fx-padding: 12px; /*affects the height of my fields*/
+    -fx-pref-width: 60px; /*set my width*/
+}
+#quantityDrink{
+    -fx-background-color: #f5f5f5;
+    -fx-font-size: 15px;
+    -fx-font-family: "comfortaa";
+    -fx-border-color: rgb(160, 50, 50);
+    -fx-border-radius: 5px; /*how circular my corners*/
+    -fx-padding: 12px; /*affects the height of my fields*/
+    -fx-pref-width: 60px; /*set my width*/
+}
 #lnameE{
     -fx-background-color: #f5f5f5;
     -fx-font-size: 15px;
@@ -61,6 +79,16 @@
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, #FF5733, 10, 0, 0, 2);
     -fx-pref-width:82px;
+}
+#add {
+    -fx-background-color: #A03232;
+    -fx-text-fill: white;
+    -fx-font-size: 14.5px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, #FF5733, 10, 0, 0, 2);
+    -fx-pref-width:70px;
 }
 #plus {
     -fx-background-color: #A03232;

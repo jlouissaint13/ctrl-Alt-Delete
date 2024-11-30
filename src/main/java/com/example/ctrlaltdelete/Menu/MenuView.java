@@ -23,10 +23,10 @@ public class MenuView {
     private Pane pane;
     private Text headerText;
     private Label name,phone,price,allDrinks,drinkSizes;
-    private TextField nameField, phoneField, priceField;
+    private TextField nameField, phoneField, priceField,quantityDrink,quantityPizza;
     private RadioButton smallSize, mediumSize, largeSize,pickup,delivery;
     private CheckBox pepperoni, ham, sausage, canadianBacon, chicken, greenPeppers, redPeppers, onions, mushrooms, blackOlives;
-    private Button placeOrderButton, exitButton,plus,minus;
+    private Button placeOrderButton, exitButton,plus,minus,add;
     private Scene scene;
     private Line line;
     ObservableList<String> Drinks =
@@ -73,6 +73,8 @@ public void components() {
     phoneField = new TextField();
     priceField = new TextField();
     priceField.setEditable(false);
+    quantityDrink = new TextField();
+    quantityPizza = new TextField();
 
     //RadioButtons for pickup or delivery
     pickup = new RadioButton("Carryout");
@@ -102,10 +104,12 @@ public void components() {
     // Buttons
 
     //calculateButton = new Button("Calculate");
-    placeOrderButton = new Button("Place Order");
+    placeOrderButton = new Button("Checkout");
     exitButton = new Button("Exit");
     plus = new Button("+");
     minus = new Button("-");
+    add = new Button("Add");
+    add.setId("add");
     plus.setId("plus");
     minus.setId("minus");
 
@@ -177,16 +181,25 @@ public void properties() {
     drinkSize.setLayoutY(400);
     comboBox.setLayoutX(150);
     comboBox.setLayoutY(400);
+    quantityDrink.setLayoutX(280);
+    quantityDrink.setLayoutY(390);
+    quantityDrink.setId("quantityDrink");
+    quantityDrink.setPromptText("QTY");
 
 
     plus.setLayoutX(260);
     plus.setLayoutY(438);
     minus.setLayoutX(20);
     minus.setLayoutY(438);
-    priceField.setLayoutX(80);
+    priceField.setLayoutX(20);
     priceField.setLayoutY(435);
     priceField.setPromptText("Price:");
-
+    add.setLayoutX(275);
+    add.setLayoutY(442);
+    quantityPizza.setLayoutX(200);
+    quantityPizza.setLayoutY(435);
+    quantityPizza.setPromptText("QTY");
+    quantityPizza.setId("quantityPizza");
     // Buttons
 
     placeOrderButton.setLayoutX(85);
@@ -216,7 +229,8 @@ public void addComponents() {
             smallSize, mediumSize, largeSize,
             pepperoni, ham, sausage, canadianBacon, chicken, greenPeppers,
             redPeppers, onions,
-            priceField,  placeOrderButton,pickup,delivery,name,phone,line,comboBox,drinkSize,drinkSizes,allDrinks,plus,minus
+            priceField,  placeOrderButton,pickup,delivery,name,phone,line,comboBox,
+            drinkSize,drinkSizes,allDrinks,quantityPizza,quantityDrink,add
 
     );
 
