@@ -20,4 +20,5 @@ module com.example.ctrlaltdelete {
     exports com.example.ctrlaltdelete.Homepage;
     opens  com.example.ctrlaltdelete.Homepage to javafx.fxml;
     exports com.example.ctrlaltdelete.OrderConfirmation;
+    opens com.example.ctrlaltdelete.OrderConfirmation to javafx.fxml;
 }

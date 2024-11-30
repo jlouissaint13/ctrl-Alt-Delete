@@ -66,7 +66,7 @@ public class OrderConfirmationMain extends Application {
         // Format the LocalDateTime
         String formattedDate = localDateTime.format(formatter);
 
-        orderDate = new Label("OrderDate: "+ formattedDate);
+        orderDate = new Label("Order Date: "+ formattedDate);
 
        // DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         //String formattedDate = myObj.format(myFormatObj);
@@ -129,7 +129,7 @@ public class OrderConfirmationMain extends Application {
         orderItemsList.setStyle("-fx-font-size: 15px;");
 
         //adding images
-        Image logo = new Image("file:/C:/Users/ColinPC/Pictures/Saved Pictures/sliceHeaven.png/");
+        Image logo = new Image("sliceHeaven.png");
         ImageView logoView = new ImageView(logo);
 
         //aligning image
