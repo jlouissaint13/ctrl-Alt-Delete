@@ -14,6 +14,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import net.synedra.validatorfx.Check;
 
 import java.io.InputStream;
 
@@ -25,7 +26,7 @@ public class MenuView {
     private TextField nameField, phoneField, priceField;
     private RadioButton smallSize, mediumSize, largeSize,pickup,delivery;
     private CheckBox pepperoni, hamburger, sausage, canadianBacon, chicken, greenPeppers, redPeppers, onions, mushrooms, blackOlives;
-    private Button placeOrderButton, exitButton;
+    private Button placeOrderButton, exitButton,plus,minus;
     private Scene scene;
     private Line line;
     ObservableList<String> Drinks =
@@ -57,8 +58,8 @@ public void components() {
     //Labels
     name = new Label("Name*");
     phone = new Label("Phone*");
-    drinkSizes = new Label("Drink Sizes");
-    allDrinks = new Label("Drinks");
+    drinkSizes = new Label("Drinks");
+    allDrinks = new Label("Drinks Sizes");
 
     //Line
     line = new Line();
@@ -99,9 +100,14 @@ public void components() {
     blackOlives = new CheckBox("Black Olives");
 
     // Buttons
+
     //calculateButton = new Button("Calculate");
     placeOrderButton = new Button("Place Order");
     exitButton = new Button("Exit");
+    plus = new Button("+");
+    minus = new Button("-");
+    plus.setId("plus");
+    minus.setId("minus");
 
 
 }
@@ -173,8 +179,11 @@ public void properties() {
     comboBox.setLayoutY(400);
 
 
-
-    priceField.setLayoutX(20);
+    plus.setLayoutX(260);
+    plus.setLayoutY(438);
+    minus.setLayoutX(20);
+    minus.setLayoutY(438);
+    priceField.setLayoutX(80);
     priceField.setLayoutY(435);
     priceField.setPromptText("Price:");
 
@@ -207,11 +216,44 @@ public void addComponents() {
             smallSize, mediumSize, largeSize,
             pepperoni, hamburger, sausage, canadianBacon, chicken, greenPeppers,
             redPeppers, onions,
-            priceField,  placeOrderButton,pickup,delivery,name,phone,line,comboBox,drinkSize,drinkSizes,allDrinks
+            priceField,  placeOrderButton,pickup,delivery,name,phone,line,comboBox,drinkSize,drinkSizes,allDrinks,plus,minus
 
     );
 
 }
+
+    public Button getPlus() {
+    return plus;
+    }
+    public Button getMinus() {
+    return minus;
+    }
+    //All checkbox buttons
+    public CheckBox getPepperoni() {
+        return pepperoni;
+    }
+    public CheckBox getHamburger() {
+        return hamburger;
+
+    }
+    public CheckBox getSausage() {
+    return sausage;
+    }
+    public CheckBox getCanadianBacon() {
+    return canadianBacon;
+    }
+    public CheckBox getGreenPeppers() {
+    return greenPeppers;
+    }
+    public CheckBox getOnions() {
+    return onions;
+    }
+    public CheckBox getRedPeppers() {
+    return redPeppers;
+    }
+    public CheckBox getChicken() {
+    return chicken;
+    }
 
 
 public MenuView(Stage stage) {

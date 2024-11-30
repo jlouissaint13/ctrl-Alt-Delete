@@ -2,13 +2,14 @@ package com.example.ctrlaltdelete.Menu;
 
 import com.example.ctrlaltdelete.Login.CreationModel;
 import javafx.css.Size;
+import javafx.scene.control.CheckBox;
 
 public class MenuModel {
     private String size , drinkSize;
     private int sPizza,mPizza,lPizza,xlPizza,sDrink,mDrink,lDrink;
     private double priceSize,toppings,drink,pizzaCost;
     private double toppingsCost,drinkCost;
-    private static double totalCost;
+    private double totalCost;
     public MenuModel() {
 
 
@@ -27,10 +28,10 @@ public class MenuModel {
         if (size.equals("XLarge")) xlPizza -= 1;
     }
     public void addToppings() {
-        toppings += 1;
+        totalCost += 0.75;
     }
     public void subToppings() {
-        toppings -= 1;
+        totalCost -= 0.75;
     }
     public void addDrink() {
         if (size.equals("small")) sDrink += 1;
@@ -44,16 +45,19 @@ public class MenuModel {
     }
     //Light cheese will have no impact on pricing;
     public void extraCheese() {
-        pizzaCost += 0.75;
+        totalCost += 0.75;
     }
     public void removeExtraCheese() {
-        pizzaCost -= 0.75;
+        totalCost -= 0.75;
     }
     public void stuffedCrust() {
-        pizzaCost += 1.50;
+        totalCost += 1.50;
     }
     public void removeStuffed() {
-        pizzaCost -= 1.50;
+        totalCost -= 1.50;
+    }
+    public void deliveryFee() {
+        totalCost += 2.00;
     }
     //Calculate the total cost
     public double calculateCost() {
@@ -63,6 +67,8 @@ public class MenuModel {
 
      return pizzaCost + drinkCost + toppingsCost;
     }
+
+
 
 
     //size 1 = small
