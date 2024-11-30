@@ -25,7 +25,7 @@ public class MenuView {
     private Label name,phone,price,allDrinks,drinkSizes;
     private TextField nameField, phoneField, priceField;
     private RadioButton smallSize, mediumSize, largeSize,pickup,delivery;
-    private CheckBox pepperoni, hamburger, sausage, canadianBacon, chicken, greenPeppers, redPeppers, onions, mushrooms, blackOlives;
+    private CheckBox pepperoni, ham, sausage, canadianBacon, chicken, greenPeppers, redPeppers, onions, mushrooms, blackOlives;
     private Button placeOrderButton, exitButton,plus,minus;
     private Scene scene;
     private Line line;
@@ -89,7 +89,7 @@ public void components() {
 
     // Checkboxes for toppings
     pepperoni = new CheckBox("Pepperoni");
-    hamburger = new CheckBox("Hamburger");
+    ham = new CheckBox("Ham");
     sausage = new CheckBox("Sausage");
     canadianBacon = new CheckBox("Canadian Bacon");
     chicken = new CheckBox("Chicken");
@@ -152,8 +152,8 @@ public void properties() {
     // Toppings
     pepperoni.setLayoutX(20);
     pepperoni.setLayoutY(230);
-    hamburger.setLayoutX(150);
-    hamburger.setLayoutY(230);
+    ham.setLayoutX(150);
+    ham.setLayoutY(230);
     sausage.setLayoutX(20);
     sausage.setLayoutY(270);
     canadianBacon.setLayoutX(150);
@@ -214,7 +214,7 @@ public void addComponents() {
     pane.getChildren().addAll(
             headerText, nameField, phoneField,
             smallSize, mediumSize, largeSize,
-            pepperoni, hamburger, sausage, canadianBacon, chicken, greenPeppers,
+            pepperoni, ham, sausage, canadianBacon, chicken, greenPeppers,
             redPeppers, onions,
             priceField,  placeOrderButton,pickup,delivery,name,phone,line,comboBox,drinkSize,drinkSizes,allDrinks,plus,minus
 
@@ -232,8 +232,8 @@ public void addComponents() {
     public CheckBox getPepperoni() {
         return pepperoni;
     }
-    public CheckBox getHamburger() {
-        return hamburger;
+    public CheckBox getHam() {
+        return ham;
 
     }
     public CheckBox getSausage() {

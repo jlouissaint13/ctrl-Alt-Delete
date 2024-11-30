@@ -1,5 +1,6 @@
 package com.example.ctrlaltdelete.Login;
 
+import com.example.ctrlaltdelete.Menu.MenuMain;
 import com.example.ctrlaltdelete.Menu.PizzaDeliveryApp;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -12,10 +13,10 @@ public class LoginController {
     private CreationView creationView;
     private CreationMain creationMain;
     private String emailText,passwordText;
-    private PizzaDeliveryApp pizzaDeliveryApp;
+    private MenuMain menuMain;
     public LoginController(Stage stage, LoginModel loginModel, LoginView loginView) {
         //So I can go to the next scene
-        pizzaDeliveryApp = new PizzaDeliveryApp();
+        menuMain = new MenuMain();
 
         this.loginView = loginView;
         this.loginModel = loginModel;
@@ -30,7 +31,7 @@ public class LoginController {
         guest.setOnAction(event -> {
             System.out.println("Button is active");
 
-            pizzaDeliveryApp.start(stage);
+            menuMain.start(stage);
         }); //Action handler for sign in as a guest;
 
 
@@ -58,7 +59,7 @@ public class LoginController {
                 //Case 1 log you in; Case 2 Invalid password; case 3 account does not exist;
                 case 1:
                     loginView.displayLogin();
-                    pizzaDeliveryApp.start(stage);
+                    menuMain.start(stage);
                     break;
                 case 2: loginView.invalidPassword(); break;
                 case 3: loginView.invalidAccount(); break;
@@ -78,7 +79,7 @@ public class LoginController {
                 //Case 1 log you in; Case 2 Invalid password; case 3 account does not exist;
                 case 1:
                     loginView.displayLogin();
-                    pizzaDeliveryApp.start(stage);break;
+                    menuMain.start(stage);break;
                 case 2: loginView.invalidPassword(); break;
                 case 3: loginView.invalidAccount(); break;
             }
@@ -93,7 +94,7 @@ public class LoginController {
             switch (this.loginModel.isValid(loginView.getPhone(),loginView.getPassword()))  {
                 //Case 1 log you in; Case 2 Invalid password; case 3 account does not exist;
                 case 1: loginView.displayLogin();
-                        pizzaDeliveryApp.start(stage);
+                    menuMain.start(stage);
                 break;
                 case 2: loginView.invalidPassword(); break;
                 case 3: loginView.invalidAccount(); break;
