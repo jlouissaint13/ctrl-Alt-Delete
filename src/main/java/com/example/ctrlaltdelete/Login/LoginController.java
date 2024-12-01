@@ -1,7 +1,6 @@
 package com.example.ctrlaltdelete.Login;
 
 import com.example.ctrlaltdelete.Menu.MenuMain;
-import com.example.ctrlaltdelete.Menu.PizzaDeliveryApp;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
