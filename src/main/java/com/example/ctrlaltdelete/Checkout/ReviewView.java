@@ -259,10 +259,10 @@ public class ReviewView {
         priceBox.setPadding(new Insets(10));
         double tax = 0.08 * totalCost;
         Label priceLabel = new Label("Final Price");
-        Label subtotalLabel = new Label("Subtotal:    $" + totalCost);
-        Label taxLabel = new Label("Tax:          $" + tax );
+        Label subtotalLabel = new Label("Subtotal:    $" + String.format("%.2f", totalCost));
+        Label taxLabel = new Label("Tax:          $" + String.format("%.2f", tax));
         totalCost += tax;
-        Label totalLabel = new Label("Total:        $" + totalCost);
+        Label totalLabel = new Label("Total:        $" + String.format("%.2f", totalCost));
 
         priceBox.getChildren().addAll(priceLabel, subtotalLabel, taxLabel, totalLabel);
 

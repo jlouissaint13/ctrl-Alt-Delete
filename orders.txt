@@ -1,6 +1,6 @@
 Your Order:
 Size: Small ($5)
-Toppings: Cheese ($1) Pepperoni ($1) Olives ($1) Onions ($1) 
-Beverage: Coke ($2) (Medium (+$1))
-Total Cost: $12.0
+Toppings: Pepperoni ($1) 
+Beverage: Coke ($2) (Small)
+Total Cost: $8.0
 =========================================
