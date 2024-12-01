@@ -123,35 +123,35 @@ public class PizzaDeliveryApp extends Application {
             // Toppings
             orderDetails.append("Toppings: ");
             if (topping1.isSelected()) {
-                orderDetails.append("Cheese ");
+                orderDetails.append("Cheese ($1) ");
                 totalCost += 1;
             }
             if (topping2.isSelected()) {
-                orderDetails.append("Pepperoni ");
+                orderDetails.append("Pepperoni ($1) ");
                 totalCost += 1;
             }
             if (topping3.isSelected()) {
-                orderDetails.append("Mushrooms ");
+                orderDetails.append("Mushrooms ($1) ");
                 totalCost += 1;
             }
             if (topping4.isSelected()) {
-                orderDetails.append("Olives ");
+                orderDetails.append("Olives ($1) ");
                 totalCost += 1;
             }
             if (topping5.isSelected()) {
-                orderDetails.append("Onions ");
+                orderDetails.append("Onions ($1) ");
                 totalCost += 1;
             }
             if (topping6.isSelected()) {
-                orderDetails.append("Green Peppers ");
+                orderDetails.append("Green Peppers ($1) ");
                 totalCost += 1;
             }
             if (topping7.isSelected()) {
-                orderDetails.append("Bacon ");
+                orderDetails.append("Bacon ($2)" );
                 totalCost += 2;
             }
             if (topping8.isSelected()) {
-                orderDetails.append("Pineapple ");
+                orderDetails.append("Pineapple ($2)" );
                 totalCost += 2;
             }
             orderDetails.append("\n");
