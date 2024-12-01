@@ -4,6 +4,7 @@ import com.example.ctrlaltdelete.Menu.PizzaDeliveryApp;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -14,7 +15,9 @@ import javafx.stage.Stage;
 import javafx.geometry.Pos;
 import javafx.scene.shape.Line;
 import javafx.scene.control.Button;
-
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
@@ -35,7 +38,11 @@ private PizzaDeliveryApp pizzaDeliveryApp;
     @Override
     public void start(Stage orderConfirmationPage) throws Exception {
         pizzaDeliveryApp = new PizzaDeliveryApp();
-        double totalCost = pizzaDeliveryApp.returnTotalCost();
+        double subTotalOut = pizzaDeliveryApp.returnTotalCost();
+
+        double taxTotal = subTotalOut * 0.8;
+        double totalCost = subTotalOut + taxTotal;
+
         //adding labels
         Label orderConfirmation = new Label("Order Confirmation");
         Label orderNumber;
@@ -48,6 +55,13 @@ private PizzaDeliveryApp pizzaDeliveryApp;
         Label orderSummary = new Label("Order Summary");
         Label orderItems = new Label("Order Items");
         Label orderItemsList = new Label("Order Items List");
+        Label signHere = new Label("Sign Here:");
+
+
+        subTotal.setText("Sub Total: $" + subTotalOut);
+        tax.setText("Tax: $" + taxTotal);
+        total.setText("Total: $" + totalCost);
+
 
         //creating random number for order
         Random r = new Random();
@@ -108,11 +122,16 @@ private PizzaDeliveryApp pizzaDeliveryApp;
         orderItemsList.setTranslateY(410);
         orderItemsList.setTranslateX(10);
 
+        signHere.setTranslateY(520);
+        signHere.setTranslateX(30);
+
+
+
         //aligning button
-        button.setTranslateY(490);
+        button.setTranslateY(550);
         button.setTranslateX(90);
-        button.setPrefHeight(70);
-        button.setPrefWidth(190);
+        button.setPrefHeight(40);
+        button.setPrefWidth(150);
 
         //setting button action
         //button.setOnAction(actionEvent -> orderConfirmation.setScene("Goes Home"));
@@ -143,16 +162,14 @@ private PizzaDeliveryApp pizzaDeliveryApp;
 
         //adding lines
         Line line = new Line(20,170,320,170);
-
-
-        //line.setStroke(Color.BLACK);
-        //line.setStrokeWidth(2);
-
-        // line.setStartY(line.getStartY() + 50); // Move up by 20 pixels
-        // line.setEndY(line.getEndY() + 50);     // Move up by 20 pixels
-
         Line line2 = new Line(0,275,200,275);
         Line line3 = new Line(0,400,200,400);
+
+        Line signature = new Line(100,535,250,535);
+
+
+
+
 
 
 //takes text fields from checkout and updates them for order confirmation
@@ -187,11 +204,24 @@ private PizzaDeliveryApp pizzaDeliveryApp;
         pane.getChildren().add(line);
         pane.getChildren().add(line2);
         pane.getChildren().add(line3);
+        pane.getChildren().add(signature);
+        pane.getChildren().add(signHere);
+
+
+
+
 
 
         //Pane pane = new VBox(10,logoView,orderConfirmation,orderNumber,orderDate,orderTotal,subTotal,tax,total,orderSummary,orderItems,orderItemsList,button);
              //pane.setAlignment(Pos.CENTER);
         //pane.setStyle("-fx-background-color:#FEFFFF");
+
+
+        class Pizza{
+
+        }
+
+
 
 
         vbox.getChildren().add(pane);
@@ -203,7 +233,8 @@ private PizzaDeliveryApp pizzaDeliveryApp;
 
 
 
-       // orderNumber.setText();
+        //
+        //
 
         Scene scene = new Scene(vbox,350,600);
 
