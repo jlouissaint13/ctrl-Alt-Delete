@@ -40,8 +40,11 @@ private PizzaDeliveryApp pizzaDeliveryApp;
         pizzaDeliveryApp = new PizzaDeliveryApp();
         double subTotalOut = pizzaDeliveryApp.returnTotalCost();
 
-        double taxTotal = subTotalOut * 0.8;
+        double taxTotal = subTotalOut * 0.08;
         double totalCost = subTotalOut + taxTotal;
+
+        String formatTax = String.format("%.2f", taxTotal);
+
 
         //adding labels
         Label orderConfirmation = new Label("Order Confirmation");
@@ -59,7 +62,7 @@ private PizzaDeliveryApp pizzaDeliveryApp;
 
 
         subTotal.setText("Sub Total: $" + subTotalOut);
-        tax.setText("Tax: $" + taxTotal);
+        tax.setText("Tax: $" + formatTax);
         total.setText("Total: $" + totalCost);
 
 
@@ -68,12 +71,12 @@ private PizzaDeliveryApp pizzaDeliveryApp;
         int randomNumber = r.nextInt(1000000000);
         orderNumber = new Label("Order #: "+ randomNumber);
 
+
+
         LocalDateTime myObj = LocalDateTime.now();
-
-
         Instant now = Instant.now();
 
-        // Convert Instant to LocalDateTime (with system default timezone)
+        // Convert Instant to LocalDateTime
         LocalDateTime localDateTime = LocalDateTime.ofInstant(now, ZoneId.systemDefault());
 
         // Define the desired format
