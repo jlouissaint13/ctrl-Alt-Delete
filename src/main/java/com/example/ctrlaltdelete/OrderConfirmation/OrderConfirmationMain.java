@@ -1,5 +1,6 @@
 package com.example.ctrlaltdelete.OrderConfirmation;
 
+import com.example.ctrlaltdelete.Menu.PizzaDeliveryApp;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -23,7 +24,7 @@ import java.util.Objects;
 
 public class OrderConfirmationMain extends Application {
 
-
+private PizzaDeliveryApp pizzaDeliveryApp;
 
 
     public static void main(String[] args) {
@@ -33,7 +34,8 @@ public class OrderConfirmationMain extends Application {
 
     @Override
     public void start(Stage orderConfirmationPage) throws Exception {
-
+        pizzaDeliveryApp = new PizzaDeliveryApp();
+        double totalCost = pizzaDeliveryApp.returnTotalCost();
         //adding labels
         Label orderConfirmation = new Label("Order Confirmation");
         Label orderNumber;

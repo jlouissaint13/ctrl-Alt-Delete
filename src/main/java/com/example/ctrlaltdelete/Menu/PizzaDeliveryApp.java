@@ -15,6 +15,7 @@ import java.io.FileNotFoundException;
 
 public class PizzaDeliveryApp extends Application {
     private ReviewMain reviewMain;
+    private static double totalCost = 0;
 
     @Override
     public void start(Stage primaryStage) {
@@ -98,7 +99,7 @@ public class PizzaDeliveryApp extends Application {
 
         submitButton.setOnAction(e -> {
             StringBuilder orderDetails = new StringBuilder("Your Order:\n");
-            double totalCost = 0;
+
 
             // Pizza Size
             RadioButton selectedSize = (RadioButton) sizeGroup.getSelectedToggle();
@@ -183,6 +184,7 @@ public class PizzaDeliveryApp extends Application {
 
         });
 
+
         // Layout
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(15));
@@ -206,7 +208,9 @@ public class PizzaDeliveryApp extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
+    public double returnTotalCost() {
+        return totalCost;
+    }
     public static void main(String[] args) {
         launch(args);
     }
