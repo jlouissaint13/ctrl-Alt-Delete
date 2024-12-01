@@ -14,7 +14,7 @@ public class ReviewMain extends Application {
     @Override
     public void start(Stage primaryStage) throws FileNotFoundException {
         ReviewView reviewView = new ReviewView(primaryStage);
-
+        ReviewController reviewController = new ReviewController();
         primaryStage.show();
     }
 }

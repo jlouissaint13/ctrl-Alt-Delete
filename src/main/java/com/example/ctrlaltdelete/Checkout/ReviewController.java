@@ -14,7 +14,7 @@ public class ReviewController {
 
 
     public ReviewController() throws FileNotFoundException {
-
+        stage = new Stage();
         reviewView = new ReviewView(stage);
         placeOrder = reviewView.getPlaceOrderButton();
 
@@ -25,6 +25,7 @@ public class ReviewController {
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
+            System.out.println("Button is working");
         });
 
     }
