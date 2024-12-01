@@ -52,7 +52,7 @@ private PizzaDeliveryApp pizzaDeliveryApp;
         //creating random number for order
         Random r = new Random();
         int randomNumber = r.nextInt(1000000000);
-        orderNumber = new Label("Order #: "+ randomNumber);
+        orderNumber = new Label("Order #: " + randomNumber);
 
         LocalDateTime myObj = LocalDateTime.now();
 
@@ -68,9 +68,9 @@ private PizzaDeliveryApp pizzaDeliveryApp;
         // Format the LocalDateTime
         String formattedDate = localDateTime.format(formatter);
 
-        orderDate = new Label("Order Date: "+ formattedDate);
+        orderDate = new Label("Order Date: " + formattedDate);
 
-       // DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        // DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         //String formattedDate = myObj.format(myFormatObj);
         //orderDate.setText("Order Date: " +formattedDate);
 
@@ -142,7 +142,7 @@ private PizzaDeliveryApp pizzaDeliveryApp;
         logoView.setFitWidth(140);
 
         //adding lines
-        Line line = new Line(20,170,320,170);
+        Line line = new Line(20, 170, 320, 170);
 
 
         //line.setStroke(Color.BLACK);
@@ -151,18 +151,18 @@ private PizzaDeliveryApp pizzaDeliveryApp;
         // line.setStartY(line.getStartY() + 50); // Move up by 20 pixels
         // line.setEndY(line.getEndY() + 50);     // Move up by 20 pixels
 
-        Line line2 = new Line(0,275,200,275);
-        Line line3 = new Line(0,400,200,400);
+        Line line2 = new Line(0, 275, 200, 275);
+        Line line3 = new Line(0, 400, 200, 400);
 
 
 //takes text fields from checkout and updates them for order confirmation
-            //orderNumber.setText("pulled from class");
-            //orderDate.setText("pulled from class");
-            // orderTotal.setText("pulled from class");
-            //subTotal.setText("pulled from class");
-            //tax.setText("pulled from class");
-            //total.setText("pulled from class");
-            // orderItemsList.setText("pulled from class");
+        //orderNumber.setText("pulled from class");
+        //orderDate.setText("pulled from class");
+        // orderTotal.setText("pulled from class");
+        //subTotal.setText("pulled from class");
+        //tax.setText("pulled from class");
+        //total.setText("pulled from class");
+        // orderItemsList.setText("pulled from class");
 
         //creating vbox for scene creation
 
@@ -190,7 +190,7 @@ private PizzaDeliveryApp pizzaDeliveryApp;
 
 
         //Pane pane = new VBox(10,logoView,orderConfirmation,orderNumber,orderDate,orderTotal,subTotal,tax,total,orderSummary,orderItems,orderItemsList,button);
-             //pane.setAlignment(Pos.CENTER);
+        //pane.setAlignment(Pos.CENTER);
         //pane.setStyle("-fx-background-color:#FEFFFF");
 
 
@@ -201,17 +201,14 @@ private PizzaDeliveryApp pizzaDeliveryApp;
         //adding pizza logo to scene
 
 
+        // orderNumber.setText();
 
-
-       // orderNumber.setText();
-
-        Scene scene = new Scene(vbox,350,600);
+        Scene scene = new Scene(vbox, 350, 600);
 
         orderConfirmationPage.setScene(scene);
         orderConfirmationPage.setTitle("Order Confirmation Page");
 
         orderConfirmationPage.getIcons().add(logo);
         orderConfirmationPage.show();
-
     }
 }

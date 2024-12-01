@@ -1,4 +1,7 @@
 Your Order:
-Toppings: 
-Total Cost: $0.0
+Size: Small ($5)
+Crust: Thin Crust ($2)
+Toppings: Cheese 
+Beverage: Coke ($2) (Small)
+Total Cost: $10.0
 =========================================

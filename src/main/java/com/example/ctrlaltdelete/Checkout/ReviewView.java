@@ -23,11 +23,13 @@ public class ReviewView {
     public void components() throws FileNotFoundException {
         pizzaDeliveryApp = new PizzaDeliveryApp();
         double totalCost = pizzaDeliveryApp.returnTotalCost();
+
         // Initialize the VBox root layout to contain all UI components
         root = new VBox(15); // 15 is the spacing between components in VBox
         root.setPadding(new Insets(20));
         reviewModel = new ReviewModel();
         loginModel = new LoginModel();
+
         // Header Section
         HBox headerBox = new HBox(10);
         headerBox.setAlignment(Pos.CENTER_LEFT);
@@ -46,13 +48,8 @@ public class ReviewView {
         orderDetailsArea.setText(reviewModel.orderDetails());
         orderDetailsArea.setEditable(false);
 
-        // Button to adjust quantity or remove items
-        HBox orderActionsBox = new HBox(10);
-        Button increaseQuantityButton = new Button("+");
-        Button decreaseQuantityButton = new Button("-");
-        orderActionsBox.getChildren().addAll(increaseQuantityButton, decreaseQuantityButton);
 
-        orderBox.getChildren().addAll(orderLabel, orderDetailsArea, orderActionsBox);
+        orderBox.getChildren().addAll(orderLabel, orderDetailsArea);
 
         // Contact Info Section
         VBox contactInfoBox = new VBox(10);
