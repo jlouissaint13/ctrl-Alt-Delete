@@ -1,7 +1,4 @@
 Your Order:
-Size: Large ($10)
-Crust: Thin Crust ($2)
-Toppings: Pepperoni 
-Beverage: Coke ($2) (Small)
-Total Cost: $15.0
+Toppings: 
+Total Cost: $0.0
 =========================================
