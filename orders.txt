@@ -1,7 +1,4 @@
 Your Order:
-Size: Large ($10)
-Crust: Thick Crust ($3)
-Toppings: Olives Onions Green Peppers Bacon 
-Beverage: Water ($1) (Medium (+$1))
-Total Cost: $20.0
+Toppings: 
+Total Cost: $0.0
 =========================================

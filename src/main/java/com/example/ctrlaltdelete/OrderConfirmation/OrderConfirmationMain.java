@@ -1,5 +1,6 @@
 package com.example.ctrlaltdelete.OrderConfirmation;
 
+import com.example.ctrlaltdelete.Login.LoginMain;
 import com.example.ctrlaltdelete.Menu.PizzaDeliveryApp;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -21,6 +22,7 @@ import java.io.IOException;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
+import java.io.FileNotFoundException;
 
 import java.util.Objects;
 
@@ -28,7 +30,7 @@ import java.util.Objects;
 public class OrderConfirmationMain extends Application {
 
 private PizzaDeliveryApp pizzaDeliveryApp;
-
+LoginMain loginMain;
 
     public static void main(String[] args) {
         launch(args);
@@ -43,7 +45,9 @@ private PizzaDeliveryApp pizzaDeliveryApp;
         double taxTotal = subTotalOut * 0.08;
         double totalCost = subTotalOut + taxTotal;
 
+        String formatSubTotalOut = String.format("%.2f", subTotalOut);
         String formatTax = String.format("%.2f", taxTotal);
+        String formatTotalCost = String.format("%.2f", totalCost);
 
 
         //adding labels
@@ -61,9 +65,9 @@ private PizzaDeliveryApp pizzaDeliveryApp;
         Label signHere = new Label("Sign Here:");
 
 
-        subTotal.setText("Sub Total: $" + subTotalOut);
+        subTotal.setText("Sub Total: $" + formatSubTotalOut);
         tax.setText("Tax: $" + formatTax);
-        total.setText("Total: $" + totalCost);
+        total.setText("Total: $" + formatTotalCost);
 
 
         //creating random number for order
@@ -169,6 +173,18 @@ private PizzaDeliveryApp pizzaDeliveryApp;
         Line line3 = new Line(0,400,200,400);
 
         Line signature = new Line(100,535,250,535);
+
+
+
+        loginMain = new LoginMain();
+        button.setOnAction( actionEvent -> {
+
+            try {
+                loginMain.start(orderConfirmationPage);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        });
 
 
 
