@@ -1,6 +1,4 @@
 Your Order:
-Size: Small ($5)
-Toppings: Pepperoni ($1) 
-Beverage: Coke ($2) (Small)
-Total Cost: $8.0
+Toppings: 
+Total Cost: $0.0
 =========================================

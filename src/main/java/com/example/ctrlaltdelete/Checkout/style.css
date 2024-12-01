@@ -2,6 +2,7 @@
 :root{
     --primary-color:rgb(160, 50, 50);
 }
+
 .combo-box {
     -fx-background-color: #f5f5f5;
     -fx-font-family: "comfortaa";
@@ -156,7 +157,30 @@
     -fx-background-color: #FF2062;
     -fx-effect: dropshadow(gaussian, #FF2062, 10, 0, 0, 2);
 }
-
+#back{
+    -fx-background-color: #A03232;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, #FF5733, 10, 0, 0, 2);
+    -fx-pref-width:90px;
+}
+#back:hover{
+    -fx-background-color: #FF2062;
+    -fx-effect: dropshadow(gaussian, #FF2062, 10, 0, 0, 2);
+}
+.scroll-bar {
+    -fx-background-color: white; 
+}
+.scroll-bar .thumb {
+    -fx-background-color: #A03232; 
+   
+}
+.scroll-bar .thumb:hover {
+    -fx-background-color: #FF2062; 
+}
 
 
 
@@ -169,14 +193,4 @@
     -fx-alignment: center;
     -fx-padding: 20px;
     -fx-spacing: 20px;
-}
-.scroll-bar {
-    -fx-background-color: white; 
-}
-.scroll-bar .thumb {
-    -fx-background-color: #A03232; 
-    
-}
-.scroll-bar .thumb:hover {
-    -fx-background-color: #FF2062; 
 }

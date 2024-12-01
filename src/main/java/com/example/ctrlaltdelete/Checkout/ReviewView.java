@@ -34,6 +34,7 @@ public class ReviewView {
         HBox headerBox = new HBox(10);
         headerBox.setAlignment(Pos.CENTER_LEFT);
         backButton = new Button("Back");
+        backButton.setId("back");
         Label titleLabel = new Label("Review Page");
         titleLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
         headerBox.getChildren().addAll(backButton, titleLabel);
@@ -318,6 +319,7 @@ public class ReviewView {
 
         //Set up the scene with the ScrollPane
         scene = new Scene(scrollPane, 350, 600); // Scrollable area
+      //  scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         stage.setTitle("Review Page");
         stage.setScene(scene);
     }
