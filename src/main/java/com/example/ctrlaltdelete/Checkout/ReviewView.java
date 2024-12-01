@@ -72,7 +72,9 @@ public class ReviewView {
         carryoutButton.setSelected(true); // Default to Carryout
 
         // Location message for Carryout
-        Label carryoutLocationLabel = new Label("Ready in 20-30 minutes \n 6383 DeerSprings Dr \n Atlanta, GA 30033 \nPhone Number #: 777-777-7770");
+        Label carryoutLocationLabel = new Label("Ready in 20-30 minutes");
+        Label carryoutLocationLabel1 = new Label("6383 DeerSprings Dr, Atlanta, GA 30033");
+        Label carryoutLocationLabel2 = new Label("Phone Number #: 777-777-7770");
 
         // Fields for Delivery address input (initially hidden)
         Label streetAddressLabel = new Label("Street Address:");
@@ -93,7 +95,7 @@ public class ReviewView {
         deliveryActionsBox.getChildren().addAll(deliveryButton, carryoutButton);
 
         // Add everything to the deliveryBox
-        deliveryBox.getChildren().addAll(deliveryLabel, deliveryActionsBox, carryoutLocationLabel,
+        deliveryBox.getChildren().addAll(deliveryLabel, deliveryActionsBox, carryoutLocationLabel, carryoutLocationLabel1,carryoutLocationLabel2,
                 streetAddressLabel, streetAddressField, cityStateZipLabel,
                 cityField, stateField, zipField);
 
@@ -107,13 +109,19 @@ public class ReviewView {
 
         // Adjust size based on delivery/carryout selection
         deliveryBox.setMinHeight(100);  // Set a minimum height for the box
-        deliveryBox.setMaxHeight(200);  // Set a maximum height for the box when Carryout is selected
+        deliveryBox.setMaxHeight(150);  // Set a maximum height for the box when Carryout is selected
 
         // Listener to toggle between Carryout and Delivery
         deliveryGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == carryoutButton) {
-                // Show Carryout location and hide address fields
+                // Show Carryout location and hide address fields without leaving empty space
                 carryoutLocationLabel.setVisible(true);
+                carryoutLocationLabel1.setVisible(true);
+                carryoutLocationLabel2.setVisible(true);
+                carryoutLocationLabel.setManaged(true);
+                carryoutLocationLabel1.setManaged(true);
+                carryoutLocationLabel2.setManaged(true);
+
                 streetAddressLabel.setVisible(false);
                 streetAddressField.setVisible(false);
                 cityStateZipLabel.setVisible(false);
@@ -121,12 +129,25 @@ public class ReviewView {
                 stateField.setVisible(false);
                 zipField.setVisible(false);
 
+                streetAddressLabel.setManaged(false);
+                streetAddressField.setManaged(false);
+                cityStateZipLabel.setManaged(false);
+                cityField.setManaged(false);
+                stateField.setManaged(false);
+                zipField.setManaged(false);
+
                 // Shrink the box size for Carryout only
                 deliveryBox.setMinHeight(100);  // Reduce to a smaller height for carryout
-                deliveryBox.setMaxHeight(160);  // Shrink the box's height when only carryout is selected
+                deliveryBox.setMaxHeight(150);  // Shrink the box's height when only carryout is selected
             } else {
                 // Hide Carryout location and show address fields for Delivery
                 carryoutLocationLabel.setVisible(false);
+                carryoutLocationLabel1.setVisible(false);
+                carryoutLocationLabel2.setVisible(false);
+                carryoutLocationLabel.setManaged(false);
+                carryoutLocationLabel1.setManaged(false);
+                carryoutLocationLabel2.setManaged(false);
+
                 streetAddressLabel.setVisible(true);
                 streetAddressField.setVisible(true);
                 cityStateZipLabel.setVisible(true);
@@ -134,10 +155,18 @@ public class ReviewView {
                 stateField.setVisible(true);
                 zipField.setVisible(true);
 
-                // Adjust the size back for Delivery, showing all address fields
+                streetAddressLabel.setManaged(true);
+                streetAddressField.setManaged(true);
+                cityStateZipLabel.setManaged(true);
+                cityField.setManaged(true);
+                stateField.setManaged(true);
+                zipField.setManaged(true);
+            }
+
+
+            // Adjust the size back for Delivery, showing all address fields
                 deliveryBox.setMinHeight(200);  // Expand the box when delivery fields are shown
                 deliveryBox.setMaxHeight(300);  // Adjust max height when delivery is selected
-            }
         });
 
         // Payment Section
