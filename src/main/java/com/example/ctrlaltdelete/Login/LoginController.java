@@ -1,6 +1,5 @@
 package com.example.ctrlaltdelete.Login;
 
-import com.example.ctrlaltdelete.Menu.MenuMain;
 import com.example.ctrlaltdelete.Menu.PizzaDeliveryApp;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -13,7 +12,6 @@ public class LoginController {
     private CreationView creationView;
     private CreationMain creationMain;
     private String emailText,passwordText;
-    private MenuMain menuMain;
     public LoginController(Stage stage, LoginModel loginModel, LoginView loginView) {
         //So I can go to the next scene
         PizzaDeliveryApp menuMain = new PizzaDeliveryApp();
