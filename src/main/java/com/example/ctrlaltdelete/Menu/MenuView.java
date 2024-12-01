@@ -235,13 +235,29 @@ public void addComponents() {
     );
 
 }
+    public RadioButton getSmallSize() {
+    return smallSize;
+    }
+    public RadioButton getMediumSize() {
+    return mediumSize;
+    }
+    public RadioButton getLargeSize() {
+    return largeSize;
+    }
+    //public RadioButton getXlargeSize()
+    public Button getAdd() {
+        return add;
+    }
+    public TextField getPriceField() {
+        return priceField;
+    }
+    public TextField getQTYP() {
+    return quantityPizza;
+    }
+    public TextField getQTYD() {
+    return quantityDrink;
+    }
 
-    public Button getPlus() {
-    return plus;
-    }
-    public Button getMinus() {
-    return minus;
-    }
     //All checkbox buttons
     public CheckBox getPepperoni() {
         return pepperoni;

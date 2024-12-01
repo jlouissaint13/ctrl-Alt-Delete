@@ -2,6 +2,8 @@ package com.example.ctrlaltdelete.Menu;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class MenuController {
@@ -9,8 +11,10 @@ public class MenuController {
     private MenuView menuView = new MenuView(stage);
     private MenuModel menuModel = new MenuModel();
     private CheckBox pepperonni,ham,sausage,canadianBacon,chicken,redPeppers,onions,greenPeppers;
-    private Button minus,plus;
-    private String size;
+    private TextField pizzaQTY,drinkQTY,priceField;
+    private RadioButton smallSize, mediumSize, largeSize;
+    private Button add;
+    private String pizzaSize,dSize;
    public MenuController(Stage stage, MenuModel menuModel,MenuView menuView) {
        this.menuModel = menuModel;
        this.menuView = menuView;
@@ -22,8 +26,29 @@ public class MenuController {
        redPeppers = menuView.getRedPeppers();
        onions = menuView.getOnions();
        greenPeppers = menuView.getGreenPeppers();
-       plus = menuView.getPlus();
-       minus = menuView.getPlus();
+       drinkQTY = menuView.getQTYD();
+       pizzaQTY = menuView.getQTYP();
+       priceField = menuView.getPriceField();
+       smallSize = menuView.getSmallSize();
+       mediumSize = menuView.getMediumSize();
+       largeSize = menuView.getLargeSize();
+       add = menuView.getAdd();
+
+       smallSize.setOnAction(e -> {
+           if (smallSize.isSelected()) pizzaSize = "small";
+       });
+       mediumSize.setOnAction(actionEvent -> {
+           if (mediumSize.isSelected()) pizzaSize = "medium";
+       });
+       largeSize.setOnAction(actionEvent -> {
+           if (largeSize.isSelected()) pizzaSize = "large";
+       });
+
+       add.setOnAction(e -> {
+           menuModel.addButton(Integer.parseInt(String.valueOf(pizzaQTY)),pizzaSize,Integer.parseInt(String.valueOf(drinkQTY)),"small");
+       });
+
+
 
 
 

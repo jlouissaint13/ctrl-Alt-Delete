@@ -93,6 +93,7 @@ public class MenuModel {
     //adds the current selection
     public void addButton(int quantityPizza,String sizePizza,int quantityDrink,String drinkSize) {
         setToppings();
+        String toppings = returnToppings();
         switch (sizePizza) {
             case "small": this.totalCost += (10.00 * quantityPizza) ; addPizza(sizePizza,quantityPizza); break;
             case "medium": this.totalCost += (13.00 * quantityPizza); addPizza(sizePizza,quantityPizza); break;
@@ -110,7 +111,7 @@ public class MenuModel {
                  this.totalCost += 0.0;
                  break;
          }
-         addButton(quantityPizza,sizePizza,quantityDrink,drinkSize);
+         addInfo(quantityPizza,sizePizza,toppings,quantityDrink,drinkSize);
 
 
     }
