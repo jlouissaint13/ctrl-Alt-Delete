@@ -1,6 +1,7 @@
 package com.example.ctrlaltdelete.Checkout;
 
 import com.example.ctrlaltdelete.Login.LoginModel;
+import com.example.ctrlaltdelete.Menu.PizzaDeliveryApp;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,7 +18,10 @@ public class ReviewView {
     private VBox root;  // This is the root container for the ScrollPane
     private ReviewModel reviewModel;
     private LoginModel loginModel;
+    private PizzaDeliveryApp pizzaDeliveryApp;
     public void components() throws FileNotFoundException {
+        pizzaDeliveryApp = new PizzaDeliveryApp();
+        double totalCost = pizzaDeliveryApp.returnTotalCost();
         // Initialize the VBox root layout to contain all UI components
         root = new VBox(15); // 15 is the spacing between components in VBox
         root.setPadding(new Insets(20));
@@ -254,10 +258,11 @@ public class ReviewView {
         VBox priceBox = new VBox(10);
         priceBox.setStyle("-fx-border-color: gray; -fx-border-width: 1px;");
         priceBox.setPadding(new Insets(10));
+        double tax = (7/100) * totalCost;
         Label priceLabel = new Label("Final Price");
-        Label subtotalLabel = new Label("Subtotal:");
-        Label taxLabel = new Label("Tax:");
-        Label totalLabel = new Label("Total:");
+        Label subtotalLabel = new Label("Subtotal:    $" + totalCost);
+        Label taxLabel = new Label("Tax:          $" + tax );
+        Label totalLabel = new Label("Total:        $" + totalCost);
 
         priceBox.getChildren().addAll(priceLabel, subtotalLabel, taxLabel, totalLabel);
 
