@@ -10,11 +10,12 @@ public class ReviewMain extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+ReviewView reviewView;
+ReviewController reviewController;
     @Override
     public void start(Stage primaryStage) throws FileNotFoundException {
-        ReviewView reviewView = new ReviewView(primaryStage);
-        ReviewController reviewController = new ReviewController();
+        reviewView = new ReviewView(primaryStage);
+        reviewController = new ReviewController(primaryStage);
         primaryStage.show();
     }
 }
