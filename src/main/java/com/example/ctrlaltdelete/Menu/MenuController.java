@@ -35,12 +35,7 @@ public class MenuController {
 
 
 
-       plus.setOnAction(e -> {
-           menuModel.addPizza(size);
-       });
-       minus.setOnAction(e -> {
-           menuModel.removePizza(size);
-       });
+
 
 
 
@@ -57,71 +52,71 @@ public class MenuController {
 
        pepperonni.setOnAction(e -> {
            if (pepperonni.isSelected()) {
-               menuModel.addToppings();
+               menuModel.addToppings("pepperoni");
            }
            else {
-               menuModel.subToppings();
+               menuModel.subToppings("pepperoni");
            }
 
        });
        ham.setOnAction(actionEvent -> {
            if (ham.isSelected()) {
-               menuModel.addToppings();
+               menuModel.addToppings("ham");
            }
            else {
-               menuModel.subToppings();
+               menuModel.subToppings("ham");
            }
 
        });
        sausage.setOnAction(e -> {
            if (sausage.isSelected()) {
-               menuModel.addToppings();
+               menuModel.addToppings("sausage");
            }
            else {
-               menuModel.subToppings();
+               menuModel.subToppings("sausage");
            }
        });
        canadianBacon.setOnAction(e-> {
            if (canadianBacon.isSelected()) {
-               menuModel.addToppings();
+               menuModel.addToppings("canadian bacon");
            }
            else {
-               menuModel.subToppings();
+               menuModel.subToppings("canadian bacon");
            }
        });
        chicken.setOnAction(actionEvent -> {
            if (chicken.isSelected()) {
-               menuModel.addToppings();
+               menuModel.addToppings("chicken");
            }
            else {
-               menuModel.subToppings();
+               menuModel.subToppings("chicken");
            }
 
        });
        greenPeppers.setOnAction(actionEvent -> {
            if (greenPeppers.isSelected()) {
-               menuModel.addToppings();
+               menuModel.addToppings("green peppers");
            }
            else {
-               menuModel.subToppings();
+               menuModel.subToppings("green peppers");
            }
 
        });
        redPeppers.setOnAction(actionEvent -> {
            if(redPeppers.isSelected()) {
-               menuModel.addToppings();
+               menuModel.addToppings("red peppers");
            }
            else{
-               menuModel.subToppings();
+               menuModel.subToppings("red peppers");
            }
 
        });
        onions.setOnAction(actionEvent -> {
            if (onions.isSelected()) {
-               menuModel.addToppings();
+               menuModel.addToppings("onions");
            }
            else {
-               menuModel.subToppings();
+               menuModel.subToppings("onions");
            }
        });
    }
