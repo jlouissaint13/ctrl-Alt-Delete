@@ -165,6 +165,7 @@ public class ReviewView {
 
                 streetAddressLabel.setVisible(true);
                 streetAddressField.setVisible(true);
+                if (loginModel.getAddress() != null) streetAddressField.setText(loginModel.getAddress());
                 cityStateZipLabel.setVisible(true);
                 cityField.setVisible(true);
                 stateField.setVisible(true);
