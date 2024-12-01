@@ -19,6 +19,7 @@ public class ReviewView {
     private ReviewModel reviewModel;
     private LoginModel loginModel;
     private PizzaDeliveryApp pizzaDeliveryApp;
+    private Button placeOrderButton;
     public void components() throws FileNotFoundException {
         pizzaDeliveryApp = new PizzaDeliveryApp();
         double totalCost = pizzaDeliveryApp.returnTotalCost();
@@ -268,7 +269,7 @@ public class ReviewView {
         priceBox.getChildren().addAll(priceLabel, subtotalLabel, taxLabel, totalLabel);
 
         // Place Order Button
-        Button placeOrderButton = new Button("Place Order");
+        placeOrderButton = new Button("Place Order");
 
         // Add all sections to the root layout
         root.getChildren().addAll(
@@ -300,7 +301,9 @@ public class ReviewView {
     public void addComponents() {
         // You could add additional logic here if needed
     }
-
+    public Button getPlaceOrderButton() {
+        return placeOrderButton;
+    }
     public ReviewView(Stage stage) throws FileNotFoundException {
         components();
         properties();
