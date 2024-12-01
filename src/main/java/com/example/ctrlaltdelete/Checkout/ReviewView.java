@@ -19,7 +19,7 @@ public class ReviewView {
     private ReviewModel reviewModel;
     private LoginModel loginModel;
     private PizzaDeliveryApp pizzaDeliveryApp;
-    private Button placeOrderButton;
+    private Button placeOrderButton,backButton;
     public void components() throws FileNotFoundException {
         pizzaDeliveryApp = new PizzaDeliveryApp();
         double totalCost = pizzaDeliveryApp.returnTotalCost();
@@ -33,7 +33,7 @@ public class ReviewView {
         // Header Section
         HBox headerBox = new HBox(10);
         headerBox.setAlignment(Pos.CENTER_LEFT);
-        Button backButton = new Button("Back");
+        backButton = new Button("Back");
         Label titleLabel = new Label("Review Page");
         titleLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
         headerBox.getChildren().addAll(backButton, titleLabel);
@@ -257,11 +257,12 @@ public class ReviewView {
         VBox priceBox = new VBox(10);
         priceBox.setStyle("-fx-border-color: gray; -fx-border-width: 1px;");
         priceBox.setPadding(new Insets(10));
-        double tax = (7/100) * totalCost;
+        double tax = 0.08 * totalCost;
         Label priceLabel = new Label("Final Price");
-        Label subtotalLabel = new Label("Subtotal:    $" + totalCost);
-        Label taxLabel = new Label("Tax:          $" + tax );
-        Label totalLabel = new Label("Total:        $" + totalCost);
+        Label subtotalLabel = new Label("Subtotal:    $" + String.format("%.2f", totalCost));
+        Label taxLabel = new Label("Tax:          $" + String.format("%.2f", tax));
+        totalCost += tax;
+        Label totalLabel = new Label("Total:        $" + String.format("%.2f", totalCost));
 
         priceBox.getChildren().addAll(priceLabel, subtotalLabel, taxLabel, totalLabel);
 
@@ -300,6 +301,9 @@ public class ReviewView {
     }
     public Button getPlaceOrderButton() {
         return placeOrderButton;
+    }
+    public Button getBackButton() {
+        return backButton;
     }
     public ReviewView(Stage stage) throws FileNotFoundException {
         components();
