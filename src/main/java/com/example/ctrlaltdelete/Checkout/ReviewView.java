@@ -12,12 +12,12 @@ public class ReviewView {
     private Scene scene;
     private Stage stage;
     private VBox root;  // This is the root container for the ScrollPane
-
+    private ReviewModel reviewModel;
     public void components() {
         // Initialize the VBox root layout to contain all UI components
         root = new VBox(15); // 15 is the spacing between components in VBox
         root.setPadding(new Insets(20));
-
+        reviewModel = new ReviewModel();
         // Header Section
         HBox headerBox = new HBox(10);
         headerBox.setAlignment(Pos.CENTER_LEFT);
@@ -32,7 +32,8 @@ public class ReviewView {
         orderBox.setPadding(new Insets(10));
         Label orderLabel = new Label("My Order");
         TextArea orderDetailsArea = new TextArea();
-        orderDetailsArea.setText("Order details here...");
+
+        orderDetailsArea.setText(reviewModel.orderDetails());
         orderDetailsArea.setEditable(false);
 
         // Button to adjust quantity or remove items
