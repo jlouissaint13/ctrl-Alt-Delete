@@ -165,6 +165,9 @@ public class PizzaDeliveryApp extends Application {
 
             orderDetails.append("Total Cost: $").append(totalCost);
             outputLabel.setText(orderDetails.toString());
+
+            // Saves order info
+            saveOrdertoFile(orderDetails.toString());
         });
 
         // Layout
