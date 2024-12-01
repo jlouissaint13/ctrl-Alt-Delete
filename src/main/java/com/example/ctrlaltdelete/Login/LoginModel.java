@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class LoginModel {
-    private String email;
-    private String phone;
-    private String password;
-    private String [] data = new String[6];
-    private HashMap<String,String[]> account = new HashMap<>();
+    private static String email;
+    private static String phone;
+    private static String password;
+    private static String [] data = new String[6];
+    private static HashMap<String,String[]> account = new HashMap<>();
     private String line;
     public LoginModel(String phone,String password) throws FileNotFoundException {
         this.phone = phone;

@@ -1,7 +1,7 @@
 Your Order:
-Size: Medium ($8)
+Size: Small ($5)
 Crust: Thick Crust ($3)
 Toppings: Cheese 
 Beverage: Coke ($2) (Small)
-Total Cost: $14.0
+Total Cost: $11.0
 =========================================

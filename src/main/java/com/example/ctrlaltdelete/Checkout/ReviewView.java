@@ -1,5 +1,6 @@
 package com.example.ctrlaltdelete.Checkout;
 
+import com.example.ctrlaltdelete.Login.LoginModel;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -7,17 +8,21 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
+
 public class ReviewView {
     private Pane pane;
     private Scene scene;
     private Stage stage;
     private VBox root;  // This is the root container for the ScrollPane
     private ReviewModel reviewModel;
-    public void components() {
+    private LoginModel loginModel;
+    public void components() throws FileNotFoundException {
         // Initialize the VBox root layout to contain all UI components
         root = new VBox(15); // 15 is the spacing between components in VBox
         root.setPadding(new Insets(20));
         reviewModel = new ReviewModel();
+        loginModel = new LoginModel();
         // Header Section
         HBox headerBox = new HBox(10);
         headerBox.setAlignment(Pos.CENTER_LEFT);
@@ -51,11 +56,16 @@ public class ReviewView {
         Label contactInfoLabel = new Label("Contact Info");
         TextField firstNameField = new TextField();
         firstNameField.setPromptText("First Name");
+        if (loginModel.getfName() != null) {
+            firstNameField.setText(loginModel.getfName());
+        }
+
         TextField lastNameField = new TextField();
         lastNameField.setPromptText("Last Name");
+        if (loginModel.getlName() != null) lastNameField.setText(loginModel.getlName());
         TextField phoneField = new TextField();
         phoneField.setPromptText("Phone Number");
-
+        if (loginModel.getPhone() != null) phoneField.setText(loginModel.getPhone()) ;
         contactInfoBox.getChildren().addAll(contactInfoLabel, firstNameField, lastNameField, phoneField);
 
         // Carryout/Delivery Section
@@ -285,7 +295,7 @@ public class ReviewView {
         // You could add additional logic here if needed
     }
 
-    public ReviewView(Stage stage) {
+    public ReviewView(Stage stage) throws FileNotFoundException {
         components();
         properties();
         addComponents();

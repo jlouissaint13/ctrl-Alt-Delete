@@ -1,5 +1,6 @@
 package com.example.ctrlaltdelete.Menu;
 
+import com.example.ctrlaltdelete.Checkout.ReviewMain;
 import com.example.ctrlaltdelete.Menu.SaveFile;
 
 import javafx.application.Application;
@@ -10,7 +11,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
+
 public class PizzaDeliveryApp extends Application {
+    private ReviewMain reviewMain;
 
     @Override
     public void start(Stage primaryStage) {
@@ -170,6 +174,13 @@ public class PizzaDeliveryApp extends Application {
 
             saveFile.saveFile(String.valueOf(orderDetails));
             outputLabel.setText(orderDetails.toString());
+            reviewMain = new ReviewMain();
+            try {
+                reviewMain.start(primaryStage);
+            } catch (FileNotFoundException ex) {
+                throw new RuntimeException(ex);
+            }
+
         });
 
         // Layout
