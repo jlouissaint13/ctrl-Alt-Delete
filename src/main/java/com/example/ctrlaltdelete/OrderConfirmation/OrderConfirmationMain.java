@@ -264,7 +264,7 @@ LoginMain loginMain;
 
 
         pizzaDeliveryApp.resetTotalCost();
-
+        reviewView2.resetCash();
 
 
 

@@ -28,6 +28,7 @@ public class ReviewController {
             pizzaDeliveryApp.start(stage);
         });
         placeOrder.setOnAction(actionEvent -> {
+            reviewView.setCashTrue();
             orderConfirmationMain = new OrderConfirmationMain();
             try {
                 orderConfirmationMain.start(stage);

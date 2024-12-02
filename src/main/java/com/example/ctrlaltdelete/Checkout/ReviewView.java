@@ -327,9 +327,13 @@ public class ReviewView {
     public boolean getCashTrue(){
         return cashTrue;
     }
+    public void resetCash() {
+        cashTrue = false;
+    }
     public void properties() {
         // Customize properties of the scene or other components if needed
     }
+
 
     public void addComponents() {
         // You could add additional logic here if needed
@@ -341,6 +345,7 @@ public class ReviewView {
     public Button getBackButton() {
         return backButton;
     }
+
     public ReviewView(Stage stage) throws FileNotFoundException {
         components();
         properties();
