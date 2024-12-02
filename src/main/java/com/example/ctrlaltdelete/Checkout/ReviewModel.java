@@ -46,6 +46,10 @@ public String orderDetails() {
     public String getPhoneNumber() {
     return phoneNumber;
     }
-
+    public void resetloginGuest() {
+    fName = null;
+    lName = null;
+    phoneNumber = null;
+    }
 
 }

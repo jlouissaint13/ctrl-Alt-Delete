@@ -265,6 +265,7 @@ LoginMain loginMain;
         pizzaDeliveryApp.resetTotalCost();
         reviewView2.resetCash();
         loginModel.resetInfo();
+        reviewModel1.resetloginGuest();
 
         vbox.getChildren().add(pane);
 
