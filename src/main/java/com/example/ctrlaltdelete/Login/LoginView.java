@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -31,15 +32,13 @@ public class LoginView {
     private Text sign;
     PauseTransition pause;
 
-    //Will have all the ui components of my program
+    // Will have all the UI components of my program
     public void components() {
         phone = new Label("Phone Number");
         phoneE = new TextField();
         phoneE.setPromptText("Phone Number");
         phoneE.setStyle("-fx-font-size: 13 comfortaa");
         pw = new Label("Password");
-        // show = new Button("Show");
-        //forgotPassword = new Label("Forgot Password?");
         passwordE = new PasswordField();
         passwordE.setPromptText("Password");
         passwordE.setStyle("-fx-font-size: 13 comfortaa");
@@ -47,34 +46,36 @@ public class LoginView {
         cGuest = new Button("Continue as Guest");
         signIn = new Button("Sign in");
         makeAccount = new Label("Don't have one? Make one!");
+        forgotPassword = new Label("Forgot Password?");
         sign = new Text("Sign-In");
         sign.setStyle("-fx-font: 40 comfortaa");
         pane = new Pane();
     }
-    public void properties() throws FileNotFoundException {
 
-       //Account stuff
-        cAccount.setPrefSize(150,25);
-        cGuest.setPrefSize(150,25);
+    public void properties() throws FileNotFoundException {
+        // Account stuff
+        cAccount.setPrefSize(150, 25);
+        cGuest.setPrefSize(150, 25);
         makeAccount.setLayoutX(100);
         makeAccount.setLayoutY(380);
         cAccount.setLayoutX(90);
         cAccount.setLayoutY(403);
 
-        //email
+        // Email
         phone.setLayoutX(97);
         phone.setLayoutY(180);
         phoneE.setLayoutX(90);
         phoneE.setLayoutY(200);
-        phoneE.setPrefSize(150,25);
-        //password
+        phoneE.setPrefSize(150, 25);
+
+        // Password
         pw.setLayoutX(87);
         pw.setLayoutY(230);
         passwordE.setLayoutX(90);
         passwordE.setLayoutY(250);
-        passwordE.setPrefSize(150,25);
-        //miscellaneous
+        passwordE.setPrefSize(150, 25);
 
+        // Miscellaneous
         cGuest.setLayoutX(90);
         cGuest.setLayoutY(453);
         signIn.setLayoutX(178);
@@ -83,30 +84,25 @@ public class LoginView {
         sign.setLayoutX(110);
         sign.setLayoutY(70);
 
-        //
-
+        // Forgot Password (placed below the "Sign in" button)
+        forgotPassword.setLayoutX(128);
+        forgotPassword.setLayoutY(352);  // Adjusted Y position to place it below the "Sign in" button
+        forgotPassword.setStyle("-fx-font-size: 12px; -fx-text-fill: gray");
 
     }
     //Will be used to add components to program;
     public void addComponents() {
-
         pane.getChildren().add(phoneE);
-
         pane.getChildren().add(passwordE);
-
         pane.getChildren().add(makeAccount);
-
         pane.getChildren().add(cAccount);
-
         pane.getChildren().add(cGuest);
-
         pane.getChildren().add(signIn);
-
         pane.getChildren().add(sign);
+        pane.getChildren().add(forgotPassword);
     }
     public LoginView(Stage stage) throws FileNotFoundException { //initialize my login screen
         components();
-       //Vertical gap between each label;
         properties();
         addComponents();
         //all of this is to get the image from the resource folder and put it in the program
@@ -121,20 +117,14 @@ public class LoginView {
             imageView.setY(85);
             pane.getChildren().add(imageView);
 
-
-
         VBox scene1 = new VBox(pane);
         scene = new Scene(scene1,350,600);
         stage.setTitle("Login to Slice Heaven");
         scene1.requestFocus(); //I have textPrompts for both of my textFields I am requesting focus that way both textPrompts can be seen;
         scene1.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-
         stage.setScene(scene);
-
-
     }
 
-    //Gets the login button
     public Button getlogin() {
         return signIn;
     }
@@ -164,11 +154,8 @@ public class LoginView {
         pane.getChildren().add(login);
         login.setLayoutX(88);
         login.setLayoutY(324);
-        //Amount of time to delay the remove of the text
         pause = new PauseTransition(Duration.seconds(2));
-        //After the delay is finished remove loginText from the gridPane
         pause.setOnFinished(e -> pane.getChildren().remove(login));
-        //Starts the timer
         pause.play();
     }
 
@@ -208,5 +195,4 @@ public class LoginView {
         pause.setOnFinished(e ->pane.getChildren().remove(placeholder));
         pause.play();
     }
-
 }
