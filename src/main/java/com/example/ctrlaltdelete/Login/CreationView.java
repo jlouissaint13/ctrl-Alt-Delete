@@ -21,9 +21,9 @@ public class CreationView {
     public Scene scene;
     private GridPane gridPaneL;
     private Pane pane;
-    private Label fName,lName,email,pw,phoneNumber,address;
+    private Label fName,lName,email,pw,phoneNumber,address,paymentInfo;
     private Text createAccount,required,accountExists,invalidEmail,invalidPhoneNumber,inputValidation;
-    private TextField fNameE,lNameE,emailE,passwordE,phoneNumberE,addressE;
+    private TextField fNameE,lNameE,emailE,passwordE,phoneNumberE,addressE,paymentInfoE;
     private Button cAccount,test,backButton;
     private Line line;
     private Image home,logo;
@@ -55,8 +55,11 @@ public class CreationView {
         invalidPhoneNumber = new Text("Invalid Phone Number");
         invalidEmail = new Text("Invalid email");
         inputValidation = new Text("Please complete all fields");
-        address = new Label("Address");
+        address = new Label("Address*");
         addressE = new TextField();
+        paymentInfo = new Label("Payment Type*");
+        paymentInfoE = new TextField();
+
     }
     public void properties() {
         //fname
@@ -105,11 +108,19 @@ public class CreationView {
         addressE.setLayoutX(25);
         addressE.setLayoutY(395);
 
+
+
+        //paymentInfo
+        paymentInfoE.setMinWidth(292);
+        paymentInfo.setLayoutX(25);
+        paymentInfo.setLayoutY(450);
+        paymentInfoE.setLayoutY(470);
+        paymentInfoE.setLayoutX(25);
+
         //miscellaneous
         line.setTranslateY(430);
         cAccount.setLayoutX(88);
-        cAccount.setLayoutY(480);
-        cAccount.setMinSize(130,70);
+        cAccount.setLayoutY(535);
         cAccount.setId("cAccount");
         createAccount.setLayoutX(90);
         createAccount.setLayoutY(40);
@@ -164,7 +175,8 @@ public class CreationView {
         pane.getChildren().add(backButton);
         pane.getChildren().add(address);
         pane.getChildren().add(addressE);
-
+        pane.getChildren().add(paymentInfo);
+        pane.getChildren().add(paymentInfoE);
 
 
 
@@ -208,11 +220,12 @@ public class CreationView {
     public String getAddress() {
         return addressE.getText();
     }
+    public String getPaymentInfo() {return paymentInfoE.getText();};
     //Displays account already exist message for 1.5 seconds
     public void accountExist() {
 
         pane.getChildren().add(accountExists);
-        accountExists.setLayoutX(25);
+        accountExists.setLayoutX(150);
         accountExists.setLayoutY(460);
         pause = new PauseTransition(Duration.seconds(1.5));
         pause.setOnFinished(e ->pane.getChildren().remove(accountExists));
@@ -221,7 +234,7 @@ public class CreationView {
     //Displays invalid phone number for 1.5 seconds
     public void displayInvalidPhone() {
         pane.getChildren().add(invalidPhoneNumber);
-        invalidPhoneNumber.setLayoutX(25);
+        invalidPhoneNumber.setLayoutX(150);
         invalidPhoneNumber.setLayoutY(460);
         pause = new PauseTransition(Duration.seconds(1.5));
         pause.setOnFinished(event -> pane.getChildren().remove(invalidPhoneNumber));
@@ -229,7 +242,7 @@ public class CreationView {
     }
     public void displayInvalidEmail() {
         pane.getChildren().add(invalidEmail);
-        invalidEmail.setLayoutX(25);
+        invalidEmail.setLayoutX(150);
         invalidEmail.setLayoutY(460);
         pause = new PauseTransition(Duration.seconds(1.5));
         pause.setOnFinished(event -> pane.getChildren().remove(invalidEmail));
@@ -237,7 +250,7 @@ public class CreationView {
     }
     public void displayValidationCheck() {
         pane.getChildren().add(inputValidation);
-        inputValidation.setLayoutX(25);
+        inputValidation.setLayoutX(150);
         inputValidation.setLayoutY(460);
         pause = new PauseTransition(Duration.seconds(1.5));
         pause.setOnFinished(e -> pane.getChildren().remove(inputValidation));
