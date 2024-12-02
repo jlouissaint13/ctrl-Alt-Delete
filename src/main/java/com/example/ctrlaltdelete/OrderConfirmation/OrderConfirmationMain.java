@@ -3,12 +3,11 @@ package com.example.ctrlaltdelete.OrderConfirmation;
 import com.example.ctrlaltdelete.Checkout.ReviewModel;
 import com.example.ctrlaltdelete.Checkout.ReviewView;
 import com.example.ctrlaltdelete.Login.LoginMain;
+import com.example.ctrlaltdelete.Login.LoginModel;
 import com.example.ctrlaltdelete.Menu.PizzaDeliveryApp;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -18,7 +17,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.geometry.Pos;
 import javafx.scene.shape.Line;
-import javafx.scene.control.Button;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -205,9 +204,10 @@ LoginMain loginMain;
 
         //creating vbox for scene creation
 
-        VBox vbox = new VBox();
+
         Pane pane = new Pane();
 
+        VBox vbox = new VBox();
 
         pane.setStyle("-fx-background-color: #FFFFFF;");
 
@@ -228,7 +228,9 @@ LoginMain loginMain;
         pane.getChildren().add(line3);
         pane.getChildren().add(signature);
         pane.getChildren().add(signHere);
+        //pane.getChildren().add(scrollPane);
 
+        LoginModel model = new LoginModel();
 
 
 
@@ -237,12 +239,17 @@ LoginMain loginMain;
 
         ReviewView reviewView2 = new ReviewView(orderConfirmationPage);
 
+        if (reviewView2.getCashTrue()){
+            signature.setVisible(false);
+            signHere.setVisible(false);
+        }
 
-        System.out.println(reviewView2.getCardPaymentButton().isSelected());
-        System.out.println(reviewView2.getCashPaymentButton().isSelected());
 
 
-        System.out.println(reviewView2.getCashTrue());
+
+
+
+
 
         //cardPaymentButton.setSelected(true);
 
