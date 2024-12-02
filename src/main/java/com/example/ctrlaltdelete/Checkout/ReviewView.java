@@ -29,6 +29,8 @@ public class ReviewView {
     private LoginModel loginModel;
     private PizzaDeliveryApp pizzaDeliveryApp;
     private Button placeOrderButton,backButton;
+    private RadioButton cardPaymentButton,cashPaymentButton;
+    private static boolean target;
     public void components() throws FileNotFoundException {
         pizzaDeliveryApp = new PizzaDeliveryApp();
         double totalCost = pizzaDeliveryApp.returnTotalCost();
@@ -201,8 +203,8 @@ public class ReviewView {
         paymentLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 16px;");
 
         ToggleGroup paymentGroup = new ToggleGroup();
-        RadioButton cardPaymentButton = new RadioButton("Card/Debit");
-        RadioButton cashPaymentButton = new RadioButton("Cash");
+        cardPaymentButton = new RadioButton("Card/Debit");
+        cashPaymentButton = new RadioButton("Cash");
         cardPaymentButton.setToggleGroup(paymentGroup);
         cashPaymentButton.setToggleGroup(paymentGroup);
         cardPaymentButton.setSelected(true);
@@ -303,6 +305,15 @@ public class ReviewView {
                 cashBox.setVisible(true);
             }
         });
+    }
+    public void cashSelected() {
+        if (cashPaymentButton.isSelected()) target = true;
+    }
+    public RadioButton getCashPaymentButton() {
+        return cashPaymentButton;
+    }
+    public RadioButton getCardPaymentButton() {
+        return cardPaymentButton;
     }
 
     public void properties() {
