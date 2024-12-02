@@ -1,7 +1,7 @@
 Your Order:
-Size: Large ($10)
-Crust: Stuffed Crust ($4)
-Toppings: Cheese ($1) Pepperoni ($1) Mushrooms ($1) Bacon ($2)
-Beverage: Coke ($2) (Large (+$2))
-Total Cost: $23.0
+Size: Extra Large ($12)
+Crust: Thick Crust ($3)
+Toppings: Cheese ($1) Pepperoni ($1) Mushrooms ($1) 
+Beverage: Sprite ($2) (Medium (+$1))
+Total Cost: $21.0
 =========================================
