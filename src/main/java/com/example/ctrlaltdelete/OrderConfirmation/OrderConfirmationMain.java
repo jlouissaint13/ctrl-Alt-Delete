@@ -264,8 +264,7 @@ LoginMain loginMain;
 
 
 
-        //
-        //
+
 
         Scene scene = new Scene(vbox,350,600);
 

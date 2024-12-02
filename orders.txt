@@ -1,4 +1,7 @@
 Your Order:
-Toppings: 
-Total Cost: $0.0
+Size: Medium ($8)
+Crust: Thick Crust ($3)
+Toppings: Pepperoni ($1) 
+Beverage: Sprite ($2) (Medium (+$1))
+Total Cost: $15.0
 =========================================
