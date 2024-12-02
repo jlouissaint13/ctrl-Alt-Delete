@@ -29,7 +29,9 @@ public class ReviewView {
     private LoginModel loginModel;
     private PizzaDeliveryApp pizzaDeliveryApp;
     private Button placeOrderButton,backButton;
-    private RadioButton cardPaymentButton,cashPaymentButton;
+    private RadioButton cardPaymentButton;
+    private RadioButton cashPaymentButton;
+    private static boolean cashTrue;
     private static boolean target;
     public void components() throws FileNotFoundException {
         pizzaDeliveryApp = new PizzaDeliveryApp();
@@ -207,7 +209,7 @@ public class ReviewView {
         cashPaymentButton = new RadioButton("Cash");
         cardPaymentButton.setToggleGroup(paymentGroup);
         cashPaymentButton.setToggleGroup(paymentGroup);
-        cardPaymentButton.setSelected(true);
+        cardPaymentButton.setSelected(false);
 
         // HBox for card payment fields
         HBox cardFieldsBox = new HBox(15);  // Increased spacing between fields
@@ -316,12 +318,22 @@ public class ReviewView {
         return cardPaymentButton;
     }
 
+    public void setCashTrue(){
+        if(cashPaymentButton.isSelected()){
+            cashTrue = true;
+        }
+
+    }
+    public boolean getCashTrue(){
+        return cashTrue;
+    }
     public void properties() {
         // Customize properties of the scene or other components if needed
     }
 
     public void addComponents() {
         // You could add additional logic here if needed
+        setCashTrue();
     }
     public Button getPlaceOrderButton() {
         return placeOrderButton;
@@ -346,4 +358,5 @@ public class ReviewView {
         stage.setTitle("Review Page");
         stage.setScene(scene);
     }
+
 }

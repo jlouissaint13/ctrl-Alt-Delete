@@ -1,5 +1,6 @@
 package com.example.ctrlaltdelete.OrderConfirmation;
 
+import com.example.ctrlaltdelete.Checkout.ReviewModel;
 import com.example.ctrlaltdelete.Checkout.ReviewView;
 import com.example.ctrlaltdelete.Login.LoginMain;
 import com.example.ctrlaltdelete.Menu.PizzaDeliveryApp;
@@ -156,7 +157,7 @@ LoginMain loginMain;
         total.setStyle("-fx-font-size: 15px;");
         orderSummary.setStyle("-fx-font-size: 23px;");
         orderItems.setStyle("-fx-font-size: 15px;");
-        orderItemsList.setStyle("-fx-font-size: 15px;");
+        orderItemsList.setStyle("-fx-font-size: 10px;");
 
         //adding images
         Image logo = new Image("sliceHeaven.png");
@@ -230,7 +231,18 @@ LoginMain loginMain;
 
 
 
-        //ReviewView reviewView2 = new ReviewView();
+
+
+
+
+        ReviewView reviewView2 = new ReviewView(orderConfirmationPage);
+
+
+        System.out.println(reviewView2.getCardPaymentButton().isSelected());
+        System.out.println(reviewView2.getCashPaymentButton().isSelected());
+
+
+        System.out.println(reviewView2.getCashTrue());
 
         //cardPaymentButton.setSelected(true);
 
@@ -238,8 +250,9 @@ LoginMain loginMain;
        //     RadioButton cardPaymentButton;
        // }
 
+        ReviewModel reviewModel1 = new ReviewModel();
 
-
+        orderItemsList.setText(reviewModel1.orderDetails());
        // signature.setVisible(false);
        // if (cardPaymentButton.setSelected(false))
 
@@ -250,7 +263,7 @@ LoginMain loginMain;
         //pane.setStyle("-fx-background-color:#FEFFFF");
 
 
-
+        pizzaDeliveryApp.resetTotalCost();
 
 
 
