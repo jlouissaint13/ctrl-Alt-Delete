@@ -177,18 +177,18 @@ public class PizzaDeliveryApp extends Application {
                 }
             }
 
-            orderDetails.append("Total Cost: $").append(totalCost);
-            SaveFile saveFile = new SaveFile();
+            orderDetails.append(String.format("Total Cost: $%.2f", totalCost));  // Format total cost to two decimal places
 
+            SaveFile saveFile = new SaveFile();
             saveFile.saveFile(String.valueOf(orderDetails));
             outputLabel.setText(orderDetails.toString());
+
             reviewMain = new ReviewMain();
             try {
                 reviewMain.start(primaryStage);
             } catch (FileNotFoundException ex) {
                 throw new RuntimeException(ex);
             }
-
         });
 
 
