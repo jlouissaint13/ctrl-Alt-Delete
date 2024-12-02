@@ -1,6 +1,14 @@
 
-:root{
-    --primary-color:rgb(160, 50, 50);
+
+.scroll-bar {
+    -fx-background-color: white;
+}
+.scroll-bar .thumb {
+    -fx-background-color: #A03232;
+
+}
+.scroll-bar .thumb:hover {
+    -fx-background-color: #FF2062;
 }
 
 .root {
@@ -75,16 +83,6 @@
 #backButton {
     -fx-pref-width: 60;
 
-}
-.scroll-bar {
-    -fx-background-color: white;
-}
-.scroll-bar .thumb {
-    -fx-background-color: #A03232;
-
-}
-.scroll-bar .thumb:hover {
-    -fx-background-color: #FF2062;
 }
 
 

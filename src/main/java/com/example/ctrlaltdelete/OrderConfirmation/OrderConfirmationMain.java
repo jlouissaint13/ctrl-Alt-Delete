@@ -240,7 +240,6 @@ LoginMain loginMain;
         scrollPane.setFitToWidth(true);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-
         vbox.setPrefHeight(700);
 
         Scene scene = new Scene(scrollPane,350,600);
