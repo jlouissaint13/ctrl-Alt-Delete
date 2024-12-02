@@ -56,7 +56,6 @@ LoginMain loginMain;
         Label orderConfirmation = new Label("Order Confirmation");
         Label orderNumber;
         Label orderDate;
-
         Label orderTotal = new Label("Order Total");
         Label subTotal = new Label("Sub Total: $0.00");
         Label tax = new Label("Tax: $0.00");
@@ -93,9 +92,6 @@ LoginMain loginMain;
 
         orderDate = new Label("Order Date: "+ formattedDate);
 
-       // DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        //String formattedDate = myObj.format(myFormatObj);
-        //orderDate.setText("Order Date: " +formattedDate);
 
         //adding button
         Button button = new Button("Homepage");
@@ -173,7 +169,6 @@ LoginMain loginMain;
         Line line = new Line(20,170,320,170);
         Line line2 = new Line(0,275,200,275);
         Line line3 = new Line(0,400,200,400);
-
         Line signature = new Line(100,535,250,535);
 
 
@@ -187,20 +182,6 @@ LoginMain loginMain;
                 throw new RuntimeException(e);
             }
         });
-
-
-
-
-
-
-//takes text fields from checkout and updates them for order confirmation
-            //orderNumber.setText("pulled from class");
-            //orderDate.setText("pulled from class");
-            // orderTotal.setText("pulled from class");
-            //subTotal.setText("pulled from class");
-            //tax.setText("pulled from class");
-            //total.setText("pulled from class");
-            // orderItemsList.setText("pulled from class");
 
         //creating vbox for scene creation
 
@@ -232,11 +213,6 @@ LoginMain loginMain;
 
         LoginModel model = new LoginModel();
 
-
-
-
-
-
         ReviewView reviewView2 = new ReviewView(orderConfirmationPage);
 
         if (reviewView2.getCashTrue()){
@@ -244,31 +220,9 @@ LoginMain loginMain;
             signHere.setVisible(false);
         }
 
-
-
-
-
-
-
-
-        //cardPaymentButton.setSelected(true);
-
-       // public returnCardButton() {
-       //     RadioButton cardPaymentButton;
-       // }
-
         ReviewModel reviewModel1 = new ReviewModel();
 
         orderItemsList.setText(reviewModel1.orderDetails());
-       // signature.setVisible(false);
-       // if (cardPaymentButton.setSelected(false))
-
-
-
-        //Pane pane = new VBox(10,logoView,orderConfirmation,orderNumber,orderDate,orderTotal,subTotal,tax,total,orderSummary,orderItems,orderItemsList,button);
-             //pane.setAlignment(Pos.CENTER);
-        //pane.setStyle("-fx-background-color:#FEFFFF");
-
 
         pizzaDeliveryApp.resetTotalCost();
         reviewView2.resetCash();
@@ -282,11 +236,14 @@ LoginMain loginMain;
         //adding pizza logo to scene
 
 
+        ScrollPane scrollPane = new ScrollPane(vbox);
+        scrollPane.setFitToWidth(true);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 
+        vbox.setPrefHeight(700);
 
-
-
-        Scene scene = new Scene(vbox,350,600);
+        Scene scene = new Scene(scrollPane,350,600);
 
         orderConfirmationPage.setScene(scene);
         orderConfirmationPage.setTitle("Order Confirmation Page");
