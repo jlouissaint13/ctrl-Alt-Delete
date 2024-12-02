@@ -102,7 +102,15 @@ public class LoginModel {
         this.password = password;
         userData(this.phone);
     }
-
+    public void resetInfo() {
+        data[0] = null;
+        data[1] = null;
+        data[2] = null;
+        data[3] = null;
+        data[4] = null;
+        data[5] = null;
+        data[6] = null;
+    }
     public boolean accountExist(String phone) {
 
 
