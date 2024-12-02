@@ -1,7 +1,4 @@
 Your Order:
-Size: Medium ($8)
-Crust: Thick Crust ($3)
-Toppings: Pepperoni ($1) 
-Beverage: Sprite ($2) (Medium (+$1))
-Total Cost: $15.0
+Toppings: Bacon ($2)Pineapple ($2)
+Total Cost: $4.00
 =========================================
