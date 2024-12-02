@@ -1,4 +1,7 @@
 Your Order:
-Toppings: 
-Total Cost: $0.0
+Size: Large ($10)
+Crust: Thick Crust ($3)
+Toppings: Onions ($1) 
+Beverage: Sprite ($2) (Large (+$2))
+Total Cost: $18.0
 =========================================

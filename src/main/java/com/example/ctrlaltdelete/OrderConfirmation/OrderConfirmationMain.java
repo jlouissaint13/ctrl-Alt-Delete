@@ -1,10 +1,12 @@
 package com.example.ctrlaltdelete.OrderConfirmation;
 
+import com.example.ctrlaltdelete.Checkout.ReviewView;
 import com.example.ctrlaltdelete.Login.LoginMain;
 import com.example.ctrlaltdelete.Menu.PizzaDeliveryApp;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -228,6 +230,18 @@ LoginMain loginMain;
 
 
 
+       // ReviewView reviewView2 = new ReviewView();
+
+
+
+       // public returnCardButton() {
+       //     RadioButton cardPaymentButton;
+       // }
+
+
+
+       // signature.setVisible(false);
+       // if (cardPaymentButton.setSelected(false))
 
 
 
