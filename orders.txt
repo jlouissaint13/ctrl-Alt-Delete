@@ -1,4 +1,5 @@
 Your Order:
-Toppings: 
-Beverage: Water ($1) Total Cost: $1.00
+Size: Extra Large ($12)
+Toppings: Olives ($1) Onions ($1) 
+Total Cost: $14.00
 =========================================
