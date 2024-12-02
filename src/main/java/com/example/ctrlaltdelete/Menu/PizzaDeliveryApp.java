@@ -8,6 +8,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -16,13 +17,19 @@ import java.io.FileNotFoundException;
 public class PizzaDeliveryApp extends Application {
     private ReviewMain reviewMain;
     private static double totalCost = 0;
-
+    private Button back;
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Pizza Delivery App");
 
         double windowWidth = 350;
         double windowHeight = 600;
+
+        //backButton
+
+
+
+
 
         // Labels
         Label sizeLabel = new Label("Choose Pizza Size:");
@@ -77,7 +84,7 @@ public class PizzaDeliveryApp extends Application {
 
         // Beverage options and corresponding sizes
         ComboBox<String> beverageComboBox = new ComboBox<>();
-        beverageComboBox.getItems().addAll("Coke ($2)", "Sprite ($2)", "Water ($1)", "Juice ($3)", "Coffee ($3)");
+        beverageComboBox.getItems().addAll("Coke ($2)", "Sprite ($2)", "Water ($1)", "Juice ($3)", "Coffee ($3)","None ");
         beverageComboBox.setPromptText("Select Beverage");
 
         ToggleGroup beverageSizeGroup = new ToggleGroup();
@@ -206,6 +213,9 @@ public class PizzaDeliveryApp extends Application {
 
         Scene scene = new Scene(scrollPane, windowWidth, windowHeight);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        Image image = new Image("sliceHeaven.png");
+
+        primaryStage.getIcons().add(image);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

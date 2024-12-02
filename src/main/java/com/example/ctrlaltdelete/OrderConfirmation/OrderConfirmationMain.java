@@ -240,7 +240,9 @@ private PizzaDeliveryApp pizzaDeliveryApp;
 
         orderConfirmationPage.setScene(scene);
         orderConfirmationPage.setTitle("Order Confirmation Page");
+        Image image = new Image("sliceHeaven.png");
 
+        orderConfirmationPage.getIcons().add(image);
         orderConfirmationPage.getIcons().add(logo);
         orderConfirmationPage.show();
 
