@@ -24,6 +24,7 @@ public class ReviewController {
 
 
         backButton.setOnAction(actionEvent -> {
+            pizzaDeliveryApp.resetTotalCost();
             pizzaDeliveryApp.start(stage);
         });
         placeOrder.setOnAction(actionEvent -> {

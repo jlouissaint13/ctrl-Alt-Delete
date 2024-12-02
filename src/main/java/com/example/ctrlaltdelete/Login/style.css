@@ -78,6 +78,7 @@
 }
 
 
+
 .root {
     -fx-effect: dropshadow(gaussian, #888888, 20, 0, 0, 10);
 }

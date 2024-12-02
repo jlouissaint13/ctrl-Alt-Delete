@@ -205,11 +205,15 @@ public class PizzaDeliveryApp extends Application {
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);  // Enable vertical scrolling
 
         Scene scene = new Scene(scrollPane, windowWidth, windowHeight);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
     }
     public double returnTotalCost() {
         return totalCost;
+    }
+    public void resetTotalCost () {
+        totalCost = 0;
     }
     public static void main(String[] args) {
         launch(args);
