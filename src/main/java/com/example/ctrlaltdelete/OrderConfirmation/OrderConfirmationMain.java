@@ -230,9 +230,9 @@ LoginMain loginMain;
 
 
 
-       // ReviewView reviewView2 = new ReviewView();
+        //ReviewView reviewView2 = new ReviewView();
 
-
+        //cardPaymentButton.setSelected(true);
 
        // public returnCardButton() {
        //     RadioButton cardPaymentButton;
@@ -250,9 +250,7 @@ LoginMain loginMain;
         //pane.setStyle("-fx-background-color:#FEFFFF");
 
 
-        class Pizza{
 
-        }
 
 
 
