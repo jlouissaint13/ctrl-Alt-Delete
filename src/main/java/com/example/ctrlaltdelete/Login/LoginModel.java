@@ -10,7 +10,7 @@ public class LoginModel {
     private static String email;
     private static String phone;
     private static String password;
-    private static String [] data = new String[6];
+    private static String [] data = new String[7];
     private static HashMap<String,String[]> account = new HashMap<>();
     private String line;
     public LoginModel(String phone,String password) throws FileNotFoundException {
@@ -73,6 +73,7 @@ public class LoginModel {
     public String getAddress() {
         return data[5];
     }
+    public String getPaymentInfo() {return data[6];}
 
     //The hashmap is going to read the entire csv;
     //This way even previously created accounts will still exists upon closure of the program;
