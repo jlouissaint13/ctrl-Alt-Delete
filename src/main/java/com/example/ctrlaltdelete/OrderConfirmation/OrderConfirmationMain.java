@@ -221,7 +221,7 @@ LoginMain loginMain;
         }
 
         ReviewModel reviewModel1 = new ReviewModel();
-
+        System.out.println(reviewView2.getFirstName() + " a");
         orderItemsList.setText(reviewModel1.orderDetails());
 
         pizzaDeliveryApp.resetTotalCost();

@@ -16,7 +16,6 @@ public class ReviewController {
 
 
     public ReviewController(Stage stage) throws FileNotFoundException {
-
         reviewView = new ReviewView(stage);
         pizzaDeliveryApp = new PizzaDeliveryApp();
         placeOrder = reviewView.getPlaceOrderButton();
@@ -29,6 +28,7 @@ public class ReviewController {
         });
         placeOrder.setOnAction(actionEvent -> {
             reviewView.setCashTrue();
+            ReviewModel reviewModel = new ReviewModel(reviewView.getFirstName(), reviewView.getLastName(), reviewView.getPhoneField());
             orderConfirmationMain = new OrderConfirmationMain();
             try {
                 orderConfirmationMain.start(stage);

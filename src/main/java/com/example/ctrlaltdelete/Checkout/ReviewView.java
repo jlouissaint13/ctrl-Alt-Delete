@@ -19,6 +19,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.w3c.dom.Text;
 
 public class ReviewView {
     private Pane pane;
@@ -31,6 +32,7 @@ public class ReviewView {
     private Button placeOrderButton,backButton;
     private RadioButton cardPaymentButton;
     private RadioButton cashPaymentButton;
+    private TextField firstNameField,lastNameField,phoneField;
     private static boolean cashTrue;
     private static boolean target;
     public void components() throws FileNotFoundException {
@@ -70,16 +72,16 @@ public class ReviewView {
         contactInfoBox.setStyle("-fx-border-color: gray; -fx-border-width: 1px;");
         contactInfoBox.setPadding(new Insets(10));
         Label contactInfoLabel = new Label("Contact Info");
-        TextField firstNameField = new TextField();
+        firstNameField = new TextField();
         firstNameField.setPromptText("First Name");
         if (loginModel.getfName() != null) {
             firstNameField.setText(loginModel.getfName());
         }
 
-        TextField lastNameField = new TextField();
+        lastNameField = new TextField();
         lastNameField.setPromptText("Last Name");
         if (loginModel.getlName() != null) lastNameField.setText(loginModel.getlName());
-        TextField phoneField = new TextField();
+        phoneField = new TextField();
         phoneField.setPromptText("Phone Number");
         if (loginModel.getPhone() != null) phoneField.setText(loginModel.getPhone()) ;
         contactInfoBox.getChildren().addAll(contactInfoLabel, firstNameField, lastNameField, phoneField);
@@ -297,6 +299,7 @@ public class ReviewView {
                 placeOrderButton
         );
 
+
         // Adjust visibility based on payment type selection
         paymentGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == cardPaymentButton) {
@@ -307,6 +310,15 @@ public class ReviewView {
                 cashBox.setVisible(true);
             }
         });
+    }
+    public String getFirstName() {
+        return firstNameField.getText();
+    }
+    public String getLastName() {
+        return lastNameField.getText();
+    }
+    public String getPhoneField() {
+        return phoneField.getText();
     }
     public void cashSelected() {
         if (cashPaymentButton.isSelected()) target = true;
@@ -333,6 +345,7 @@ public class ReviewView {
     public void properties() {
         // Customize properties of the scene or other components if needed
     }
+
 
 
     public void addComponents() {

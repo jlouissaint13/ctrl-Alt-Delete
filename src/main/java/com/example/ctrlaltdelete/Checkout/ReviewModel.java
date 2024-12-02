@@ -8,9 +8,13 @@ import java.util.ArrayList;
 public class ReviewModel {
 private StringBuilder sb;
 private ArrayList<String> read = new ArrayList<>();
+private static String fName,lName,phoneNumber;
 public ReviewModel() {
     readFile();
 
+
+}
+public ReviewModel(String fName,String lName,String phoneNumber) {
 
 }
 public String orderDetails() {
@@ -27,6 +31,15 @@ public String orderDetails() {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public String getfName() {
+    return fName;
+    }
+    public String getlName() {
+    return lName;
+    }
+    public String getPhoneNumber() {
+    return phoneNumber;
     }
 
 
