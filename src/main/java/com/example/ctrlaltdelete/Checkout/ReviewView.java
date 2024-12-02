@@ -309,6 +309,12 @@ public class ReviewView {
     public void cashSelected() {
         if (cashPaymentButton.isSelected()) target = true;
     }
+    public RadioButton getCashPaymentButton() {
+        return cashPaymentButton;
+    }
+    public RadioButton getCardPaymentButton() {
+        return cardPaymentButton;
+    }
 
     public void properties() {
         // Customize properties of the scene or other components if needed
