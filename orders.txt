@@ -1,4 +1,4 @@
 Your Order:
-Toppings: Bacon ($2)Pineapple ($2)
-Total Cost: $4.00
+Toppings: 
+Total Cost: $0.00
 =========================================
