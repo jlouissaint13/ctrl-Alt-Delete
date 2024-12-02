@@ -1,4 +1,7 @@
 Your Order:
-Toppings: 
-Total Cost: $0.0
+Size: Small ($5)
+Crust: Thin Crust ($2)
+Toppings: Cheese ($1) Pepperoni ($1) Mushrooms ($1) 
+Beverage: Sprite ($2) (Medium (+$1))
+Total Cost: $13.0
 =========================================

@@ -182,9 +182,26 @@
     -fx-background-color: #FF2062; 
 }
 
-
-
-
+#cvvField{
+    -fx-max-width: 60px; 
+    -fx-max-height: 40px; 
+}
+#cardzipField{
+    -fx-pref-width: 60px; 
+    -fx-max-height: 40px
+}
+#mm{
+    -fx-pref-width: 60px; 
+    -fx-max-height: 40px 
+}
+#cardNumber{
+    -fx-pref-width: 160px; 
+    -fx-max-height: 40px 
+}
+#nameCard{
+    -fx-pref-width: 160px; 
+    -fx-max-height: 40px 
+}
 .root {
     -fx-effect: dropshadow(gaussian, #888888, 20, 0, 0, 10);
 }

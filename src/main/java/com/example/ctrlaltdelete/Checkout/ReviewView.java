@@ -204,23 +204,24 @@ public class ReviewView {
         Label nameOnCardLabel = new Label("Name on Card:");
         TextField nameOnCardField = new TextField();
         nameOnCardField.setPrefWidth(150);
+        nameOnCardField.setId("nameCard");
 
         Label cardNumberLabel = new Label("Card Number:");
         TextField cardNumberField = new TextField();
         cardNumberField.setPrefWidth(150);
-
+        cardNumberField.setId("cardNumber");
         Label mmLabel = new Label("MM/YY:");
         TextField mmField = new TextField();
         mmField.setPrefWidth(65);
-
+        mmField.setId("mm");
         Label cardzipLabel = new Label("Zip Code:");
         TextField cardzipField = new TextField();
         cardzipField.setPrefWidth(70);
-
+        cardzipField.setId("cardzipField");
         Label cvvLabel = new Label("CVV:");
         TextField cvvField = new TextField();
         cvvField.setPrefWidth(40);
-
+        cvvField.setId("cvvField");
         // Organizing card fields in a grid-like format
         VBox cardDetailsBox = new VBox(10);  // Adding more vertical space
         cardDetailsBox.getChildren().addAll(
@@ -319,7 +320,7 @@ public class ReviewView {
 
         //Set up the scene with the ScrollPane
         scene = new Scene(scrollPane, 350, 600); // Scrollable area
-      //  scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         stage.setTitle("Review Page");
         stage.setScene(scene);
     }
