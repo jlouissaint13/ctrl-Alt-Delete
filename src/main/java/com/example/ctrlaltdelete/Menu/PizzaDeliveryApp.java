@@ -18,6 +18,7 @@ public class PizzaDeliveryApp extends Application {
     private ReviewMain reviewMain;
     private static double totalCost = 0;
     private Button back;
+    private Scene previousScene;
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Pizza Delivery App");
@@ -26,8 +27,12 @@ public class PizzaDeliveryApp extends Application {
         double windowHeight = 600;
 
         //backButton
+        back = new Button("Back");
+        back.setOnAction(e -> goBackToPreviousPage(primaryStage));
 
-
+        // Style the back button
+        back.setStyle("-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 14px;");
+        back.setMaxWidth(100);
 
 
 
@@ -84,7 +89,7 @@ public class PizzaDeliveryApp extends Application {
 
         // Beverage options and corresponding sizes
         ComboBox<String> beverageComboBox = new ComboBox<>();
-        beverageComboBox.getItems().addAll("Coke ($2)", "Sprite ($2)", "Water (Free)", "Juice ($3)", "Coffee ($3)","None ");
+        beverageComboBox.getItems().addAll("Coke ($2)", "Sprite ($2)", "Water ($1)", "Juice ($3)", "Coffee ($3)","None ");
         beverageComboBox.setPromptText("Select Beverage");
 
         ToggleGroup beverageSizeGroup = new ToggleGroup();
@@ -167,7 +172,7 @@ public class PizzaDeliveryApp extends Application {
             String beverage = beverageComboBox.getValue();
             if (beverage != null) {
                 orderDetails.append("Beverage: ").append(beverage).append(" ");
-                totalCost += beverage.contains("$2") ? 2 : beverage.contains("$3") ? 3 : 0;
+                totalCost += beverage.contains("$2") ? 2 : beverage.contains("$3") ? 3 : 1;
 
                 RadioButton selectedBeverageSize = (RadioButton) beverageSizeGroup.getSelectedToggle();
                 if (selectedBeverageSize != null) {
@@ -191,7 +196,6 @@ public class PizzaDeliveryApp extends Application {
 
         });
 
-
         // Layout
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(15));
@@ -199,11 +203,13 @@ public class PizzaDeliveryApp extends Application {
         layout.setPrefSize(windowWidth, windowHeight);
 
         layout.getChildren().addAll(
+                back,
                 sizeLabel, sizeBox,
                 crustLabel, crustComboBox,
                 toppingsLabel, toppingsBox,
                 beverageLabel, beverageBox,
                 submitButton, outputLabel
+
         );
 
         // Wrap the layout inside a ScrollPane
@@ -219,6 +225,13 @@ public class PizzaDeliveryApp extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+    private void goBackToPreviousPage(Stage primaryStage){
+        if (previousScene != null){
+            primaryStage.setScene(previousScene);
+        }
+    }
+
     public double returnTotalCost() {
         return totalCost;
     }
