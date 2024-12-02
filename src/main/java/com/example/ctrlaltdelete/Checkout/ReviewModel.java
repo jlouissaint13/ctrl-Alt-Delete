@@ -16,6 +16,11 @@ public ReviewModel() {
 }
 public ReviewModel(String fName,String lName,String phoneNumber) {
 
+    ReviewModel.fName = fName;
+    ReviewModel.lName = lName;
+    ReviewModel.phoneNumber = phoneNumber;
+
+
 }
 public String orderDetails() {
     return String.valueOf(sb);
