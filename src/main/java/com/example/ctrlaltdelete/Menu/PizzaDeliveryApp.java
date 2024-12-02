@@ -84,7 +84,7 @@ public class PizzaDeliveryApp extends Application {
 
         // Beverage options and corresponding sizes
         ComboBox<String> beverageComboBox = new ComboBox<>();
-        beverageComboBox.getItems().addAll("Coke ($2)", "Sprite ($2)", "Water ($1)", "Juice ($3)", "Coffee ($3)","None ");
+        beverageComboBox.getItems().addAll("Coke ($2)", "Sprite ($2)", "Water (Free)", "Juice ($3)", "Coffee ($3)","None ");
         beverageComboBox.setPromptText("Select Beverage");
 
         ToggleGroup beverageSizeGroup = new ToggleGroup();
@@ -167,7 +167,7 @@ public class PizzaDeliveryApp extends Application {
             String beverage = beverageComboBox.getValue();
             if (beverage != null) {
                 orderDetails.append("Beverage: ").append(beverage).append(" ");
-                totalCost += beverage.contains("$2") ? 2 : beverage.contains("$3") ? 3 : 1;
+                totalCost += beverage.contains("$2") ? 2 : beverage.contains("$3") ? 3 : 0;
 
                 RadioButton selectedBeverageSize = (RadioButton) beverageSizeGroup.getSelectedToggle();
                 if (selectedBeverageSize != null) {
