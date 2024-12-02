@@ -284,9 +284,12 @@ LoginMain loginMain;
 
 
 
+        ScrollPane scrollPane = new ScrollPane(vbox);
+        scrollPane.setFitToWidth(true);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 
+        Scene scene = new Scene(scrollPane, 350, 600);
 
-        Scene scene = new Scene(vbox,350,600);
 
         orderConfirmationPage.setScene(scene);
         orderConfirmationPage.setTitle("Order Confirmation Page");
