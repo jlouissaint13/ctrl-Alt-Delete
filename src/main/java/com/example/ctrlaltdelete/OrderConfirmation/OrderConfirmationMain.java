@@ -98,7 +98,7 @@ LoginMain loginMain;
         //orderDate.setText("Order Date: " +formattedDate);
 
         //adding button
-        Button button = new Button("Return to Homepage");
+        Button button = new Button("Homepage");
 
         //aligning labels
         orderConfirmation.setTranslateY(120);

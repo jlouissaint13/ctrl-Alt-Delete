@@ -1,6 +1,7 @@
 package com.example.ctrlaltdelete.Menu;
 
 import com.example.ctrlaltdelete.Checkout.ReviewMain;
+import com.example.ctrlaltdelete.Login.LoginMain;
 import com.example.ctrlaltdelete.Menu.SaveFile;
 
 import javafx.application.Application;
@@ -18,16 +19,26 @@ public class PizzaDeliveryApp extends Application {
     private ReviewMain reviewMain;
     private static double totalCost = 0;
     private Button back;
+    private Scene previousScene;
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Pizza Delivery App");
-
+        LoginMain loginMain = new LoginMain();
         double windowWidth = 350;
         double windowHeight = 600;
 
         //backButton
+        back = new Button("Back");
+        back.setOnAction(e -> {
+            try {
+                loginMain.start(primaryStage);
+            } catch (FileNotFoundException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
-
+        // Style the back button
+        back.setMaxWidth(100);
 
 
 
@@ -191,7 +202,6 @@ public class PizzaDeliveryApp extends Application {
             }
         });
 
-
         // Layout
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(15));
@@ -199,11 +209,13 @@ public class PizzaDeliveryApp extends Application {
         layout.setPrefSize(windowWidth, windowHeight);
 
         layout.getChildren().addAll(
+                back,
                 sizeLabel, sizeBox,
                 crustLabel, crustComboBox,
                 toppingsLabel, toppingsBox,
                 beverageLabel, beverageBox,
                 submitButton, outputLabel
+
         );
 
         // Wrap the layout inside a ScrollPane
@@ -219,6 +231,8 @@ public class PizzaDeliveryApp extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+
     public double returnTotalCost() {
         return totalCost;
     }
