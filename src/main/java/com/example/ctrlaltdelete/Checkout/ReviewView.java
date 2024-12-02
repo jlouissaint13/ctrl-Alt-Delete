@@ -1,15 +1,24 @@
 package com.example.ctrlaltdelete.Checkout;
 
+import java.io.FileNotFoundException;
+
 import com.example.ctrlaltdelete.Login.LoginModel;
 import com.example.ctrlaltdelete.Menu.PizzaDeliveryApp;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import java.io.FileNotFoundException;
 
 public class ReviewView {
     private Pane pane;
@@ -123,7 +132,7 @@ public class ReviewView {
 
         // Adjust size based on delivery/carryout selection
         deliveryBox.setMinHeight(100);  // Set a minimum height for the box
-        deliveryBox.setMaxHeight(150);  // Set a maximum height for the box when Carryout is selected
+        deliveryBox.setMaxHeight(190);  // Set a maximum height for the box when Carryout is selected
 
         // Listener to toggle between Carryout and Delivery
         deliveryGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
@@ -152,7 +161,7 @@ public class ReviewView {
 
                 // Shrink the box size for Carryout only
                 deliveryBox.setMinHeight(100);  // Reduce to a smaller height for carryout
-                deliveryBox.setMaxHeight(150);  // Shrink the box's height when only carryout is selected
+                deliveryBox.setMaxHeight(190);  // Shrink the box's height when only carryout is selected
             } else {
                 // Hide Carryout location and show address fields for Delivery
                 carryoutLocationLabel.setVisible(false);
@@ -181,7 +190,7 @@ public class ReviewView {
 
             // Adjust the size back for Delivery, showing all address fields
                 deliveryBox.setMinHeight(200);  // Expand the box when delivery fields are shown
-                deliveryBox.setMaxHeight(300);  // Adjust max height when delivery is selected
+                deliveryBox.setMaxHeight(379);  // Adjust max height when delivery is selected
         });
 
         // Payment Section
@@ -225,10 +234,10 @@ public class ReviewView {
         // Organizing card fields in a grid-like format
         VBox cardDetailsBox = new VBox(10);  // Adding more vertical space
         cardDetailsBox.getChildren().addAll(
-                new HBox(10, nameOnCardLabel, nameOnCardField),
+                new HBox(4, nameOnCardLabel, nameOnCardField),
                 new HBox(10, cardNumberLabel, cardNumberField),
                 new HBox(10, mmLabel, mmField, cardzipLabel, cardzipField),
-                new HBox(10, cvvLabel, cvvField)
+                new HBox(28, cvvLabel, cvvField)
         );
 
         // HBox for cash payment (Empty space if Cash is selected)
