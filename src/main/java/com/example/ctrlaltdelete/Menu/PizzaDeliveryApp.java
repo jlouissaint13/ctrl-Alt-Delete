@@ -31,7 +31,6 @@ public class PizzaDeliveryApp extends Application {
         back.setOnAction(e -> goBackToPreviousPage(primaryStage));
 
         // Style the back button
-        back.setStyle("-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 14px;");
         back.setMaxWidth(100);
 
 
