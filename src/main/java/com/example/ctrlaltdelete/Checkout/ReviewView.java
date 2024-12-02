@@ -242,10 +242,13 @@ public class ReviewView {
                 new HBox(28, cvvLabel, cvvField)
         );
 
-        // HBox for cash payment (Empty space if Cash is selected)
-        HBox cashBox = new HBox(15);
-        Label cashLabel = new Label("Pay with Cash");
-        cashBox.getChildren().add(cashLabel);
+        // HBox for cash payment (Smaller size when Cash is selected)
+        HBox cashBox = new HBox(10); // Reduced spacing between elements in the cash section
+
+        // Add the agreement text below the Cash button
+        Label agreementLabel = new Label("You agree to pay with cash when you arrive.");
+        agreementLabel.setStyle("-fx-font-weight: bold;");  // Set text to bold
+        cashBox.getChildren().add(agreementLabel);  // Add agreement text inside the cash box
 
         // Add radio buttons and the payment details into the payment section
         paymentBox.getChildren().addAll(paymentLabel, cardPaymentButton, cashPaymentButton, cardDetailsBox, cashBox);
@@ -264,7 +267,6 @@ public class ReviewView {
                 cashBox.setVisible(true);
             }
         });
-
 
         // Total Price Section
         VBox priceBox = new VBox(10);
