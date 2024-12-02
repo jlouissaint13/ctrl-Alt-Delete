@@ -46,6 +46,7 @@ LoginMain loginMain;
 
         double taxTotal = subTotalOut * 0.08;
         double totalCost = subTotalOut + taxTotal;
+        LoginModel loginModel = new LoginModel();
 
         String formatSubTotalOut = String.format("%.2f", subTotalOut);
         String formatTax = String.format("%.2f", taxTotal);
@@ -66,6 +67,14 @@ LoginMain loginMain;
         Label signHere = new Label("Sign Here:");
 
 
+        Label customerFirstName = new Label(loginModel.getfName());
+        Label customerLastName = new Label(loginModel.getlName());
+        Label customerEmail = new Label(loginModel.getEmail());
+        Label customerPhone = new Label(loginModel.getPhone());
+        Label customerAddress = new Label(loginModel.getAddress());
+        Label yourInformation = new Label("Your Information");
+
+
         subTotal.setText("Sub Total: $" + formatSubTotalOut);
         tax.setText("Tax: $" + formatTax);
         total.setText("Total: $" + formatTotalCost);
@@ -75,7 +84,6 @@ LoginMain loginMain;
         Random r = new Random();
         int randomNumber = r.nextInt(1000000000);
         orderNumber = new Label("Order #: "+ randomNumber);
-
 
 
         LocalDateTime myObj = LocalDateTime.now();
@@ -127,13 +135,33 @@ LoginMain loginMain;
         orderItemsList.setTranslateY(410);
         orderItemsList.setTranslateX(10);
 
-        signHere.setTranslateY(520);
+        signHere.setTranslateY(620);
         signHere.setTranslateX(30);
+
+        yourInformation.setTranslateY(520);
+        yourInformation.setTranslateX(10);
+
+        customerFirstName.setTranslateY(535);
+        customerFirstName.setTranslateX(10);
+
+        customerLastName.setTranslateY(550);
+        customerLastName.setTranslateX(10);
+
+        customerEmail.setTranslateY(565);
+        customerEmail.setTranslateX(10);
+
+        customerPhone.setTranslateY(580);
+        customerPhone.setTranslateX(10);
+
+        customerAddress.setTranslateY(595);
+        customerAddress.setTranslateX(10);
+
+
 
 
 
         //aligning button
-        button.setTranslateY(550);
+        button.setTranslateY(650);
         button.setTranslateX(90);
         button.setPrefHeight(40);
         button.setPrefWidth(150);
@@ -153,6 +181,13 @@ LoginMain loginMain;
         orderSummary.setStyle("-fx-font-size: 23px;");
         orderItems.setStyle("-fx-font-size: 15px;");
         orderItemsList.setStyle("-fx-font-size: 10px;");
+        customerFirstName.setStyle("-fx-font-size: 10px;");
+        customerLastName.setStyle("-fx-font-size: 10px;");
+        customerEmail.setStyle("-fx-font-size: 10px;");
+        customerPhone.setStyle("-fx-font-size: 10px;");
+        customerAddress.setStyle("-fx-font-size: 10px;");
+        yourInformation.setStyle("-fx-font-size: 10px;");
+
 
         //adding images
         Image logo = new Image("sliceHeaven.png");
@@ -169,8 +204,7 @@ LoginMain loginMain;
         Line line = new Line(20,170,320,170);
         Line line2 = new Line(0,275,200,275);
         Line line3 = new Line(0,400,200,400);
-        Line signature = new Line(100,535,250,535);
-
+        Line signature = new Line(100,640,250,640);
 
 
         loginMain = new LoginMain();
@@ -190,7 +224,7 @@ LoginMain loginMain;
 
         VBox vbox = new VBox();
 
-        pane.setStyle("-fx-background-color: #FFFFFF;");
+       // pane.setStyle("-fx-background-color: #FFFFFF;");
 
         pane.getChildren().add(logoView);
         pane.getChildren().add(orderConfirmation);
@@ -209,9 +243,13 @@ LoginMain loginMain;
         pane.getChildren().add(line3);
         pane.getChildren().add(signature);
         pane.getChildren().add(signHere);
-        //pane.getChildren().add(scrollPane);
+        pane.getChildren().add(customerFirstName);
+        pane.getChildren().add(customerLastName);
+        pane.getChildren().add(customerEmail);
+        pane.getChildren().add(customerPhone);
+        pane.getChildren().add(customerAddress);
+        pane.getChildren().add(yourInformation);
 
-        LoginModel model = new LoginModel();
 
         ReviewView reviewView2 = new ReviewView(orderConfirmationPage);
 
@@ -228,18 +266,16 @@ LoginMain loginMain;
         reviewView2.resetCash();
 
 
-
         vbox.getChildren().add(pane);
 
         vbox.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-
-        //adding pizza logo to scene
 
 
         ScrollPane scrollPane = new ScrollPane(vbox);
         scrollPane.setFitToWidth(true);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+
 
         vbox.setPrefHeight(700);
 
