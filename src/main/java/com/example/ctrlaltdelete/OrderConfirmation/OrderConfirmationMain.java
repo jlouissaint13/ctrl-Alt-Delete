@@ -4,6 +4,7 @@ import com.example.ctrlaltdelete.Checkout.ReviewModel;
 import com.example.ctrlaltdelete.Checkout.ReviewView;
 import com.example.ctrlaltdelete.Login.LoginMain;
 import com.example.ctrlaltdelete.Login.LoginModel;
+import com.example.ctrlaltdelete.Login.LoginView;
 import com.example.ctrlaltdelete.Menu.PizzaDeliveryApp;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -42,11 +43,13 @@ LoginMain loginMain;
     @Override
     public void start(Stage orderConfirmationPage) throws Exception {
         pizzaDeliveryApp = new PizzaDeliveryApp();
+        LoginView loginView = new LoginView(orderConfirmationPage);
+        LoginModel loginModel = new LoginModel();
         double subTotalOut = pizzaDeliveryApp.returnTotalCost();
 
         double taxTotal = subTotalOut * 0.08;
         double totalCost = subTotalOut + taxTotal;
-        LoginModel loginModel = new LoginModel();
+
 
         String formatSubTotalOut = String.format("%.2f", subTotalOut);
         String formatTax = String.format("%.2f", taxTotal);
@@ -65,14 +68,13 @@ LoginMain loginMain;
         Label orderItems = new Label("Order Items");
         Label orderItemsList = new Label("Order Items List");
         Label signHere = new Label("Sign Here:");
-
-
         Label customerFirstName = new Label(loginModel.getfName());
         Label customerLastName = new Label(loginModel.getlName());
         Label customerEmail = new Label(loginModel.getEmail());
         Label customerPhone = new Label(loginModel.getPhone());
         Label customerAddress = new Label(loginModel.getAddress());
         Label yourInformation = new Label("Your Information");
+        Label deliveryOrCarryout = new Label("Delivery Or Carryout");
 
 
         subTotal.setText("Sub Total: $" + formatSubTotalOut);
@@ -156,6 +158,9 @@ LoginMain loginMain;
         customerAddress.setTranslateY(595);
         customerAddress.setTranslateX(10);
 
+        deliveryOrCarryout.setTranslateY(410);
+        deliveryOrCarryout.setTranslateX(70);
+
 
 
 
@@ -187,6 +192,7 @@ LoginMain loginMain;
         customerPhone.setStyle("-fx-font-size: 10px;");
         customerAddress.setStyle("-fx-font-size: 10px;");
         yourInformation.setStyle("-fx-font-size: 10px;");
+        deliveryOrCarryout.setStyle("-fx-font-size: 10px;");
 
 
         //adding images
@@ -249,6 +255,7 @@ LoginMain loginMain;
         pane.getChildren().add(customerPhone);
         pane.getChildren().add(customerAddress);
         pane.getChildren().add(yourInformation);
+        pane.getChildren().add(deliveryOrCarryout);
 
 
         ReviewView reviewView2 = new ReviewView(orderConfirmationPage);
@@ -261,6 +268,16 @@ LoginMain loginMain;
         ReviewModel reviewModel1 = new ReviewModel();
         System.out.println(reviewModel1.getfName());
         orderItemsList.setText(reviewModel1.orderDetails());
+
+        reviewModel1.getfName();
+        reviewModel1.getlName();
+        reviewModel1.getPhoneNumber();
+        loginModel.getAddress();
+        customerFirstName.setText(reviewModel1.getfName());
+        customerLastName.setText(reviewModel1.getlName());
+        customerPhone.setText(reviewModel1.getPhoneNumber());
+        customerAddress.setText(reviewModel1.getAddress());
+
 
         pizzaDeliveryApp.resetTotalCost();
         reviewView2.resetCash();

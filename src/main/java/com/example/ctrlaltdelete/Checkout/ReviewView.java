@@ -117,7 +117,6 @@ public class ReviewView {
 
         TextField stateField = new TextField();
         stateField.setPromptText("Enter State");
-
         TextField zipField = new TextField();
         zipField.setPromptText("Enter Zip Code");
 
