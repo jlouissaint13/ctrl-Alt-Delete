@@ -74,7 +74,7 @@ LoginMain loginMain;
         Label customerPhone = new Label(loginModel.getPhone());
         Label customerAddress = new Label(loginModel.getAddress());
         Label yourInformation = new Label("Your Information");
-        Label deliveryOrCarryout = new Label("Delivery Or Carryout");
+        Label deliveryOrCarryout = new Label("Delivery");
 
 
         subTotal.setText("Sub Total: $" + formatSubTotalOut);
@@ -159,7 +159,7 @@ LoginMain loginMain;
         customerAddress.setTranslateX(10);
 
         deliveryOrCarryout.setTranslateY(410);
-        deliveryOrCarryout.setTranslateX(70);
+        deliveryOrCarryout.setTranslateX(65);
 
 
 
@@ -277,8 +277,10 @@ LoginMain loginMain;
         customerLastName.setText(reviewModel1.getlName());
         customerPhone.setText(reviewModel1.getPhoneNumber());
         customerAddress.setText(reviewModel1.getAddress());
-
-
+        if(reviewView2.getCarryOut()){
+            deliveryOrCarryout.setText("Carry out");
+        }
+        reviewView2.resetCarryout();
         pizzaDeliveryApp.resetTotalCost();
         reviewView2.resetCash();
         loginModel.resetInfo();
