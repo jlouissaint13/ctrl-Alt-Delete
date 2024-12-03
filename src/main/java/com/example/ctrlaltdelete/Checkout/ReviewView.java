@@ -337,6 +337,7 @@ public class ReviewView {
         }
 
     }
+    //Checks the status of the cashbutton variable
     public boolean getCashTrue(){
         return cashTrue;
     }
@@ -346,6 +347,7 @@ public class ReviewView {
     public void properties() {
         // Customize properties of the scene or other components if needed
         }
+        //Checks the status of user carryout or not
     public void setCarryOut() {
         if (carryoutButton.isSelected()) carryoutTrue = true;
 

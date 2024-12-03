@@ -102,6 +102,7 @@ public class LoginModel {
         this.password = password;
         userData(this.phone);
     }
+    //Resets the info when the user clicks a button
     public void resetInfo() {
         data[0] = null;
         data[1] = null;

@@ -25,7 +25,7 @@ public ReviewModel(String fName,String lName,String phoneNumber,String address) 
 public String orderDetails() {
     return String.valueOf(sb);
 }
-
+    //Reads in the save file to be stored in a vbox
     public void readFile() {
          sb = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader("orders.txt"))) {
@@ -37,6 +37,7 @@ public String orderDetails() {
             e.printStackTrace();
         }
     }
+    //Returns user info
     public String getfName() {
     return fName;
     }
@@ -47,6 +48,8 @@ public String orderDetails() {
     return phoneNumber;
     }
     public String getAddress() {return address;}
+
+    //Resets the information login information of users
     public void resetloginGuest() {
     fName = null;
     lName = null;
