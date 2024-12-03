@@ -31,9 +31,9 @@ public class ReviewView {
     private PizzaDeliveryApp pizzaDeliveryApp;
     private Button placeOrderButton,backButton;
     private RadioButton cardPaymentButton;
-    private RadioButton cashPaymentButton;
+    private RadioButton cashPaymentButton,carryoutButton;
     private TextField firstNameField,lastNameField,phoneField,streetAddressField;
-    private static boolean cashTrue;
+    private static boolean cashTrue,carryoutTrue;
     private static boolean target;
 
     public void components() throws FileNotFoundException {
@@ -95,11 +95,11 @@ public class ReviewView {
 
         HBox deliveryActionsBox = new HBox(10);
         RadioButton deliveryButton = new RadioButton("Delivery");
-        RadioButton carryoutButton = new RadioButton("Carryout");
+        carryoutButton = new RadioButton("Carryout");
         ToggleGroup deliveryGroup = new ToggleGroup();
         deliveryButton.setToggleGroup(deliveryGroup);
         carryoutButton.setToggleGroup(deliveryGroup);
-        carryoutButton.setSelected(true); // Default to Carryout
+        carryoutButton.setSelected(false); // Default to Carryout
 
         // Location message for Carryout
         Label carryoutLocationLabel = new Label("Ready in 20-30 minutes");
@@ -347,8 +347,16 @@ public class ReviewView {
     public void properties() {
         // Customize properties of the scene or other components if needed
         }
+    public void setCarryOut() {
+        if (carryoutButton.isSelected()) carryoutTrue = true;
 
-
+    }
+    public boolean getCarryOut() {
+        return carryoutTrue;
+    }
+    public void resetCarryout() {
+        carryoutTrue = false;
+    }
 
 
     public void addComponents() {
