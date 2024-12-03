@@ -28,6 +28,7 @@ public class ReviewController {
         });
         placeOrder.setOnAction(actionEvent -> {
             reviewView.setCashTrue();
+            reviewView.setCarryOut();
             ReviewModel reviewModel = new ReviewModel(reviewView.getFirstName(), reviewView.getLastName(), reviewView.getPhoneField(), reviewView.getAddressField());
             orderConfirmationMain = new OrderConfirmationMain();
             try {
