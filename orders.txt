@@ -1,4 +1,5 @@
 Your Order:
-Toppings: 
-Total Cost: $0.00
+Size: Extra Large ($12)
+Toppings: Mushrooms ($1) Olives ($1) Onions ($1) Green Peppers ($1) 
+Total Cost: $16.00
 =========================================

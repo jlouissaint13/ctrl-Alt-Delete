@@ -42,21 +42,24 @@ LoginMain loginMain;
 
     @Override
     public void start(Stage orderConfirmationPage) throws Exception {
+//creating instances of helper classes
         pizzaDeliveryApp = new PizzaDeliveryApp();
         LoginView loginView = new LoginView(orderConfirmationPage);
         LoginModel loginModel = new LoginModel();
-        double subTotalOut = pizzaDeliveryApp.returnTotalCost();
+        ReviewView reviewView2 = new ReviewView(orderConfirmationPage);
+        ReviewModel reviewModel1 = new ReviewModel();
 
+//variables for total
+        double subTotalOut = pizzaDeliveryApp.returnTotalCost();
         double taxTotal = subTotalOut * 0.08;
         double totalCost = subTotalOut + taxTotal;
-
 
         String formatSubTotalOut = String.format("%.2f", subTotalOut);
         String formatTax = String.format("%.2f", taxTotal);
         String formatTotalCost = String.format("%.2f", totalCost);
 
 
-        //adding labels
+//adding labels
         Label orderConfirmation = new Label("Order Confirmation");
         Label orderNumber;
         Label orderDate;
@@ -76,37 +79,31 @@ LoginMain loginMain;
         Label yourInformation = new Label("Your Information");
         Label deliveryOrCarryout = new Label("Delivery");
 
-
+//formatting all totals
         subTotal.setText("Sub Total: $" + formatSubTotalOut);
         tax.setText("Tax: $" + formatTax);
         total.setText("Total: $" + formatTotalCost);
 
-
-        //creating random number for order
+//creating random number for order#
         Random r = new Random();
         int randomNumber = r.nextInt(1000000000);
         orderNumber = new Label("Order #: "+ randomNumber);
 
-
+//getting local time
         LocalDateTime myObj = LocalDateTime.now();
         Instant now = Instant.now();
 
-        // Convert Instant to LocalDateTime
+//formatting local date
         LocalDateTime localDateTime = LocalDateTime.ofInstant(now, ZoneId.systemDefault());
-
-        // Define the desired format
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-
-        // Format the LocalDateTime
         String formattedDate = localDateTime.format(formatter);
-
         orderDate = new Label("Order Date: "+ formattedDate);
 
 
-        //adding button
+
         Button button = new Button("Homepage");
 
-        //aligning labels
+//aligning labels
         orderConfirmation.setTranslateY(120);
         orderConfirmation.setTranslateX(40);
 
@@ -161,21 +158,13 @@ LoginMain loginMain;
         deliveryOrCarryout.setTranslateY(410);
         deliveryOrCarryout.setTranslateX(65);
 
-
-
-
-
-        //aligning button
+//aligning button
         button.setTranslateY(650);
         button.setTranslateX(90);
         button.setPrefHeight(40);
         button.setPrefWidth(150);
 
-        //setting button action
-        //button.setOnAction(actionEvent -> orderConfirmation.setScene("Goes Home"));
-
-
-        //setting font size for elements
+//Setting font size for elements
         orderConfirmation.setStyle("-fx-font-size: 30px;");
         orderTotal.setStyle("-fx-font-size: 23px;");
         orderNumber.setStyle("-fx-font-size: 15px;");
@@ -194,25 +183,24 @@ LoginMain loginMain;
         yourInformation.setStyle("-fx-font-size: 10px;");
         deliveryOrCarryout.setStyle("-fx-font-size: 10px;");
 
-
-        //adding images
+//adding logo image
         Image logo = new Image("sliceHeaven.png");
         ImageView logoView = new ImageView(logo);
 
-        //aligning image
+//aligning image
         logoView.setImage(logo);
         logoView.setTranslateY(-5);
         logoView.setTranslateX(100);
         logoView.setFitHeight(140);
         logoView.setFitWidth(140);
 
-        //adding lines
+//adding lines
         Line line = new Line(20,170,320,170);
         Line line2 = new Line(0,275,200,275);
         Line line3 = new Line(0,400,200,400);
         Line signature = new Line(100,640,250,640);
 
-
+//functionality for button returning to homepage
         loginMain = new LoginMain();
         button.setOnAction( actionEvent -> {
 
@@ -223,15 +211,11 @@ LoginMain loginMain;
             }
         });
 
-        //creating vbox for scene creation
-
-
+//creating vbox and pane for scene creation
         Pane pane = new Pane();
-
         VBox vbox = new VBox();
 
-       // pane.setStyle("-fx-background-color: #FFFFFF;");
-
+//adding all scene elements to pane
         pane.getChildren().add(logoView);
         pane.getChildren().add(orderConfirmation);
         pane.getChildren().add(orderNumber);
@@ -257,18 +241,16 @@ LoginMain loginMain;
         pane.getChildren().add(yourInformation);
         pane.getChildren().add(deliveryOrCarryout);
 
-
-        ReviewView reviewView2 = new ReviewView(orderConfirmationPage);
-
+//turning off signature if paying with cash
         if (reviewView2.getCashTrue()){
             signature.setVisible(false);
             signHere.setVisible(false);
         }
 
-        ReviewModel reviewModel1 = new ReviewModel();
-        System.out.println(reviewModel1.getfName());
+//recieving order items
         orderItemsList.setText(reviewModel1.orderDetails());
 
+//getting customer information through guest login
         reviewModel1.getfName();
         reviewModel1.getlName();
         reviewModel1.getPhoneNumber();
@@ -277,34 +259,33 @@ LoginMain loginMain;
         customerLastName.setText(reviewModel1.getlName());
         customerPhone.setText(reviewModel1.getPhoneNumber());
         customerAddress.setText(reviewModel1.getAddress());
+
+//sets to carry out if carry out is selected
         if(reviewView2.getCarryOut()){
             deliveryOrCarryout.setText("Carry out");
         }
+
+//resets all info for when customer goes back to homepage
         reviewView2.resetCarryout();
         pizzaDeliveryApp.resetTotalCost();
         reviewView2.resetCash();
         loginModel.resetInfo();
         reviewModel1.resetloginGuest();
 
+//adding pane to vbox and styling scene and stage
         vbox.getChildren().add(pane);
-
         vbox.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-
-
         ScrollPane scrollPane = new ScrollPane(vbox);
         scrollPane.setFitToWidth(true);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-
-
         vbox.setPrefHeight(700);
-
         Scene scene = new Scene(scrollPane,350,600);
-
         orderConfirmationPage.setScene(scene);
         orderConfirmationPage.setTitle("Order Confirmation Page");
         Image image = new Image("sliceHeaven.png");
 
+//adding logo onto stage
         orderConfirmationPage.getIcons().add(image);
         orderConfirmationPage.getIcons().add(logo);
         orderConfirmationPage.show();
