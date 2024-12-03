@@ -8,18 +8,18 @@ import java.util.ArrayList;
 public class ReviewModel {
 private StringBuilder sb;
 private ArrayList<String> read = new ArrayList<>();
-private static String fName,lName,phoneNumber;
+private static String fName,lName,phoneNumber,address;
 public ReviewModel() {
     readFile();
 
 
 }
-public ReviewModel(String fName,String lName,String phoneNumber) {
+public ReviewModel(String fName,String lName,String phoneNumber,String address) {
 
     ReviewModel.fName = fName;
     ReviewModel.lName = lName;
     ReviewModel.phoneNumber = phoneNumber;
-
+    ReviewModel.address = address;
 
 }
 public String orderDetails() {
@@ -46,6 +46,7 @@ public String orderDetails() {
     public String getPhoneNumber() {
     return phoneNumber;
     }
+    public String getAddress() {return address;}
     public void resetloginGuest() {
     fName = null;
     lName = null;

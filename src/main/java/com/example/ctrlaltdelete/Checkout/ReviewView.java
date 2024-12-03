@@ -32,9 +32,10 @@ public class ReviewView {
     private Button placeOrderButton,backButton;
     private RadioButton cardPaymentButton;
     private RadioButton cashPaymentButton;
-    private TextField firstNameField,lastNameField,phoneField;
+    private TextField firstNameField,lastNameField,phoneField,streetAddressField;
     private static boolean cashTrue;
     private static boolean target;
+
     public void components() throws FileNotFoundException {
         pizzaDeliveryApp = new PizzaDeliveryApp();
         double totalCost = pizzaDeliveryApp.returnTotalCost();
@@ -107,7 +108,7 @@ public class ReviewView {
 
         // Fields for Delivery address input (initially hidden)
         Label streetAddressLabel = new Label("Street Address:");
-        TextField streetAddressField = new TextField();
+        streetAddressField = new TextField();
         streetAddressField.setPromptText("Enter Street Address");
 
         Label cityStateZipLabel = new Label("City, State, Zip Code:");
@@ -320,6 +321,7 @@ public class ReviewView {
     public String getPhoneField() {
         return phoneField.getText();
     }
+    public String getAddressField(){return streetAddressField.getText();}
     public void cashSelected() {
         if (cashPaymentButton.isSelected()) target = true;
     }
@@ -344,7 +346,8 @@ public class ReviewView {
     }
     public void properties() {
         // Customize properties of the scene or other components if needed
-    }
+        }
+
 
 
 

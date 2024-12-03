@@ -1,5 +1,4 @@
 Your Order:
-Size: Extra Large ($12)
-Toppings: Olives ($1) Onions ($1) 
-Total Cost: $14.00
+Toppings: 
+Total Cost: $0.00
 =========================================
